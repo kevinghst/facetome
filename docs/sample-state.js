@@ -22,7 +22,7 @@
     }
   }
 
-  friends: {
+  userfriends: {
     1: {
       username: "pinkman",
     }
@@ -30,5 +30,4 @@
       username: "winnieThePooh"
     }
   }
-
 };
