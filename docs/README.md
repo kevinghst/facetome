@@ -1,6 +1,6 @@
 # FaceTome
 
-Minimum Viable Prouct
+## Minimum Viable Prouct
 
 FaceTome is a web application inspired by FaceBook using Ruby on Rails and React/Redux. By the end of Week 9, this application will satisfy the following minimum criteria:
 
@@ -21,9 +21,9 @@ News Feed:
 - Listing of friends' posts on user's own wall.
 
 
-Implementation Timeline
+## Implementation Timeline
 
-Phase 1: Front End User Authentication (2 days)
+### Phase 1: Front End User Authentication (2 days)
 - Functioning rails project with front-end Authentication
 
 Phase 2: Profiles (2 days)
