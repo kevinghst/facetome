@@ -3,18 +3,20 @@
 ## Authform Container
 * AuthForm
 
-## HomeContainer
-* Home
-* PostsContainer (Route Index Child)
+## HomeContainer X
+* Home X
+* PostsContainer (Route Index Child) X
 
-## UserContainer
-* User
-* UserPostsContainer (Route Index Child)
+## UserContainer X
+* User X
+* UserPostsContainer (Route Index Child) X
+* SelectedFriends X
+* ProfileInfo X
 
-## PostsContainer
-* Posts
-* PostItem
-* PostForm
+## PostsContainer X
+* Posts X
+* PostItem X
+* PostForm X
 
 ## UserPostsContainer
 * UserPosts
@@ -22,8 +24,8 @@
 * PostForm
 * SelectedFriends
 
-## UserFriendsContainer
-* UserFriends
+## UserFriendsContainer X
+* UserFriends X
 
 ## UserProfile Container
 * UserProfile

@@ -7,7 +7,25 @@
       Birthday: "06-29-1991",
     }
 
+    profile: {
+      photo: "pictureUrl",
+      hometown: "DeathStar",
+      occupation: "Sith",
+      gender: "Male",
+      Birthday: "06-29-1991",
+    }
+
     errors: []
+  }
+
+
+  targetuser: {
+    user: {
+      id: 1,
+      username: "kevinghst",
+      gender: "Male",
+      Birthday: "06-29-1991",
+    }
 
     profile: {
       photo: "pictureUrl",
@@ -17,6 +35,8 @@
       Birthday: "06-29-1991",
     }
   }
+
+
 
   newsfeed: {
     1: {
