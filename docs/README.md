@@ -4,21 +4,20 @@
 
 FaceTome is a web application inspired by FaceBook using Ruby on Rails and React/Redux. By the end of Week 9, this application will satisfy the following minimum criteria:
 
-Profiles:
-- [ ] Creation of users
-- [ ] Login of existing users
-- [ ] Login of guests
-- [ ] Creation of profiles
+- [ ] Hosting on Heroku
+- [ ] User creation, log in/out, demo login
+- [ ] Creation and display of profiles
+- [ ] Friend requests and acceptance
+- [ ] Newsfeed
+- [ ] Comments
 
-Friending:
-- Friend requests and the acceptance of them
+## Design Docs
+* [View Wireframes] (./wireframes)
+* [React Components] (./component-hierarchy.md)
+* [API endpoints] (./api-endpoints.md)
+* [DB schema] (./schema.md)
+* [Sample State] (./sample-state.js)
 
-Comments:
-- Ability to post on user's own wall
-- Ability to comment on other users' posts
-
-News Feed:
-- Listing of friends' posts on user's own wall.
 
 
 ## Implementation Timeline
@@ -45,6 +44,6 @@ News Feed:
 
 
 Bonus Features
-- Liking posts and comments
-- Searching for friends
-- Notifications
+- [ ] Liking posts and comments
+- [ ] Searching for friends
+- [ ] Notifications
