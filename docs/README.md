@@ -1,11 +1,14 @@
+# FaceTome
+
 Minimum Viable Prouct
 
 FaceTome is a web application inspired by FaceBook using Ruby on Rails and React/Redux. By the end of Week 9, this application will satisfy the following minimum criteria:
 
 Profiles:
-- Creation of new Profiles
+- Creation of users
 - Login of existing users
 - Login of guests
+- Creation of profiles
 
 Friending:
 - Friend requests and the acceptance of them
@@ -23,27 +26,25 @@ Implementation Timeline
 Phase 1: Front End User Authentication (2 days)
 - Functioning rails project with front-end Authentication
 
-Phase 2: NewsFeed (2 days)
+Phase 2: Profiles (2 days)
+- Creation of user profiles
+- Exhibition of profiles on user's page
+
+Phase 3: Friends (2 days)
+- Ability to request and accept friendships
+- Add selected friendlist and full friendlist on user's page
+
+Phase 4: NewsFeed (2 days)
 - Creating / deleting posts
 - Display of NewsFeed on homepage
 - Display of Relevant NewsFeed on user's page
 
-Phase 3: Comments (1 days)
+Phase 5: Comments (1 day)
 - Adding / deleting comments
 
-Phase 4: Friendships (2 days)
-- Ability to request and accept friendships
-- Add selected friends and entire friendlist on user's page
 
-Phase 5: Styling (1 day)
-- Refractor codes and make them look nice
 
-Phase 6: Likes and search (1 day)
-- Ability to like posts and comments
-- Ability to search for friends on homepage
-
-Phase 7: notifications (1 day)
-- Ability to receive notifications
-
-Phase 8: photos (2 days)
-- Ability to upload and display photos
+Bonus Features
+- Liking posts and comments
+- Searching for friends
+- Notifications
