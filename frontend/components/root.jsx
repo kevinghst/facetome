@@ -11,11 +11,12 @@ export default function Root({store}){
     }
   }
 
-  // function redirectIfLoggedOut(_, replace){
-  //   if( store.getState().session.currentUser === null ){
-  //     replace('/log');
-  //   }
-  // }
+  const _ensureLoggedIn = (nextState, replace) => {
+     const currentUser = store.getState().session.currentUser;
+     if (!currentUser) {
+       replace('/log');
+     }
+   };
 
   return (
     <Provider store={ store }>
