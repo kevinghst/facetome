@@ -1,1 +1,35 @@
-https://www.evernote.com/shard/s275/sh/c265d5c4-b0f2-4cff-b1f9-992f94603faa/f6e69649361086480378cd0419187452
+# Component Hierarchy
+
+## Authform Container
+* AuthForm
+
+## HomeContainer
+* Home
+* Posts (Route Index Child)
+
+## UserContainer
+* User
+* UserPosts (Route Index Child)
+
+## PostsContainer
+* Posts
+* PostItem
+* SelectedFriends
+
+## UserPostsContainer
+* UserPosts
+* UserPostItem
+
+## UserFriendsContainer
+* UserFriends
+
+## Routes:
+
+| Path        | Component         
+| ------------- |:-------------:|
+| "/log"        | AuthFormContainer |
+| "/home"     | HomeContainer      |   
+| "/home Index Route" | PostsContainer      |    
+| "/home/user"   | UserContainer |
+| "/home/user" indexRoute    | UserPostsContainer      |   
+| "/home/user/friends" | UserFriendsContainer     |    
