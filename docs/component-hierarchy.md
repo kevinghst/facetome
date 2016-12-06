@@ -5,31 +5,37 @@
 
 ## HomeContainer
 * Home
-* Posts (Route Index Child)
+* PostsContainer (Route Index Child)
 
 ## UserContainer
 * User
-* UserPosts (Route Index Child)
+* UserPostsContainer (Route Index Child)
 
 ## PostsContainer
 * Posts
 * PostItem
-* SelectedFriends
+* PostForm
 
 ## UserPostsContainer
 * UserPosts
 * UserPostItem
+* PostForm
+* SelectedFriends
 
 ## UserFriendsContainer
 * UserFriends
+
+## UserProfile Container
+* UserProfile
 
 ## Routes:
 
 | Path        | Component         
 | ------------- |:-------------:|
 | "/log"        | AuthFormContainer |
-| "/home"     | HomeContainer      |   
-| "/home Index Route" | PostsContainer      |    
-| "/home/user"   | UserContainer |
-| "/home/user" indexRoute    | UserPostsContainer      |   
-| "/home/user/friends" | UserFriendsContainer     |    
+| "/"     | HomeContainer      |   
+| "/ Index Route" | PostsContainer      |    
+| "/user"   | UserContainer |
+| "/user" indexRoute    | UserPostsContainer      |   
+| "/user/friends" | UserFriendsContainer     |    
+| "/user/about" | UserProfileContainer     |    

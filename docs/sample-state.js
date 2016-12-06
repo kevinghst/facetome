@@ -3,22 +3,40 @@
     currentUser: {
       id: 1,
       username: "kevinghst",
+      gender: "Male",
+      Birthday: "06-29-1991",
     }
+
     errors: []
+
+    profile: {
+      photo: "pictureUrl",
+      hometown: "DeathStar",
+      occupation: "Sith",
+      gender: "Male",
+      Birthday: "06-29-1991",
+    }
   }
 
-  posts: {
+  newsfeed: {
     1: {
+      authorId: 1,
       body: "can't go back no no",
+      comments: {
+        id: 5,
+        body: "that's a lie",
+        postId: 1,
+        authorId: 2
+      }
     }
     2: {
-      body: "open your eyes",
+      body: "can't open my eyes",
     }
   }
 
-  userposts: {
+  wallposts: {
     2: {
-      body: "open your eyes",
+      body: "can't open my eyes",
     }
   }
 
@@ -30,4 +48,5 @@
       username: "winnieThePooh"
     }
   }
+
 };

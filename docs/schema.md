@@ -20,7 +20,7 @@
 | id      | integer | not null, primary key|
 | photo    | string      |    |
 | hometown | string     |    |
-| employment | string     |    |
+| occupation | string     |    |
 
 
 ## friendships
