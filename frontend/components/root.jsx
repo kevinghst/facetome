@@ -24,13 +24,13 @@ export default function Root({store}){
   return (
     <Provider store={ store }>
       <Router history={ hashHistory }>
+        <Redirect from="/" to="/home"/>
 
         <Route path="/" component={App} >
           <Route path="/home" component={HomePage} onEnter={redirectIfLoggedOut} />
 
           <Route path="/log" component={ SessionFormContainer } onEnter={redirectIfLoggedIn} />
         </Route>
-        <Redirect from="/" to="/home"/> 
       </Router>
     </Provider>
   );
