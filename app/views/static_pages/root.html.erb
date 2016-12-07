@@ -1,8 +1,15 @@
-<main id="root"></main>
-
 <script type="text/javascript">
   <% if current_user %>
     window.currentUser =
       <%= render("api/users/user.json.jbuilder", user: current_user).html_safe %>
   <% end %>
+
+
+  window.login_photo_one = "<%= image_url('fb1.png') %>";
+  window.login_photo_two = "<%= image_url('fb2.png') %>";
+  window.login_photo_three = "<%= image_url('fb3.png') %>";
+
 </script>
+
+
+<main id="root"></main>

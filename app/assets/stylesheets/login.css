@@ -1,0 +1,207 @@
+.login-main {
+  background: linear-gradient(#FEFEFE, #DCE0ED);
+}
+
+.header {
+  background: #3b5998;
+  color: white;
+}
+
+.log-in {
+  width: 980px;
+  margin: auto;
+}
+
+.login-logo {
+  float: left;
+  display: block;
+  padding-top: 28px;
+  padding-bottom: 12px;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.login {
+  float: right;
+  display: flex;
+  align-items: flex-end;
+  margin-top: 20px;
+}
+
+.loginEmail, .loginPassword {
+  background: white;
+  width: 160px;
+  border: 1px solid black;
+  padding: 2px 0px;
+  margin-top: 2px;
+  color: black;
+}
+
+.email-field, .password-field {
+  float: left;
+  width: 180px;
+}
+
+.login label {
+  font-size: 12px;
+}
+
+.submit-button {
+  background: #4267b2;
+  border: 1px solid #29487d;
+  font-size: 13px;
+  padding: 3px 3px;
+}
+
+.content {
+  width: 980px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.content-info {
+  width: 564px;
+  height: 367px;
+  float: left;
+}
+
+.content-signup {
+  width: 400px;
+  height: 568px;
+  float: left;
+  margin-top: 10px;
+}
+
+.content-signup > h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.content-signup > div {
+  font-size: 20px;
+}
+
+.signup {
+  margin-top: 30px;
+}
+
+.signup input{
+  height: 39px;
+  border-radius: 5px;
+  border: 1px solid #bdc7d8;
+  color: 	black;
+  font-size: 19px;
+  padding-left: 10px;
+  margin-bottom: 15px;
+}
+
+.firstname, .lastname {
+  width: 192px;
+}
+
+.firstname {
+  margin-right: 12px;
+}
+
+.signupEmail, .signupPassword {
+  width: 396px;
+}
+
+.birthdate-container {
+  width: 192px;
+  padding-top: 10px;
+}
+
+.birthdate-container > h2{
+  font-size: 20px;
+}
+
+.birthdate {
+  margin-top: 5px;
+}
+
+.birthmonth, .birthyear, .birthday {
+   -webkit-appearance: menulist;
+   background: none;
+   height: 30px;
+   font-size: 13px;
+}
+
+.female {
+  margin-right: 10px;
+}
+
+.female, .male {
+  display: flex;
+  align-items: center;
+}
+
+.gender-form{
+  display: flex;
+  margin-left: 10px;
+}
+
+.gender {
+  margin-right: 5px;
+  margin-top: 8px;
+}
+
+.sign-up-button {
+  color: #ffffff;
+  background: linear-gradient(#67ae55, #578843);
+  padding: 7px 60px;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 5px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  box-shadow: inset 0 1px 1px #a4e388;
+  border: 1px solid #3b6e22;
+}
+
+.content-info {
+  width: 565px;
+  length: 367px;
+}
+
+.content-info > h2 {
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 36px;
+  width: 410px;
+  padding: 42px 0 24px;
+  margin-bottom: 10px;
+}
+
+.info-one, .info-two, .info-three {
+  display: flex;
+  align-items: center;
+}
+
+.info-two {
+  margin-left: 5px;
+}
+
+.info-one {
+  margin-left: 3px;
+}
+
+.info-one > div {
+  margin-left: 20px;
+}
+
+.info-two > div {
+  margin-left: 21px;
+}
+
+.info-three > div {
+  margin-left: 15px;
+}
+
+.info-one {
+  margin-bottom: 25px;
+}
+
+.info-two {
+  margin-bottom: 22px;
+}

@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { Redirect, Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app';
 import SessionFormContainer from './session/session_form_container';
-import HomePage from './homepage';
+import HomePageContainer from './homepage/homepage_container';
 
 export default function Root({store}){
   function redirectIfLoggedIn(_, replace){
@@ -27,7 +27,7 @@ export default function Root({store}){
         <Redirect from="/" to="/home"/>
 
         <Route path="/" component={App} >
-          <Route path="/home" component={HomePage} onEnter={redirectIfLoggedOut} />
+          <Route path="/home" component={ HomePageContainer } onEnter={redirectIfLoggedOut} />
 
           <Route path="/log" component={ SessionFormContainer } onEnter={redirectIfLoggedIn} />
         </Route>

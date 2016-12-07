@@ -29,3 +29,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 //window.sign
+//window.logout()(store.dispatch)
+//store.getState().session.currentUser

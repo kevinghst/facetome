@@ -35,16 +35,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(SessionForm);
-
-
-
-// else {
-//   var tempState = { firstname:
-//                     lastname:
-//                     email:
-//                     password:
-//                     birthday:
-//                     gender:
-//
-//
-//                   };

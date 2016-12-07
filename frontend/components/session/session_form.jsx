@@ -29,7 +29,7 @@ class SessionForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    if (e.currentTarget.className === "login"){
+    if (e.currentTarget.className === "login group"){
       var loginState = { email: this.state.loginEmail,
                         password: this.state.loginPassword
                       };
@@ -63,110 +63,156 @@ class SessionForm extends React.Component {
   render(){
 
     return (
-      <div>
-        <h2>Log In
-          <form className = "login" onSubmit={this.handleSubmit} >
-            <label>Email
-              <input type="text"
-                  className = "loginEmail"
-                  value={this.state.loginEmail}
-                  onChange = {this.updateForm}>
-              </input>
-            </label>
+      <div className="login-main">
 
-            <label>Password
-              <input type="text"
-                  className = "loginPassword"
-                  value={this.state.loginPassword}
-                  onChange = {this.updateForm}>
-              </input>
-            </label>
+        <header className="header">
+          <nav className="log-in group">
 
-            <input type="submit" value="Log in" />
-          </form>
-        </h2>
 
-        <h2>Sign Up
-          <form className = "signup" onSubmit={this.handleSubmit} >
-            <label>First name
+            <Link to="/home" className="login-logo">facetome</Link>
+
+            <form className="login group" onSubmit={this.handleSubmit} >
+
+              <div className="email-field">
+              <label>Email</label>
+                <input type="text"
+                    className = "loginEmail"
+                    value={this.state.loginEmail}
+                    onChange = {this.updateForm}>
+                </input>
+              </div>
+
+              <div className="password-field">
+              <label>Password</label>
+                <input type="text"
+                    className = "loginPassword"
+                    value={this.state.loginPassword}
+                    onChange = {this.updateForm}>
+                </input>
+              </div>
+
+              <input className="submit-button" type="submit" value="Log in" />
+            </form>
+
+          </nav>
+        </header>
+
+        <section className="content group">
+          <section className="content-info">
+            <h2>Connect with friends and the world around you on Facetome.</h2>
+
+            <section className="info-list">
+              <div className="info-one group">
+                <img src={window.login_photo_one}/>
+                <div>See photos and updates  from friends in News Feed.</div>
+              </div>
+
+              <div className="info-two group">
+                <img src={window.login_photo_two}/>
+                <div>Share what's new  in your life on your Timeline.</div>
+              </div>
+
+              <div className="info-three group">
+                <img src={window.login_photo_three}/>
+                <div>Find more  of what you're looking for with Facebook Search.</div>
+              </div>
+
+            </section>
+          </section>
+
+          <section className="content-signup">
+
+            <h2>Sign Up</h2>
+            <div>It's free and always will be.</div>
+
+            <form className = "signup" onSubmit={this.handleSubmit} >
               <input type="text"
                   className = "firstname"
+                  placeholder="First name"
                   value={this.state.firstname}
                   onChange = {this.updateForm}>
               </input>
-            </label>
 
-            <label>Last name
               <input type="text"
                   className = "lastname"
                   value={this.state.lastname}
+                  placeholder="Last name"
                   onChange = {this.updateForm}>
               </input>
-            </label>
 
-            <label>Email
               <input type="text"
                   className = "signupEmail"
                   value={this.state.signupEmail}
+                  placeholder="Email"
                   onChange = {this.updateForm}>
               </input>
-            </label>
 
-            <label>Password
               <input type="text"
                   className = "signupPassword"
+                  placeholder="Password"
                   value={this.state.signupPassword}
                   onChange = {this.updateForm}>
               </input>
-            </label><br></br>
-
-            <label>Birthday
-              <select className = "birthmonth"
-                value={this.state.birthmonth}
-                onChange={this.updateForm} >
-                { this.props.months.map((month, i) => {
-                  return <option value={month} key={i}>{month}</option>;
-                }) }
-              </select>
-
-              <select className = "birthday"
-                value={this.state.birthday}
-                onChange={this.updateForm} >
-                { this.props.days.map((day, i) => {
-                  return <option value={day} key={i}>{day}</option>;
-                }) }
-              </select>
-
-              <select className = "birthyear"
-                value={this.state.birthyear}
-                onChange={this.updateForm} >
-                { this.props.years.map((year, i) => {
-                  return <option value={year} key={i}>{year}</option>;
-                }) }
-              </select>
 
 
-            </label>
+              <section className="birthdate-container">
+                <h2>Birthday</h2>
+                <div className="birthdate">
+                  <select className = "birthmonth"
+                    value={this.state.birthmonth}
+                    onChange={this.updateForm} >
+                    { this.props.months.map((month, i) => {
+                      return <option value={month} key={i}>{month}</option>;
+                    }) }
+                  </select>
 
-            <input className="gender"
-                   onChange = {this.updateForm}
-                   type="radio"
-                   name="gender"
-                   value="male">
-            </input> Male
+                  <select className = "birthday"
+                    value={this.state.birthday}
+                    onChange={this.updateForm} >
+                    { this.props.days.map((day, i) => {
+                      return <option value={day} key={i}>{day}</option>;
+                    }) }
+                  </select>
 
-            <input className="gender"
-                   onChange = {this.updateForm}
-                   type="radio"
-                   name="gender"
-                   value="female">
-            </input> Female <br></br>
+                  <select className = "birthyear"
+                    value={this.state.birthyear}
+                    onChange={this.updateForm} >
+                    { this.props.years.map((year, i) => {
+                      return <option value={year} key={i}>{year}</option>;
+                    }) }
+                  </select>
+                </div>
+              </section>
 
+              <div className="gender-form">
+                <label className="female">
+                  <input className="gender"
+                         onChange = {this.updateForm}
+                         type="radio"
+                         name="gender"
+                         value="female">
+                  </input>
+                  <div>Female</div>
+                </label>
 
-            <input type="submit" value="Create Account" />
+                <label className="male">
+                  <input className="gender"
+                         onChange = {this.updateForm}
+                         type="radio"
+                         name="gender"
+                         value="male">
+                  </input>
+                  <div>Male</div>
+                </label>
+              </div>
 
-          </form>
-        </h2>
+              <button className="sign-up-button" type="submit">Sign Up</button>
+
+            </form>
+
+          </section>
+        </section>
+
 
       </div>
     );
