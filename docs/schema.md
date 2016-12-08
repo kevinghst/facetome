@@ -12,23 +12,17 @@
 | gender | string     |    not null |
 | password_digest | string     |    not null |
 | session_token | string     |    not null, indexed, unique |
-
-
-## profiles
-| column name        | data type          | details |
-| ------------- |:-------------:| -----:|
-| id      | integer | not null, primary key|
-| photo    | string      |    |
 | hometown | string     |    |
 | occupation | string     |    |
+| photo    | string      |    |
 
 
 ## friendships
 | column name        | data type          | details |
 | ------------- |:-------------:| -----:|
 | id      | integer | not null, primary key|
-| userId   | integer     |   not null |
-| friendId | integer     |    not null |
+| userId   | integer     |   not null, foreign key (reference users) |
+| friendId | integer     |    not null, foreign key (reference users) |
 
 
 ## posts

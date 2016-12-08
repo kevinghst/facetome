@@ -10,27 +10,23 @@
 
 ### Users
 * POST /api/users
-* GET /api/user/:id
+* GET /api/users/:id
 
 ### Sessions
 * POST /api/session
 * DELETE /api/session
 
-### Profiles
-* POST /api/profiles
-* GET /api/profiles/:id
-* PATCH /api/profiles/:id
-
 ### Friends
-* POST /api/user/:id/friends
-* GET /api/user/:id/friends
+* POST /api/users/:id/friends
+* GET /api/users/:id/friends
 * DELETE /api/friend/:id
 
 ### Posts
-* POST /api/user/:id/posts
-* GET /api/user/:id/posts
+* POST /api/users/:id/posts
+* GET /api/users/:id/posts
 * GET /api/posts
 * DELETE /api/post/:id
+* GET /api/posts
 
 ### Comments
 * POST /api/post/:id/comments

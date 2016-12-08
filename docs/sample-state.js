@@ -1,66 +1,45 @@
 {
   session: {
-    currentUser: {
-      id: 1,
-      username: "kevinghst",
-      gender: "Male",
-      Birthday: "06-29-1991",
-    }
-
-    profile: {
-      photo: "pictureUrl",
-      hometown: "DeathStar",
-      occupation: "Sith",
-      gender: "Male",
-      Birthday: "06-29-1991",
-    }
+    username: "kevinghst",
 
     errors: []
   }
 
 
-  targetuser: {
-    user: {
+  profile: {
+    1: {
       id: 1,
       username: "kevinghst",
       gender: "Male",
       Birthday: "06-29-1991",
-    }
-
-    profile: {
-      photo: "pictureUrl",
-      hometown: "DeathStar",
-      occupation: "Sith",
-      gender: "Male",
-      Birthday: "06-29-1991",
+      Occupation: "Sith Lord",
+      Hometown: "DeathStar"
     }
   }
 
 
-
-  newsfeed: {
+  wallposts: {
     1: {
       authorId: 1,
+      authorUsername: "pinkman"
       body: "can't go back no no",
       comments: {
         id: 5,
+        authorId: 2
+        authorUsername: "winnieThePooh"
         body: "that's a lie",
         postId: 1,
-        authorId: 2
+        updated_at: "09:04:13, 12/12/2011"
       }
     }
     2: {
       body: "can't open my eyes",
+      updated_at: "09:05:14, 12/12/2012"
     }
   }
 
-  wallposts: {
-    2: {
-      body: "can't open my eyes",
-    }
-  }
 
-  userfriends: {
+  friends: {
     1: {
       username: "pinkman",
     }
