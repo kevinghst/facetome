@@ -4,6 +4,8 @@ import { Redirect, Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app';
 import SessionFormContainer from './session/session_form_container';
 import HomePageContainer from './homepage/homepage_container';
+import UserPageContainer from './userpage/userpage_container';
+import UserProfileContainer from './userprofile/userprofile_container';
 
 export default function Root({store}){
   function redirectIfLoggedIn(_, replace){
@@ -15,7 +17,7 @@ export default function Root({store}){
   function redirectIfLoggedOut(_, replace){
     const currentUser = store.getState().session.currentUser;
     if (!currentUser) {
-      replace('/log');
+      replace('/login');
     }
   }
 
@@ -27,9 +29,13 @@ export default function Root({store}){
         <Redirect from="/" to="/home"/>
 
         <Route path="/" component={App} >
-          <Route path="/home" component={ HomePageContainer } onEnter={redirectIfLoggedOut} />
+          <Route path="/home" component={ HomePageContainer } onEnter={redirectIfLoggedOut} >
 
-          <Route path="/log" component={ SessionFormContainer } onEnter={redirectIfLoggedIn} />
+            <Route path="/home/:email" component={ UserPageContainer } onEnter={redirectIfLoggedOut} >
+              <Route path="/home/:email/about" component={ UserProfileContainer } onEnter={redirectIfLoggedOut} />
+            </Route>
+          </Route>
+          <Route path="/login" component={ SessionFormContainer } onEnter={redirectIfLoggedIn} />
         </Route>
       </Router>
     </Provider>

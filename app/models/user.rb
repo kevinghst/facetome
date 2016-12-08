@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   )
   before_validation :ensure_session_token
 
+  has_attached_file :photo, default_url: "missing.png"
+  validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
+
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
