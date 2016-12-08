@@ -53,6 +53,7 @@
   border: 1px solid #29487d;
   padding: 3px 3px;
   margin-right: 20px;
+  cursor: pointer;
 }
 
 
@@ -61,6 +62,7 @@
   border: 1px solid #29487d;
   font-size: 13px;
   padding: 3px 3px;
+  cursor: pointer;
 }
 
 .content {
@@ -109,6 +111,10 @@
 
 .firstname, .lastname {
   width: 192px;
+}
+
+.firstname, .lastname, .signupEmail, .signupPassword {
+  background: white;
 }
 
 .firstname {
@@ -168,6 +174,7 @@
   text-shadow: 0 1px 2px rgba(0,0,0,0.5);
   box-shadow: inset 0 1px 1px #a4e388;
   border: 1px solid #3b6e22;
+  cursor: pointer;
 }
 
 .content-info {
