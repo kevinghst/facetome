@@ -98,6 +98,15 @@ class SessionForm extends React.Component {
         </header>
 
         <section className="content group">
+
+          <ul className="loginErrors">
+            {
+              this.props.loginErrors.map((error, i) => {
+                return <li key={i}>{error}</li>;
+              })
+            }
+          </ul>
+
           <section className="content-info">
             <h2>Connect with friends and the world around you on Facetome.</h2>
 
@@ -154,64 +163,78 @@ class SessionForm extends React.Component {
                   onChange = {this.updateForm}>
               </input>
 
+              <div className="lowerhalf-signup group">
+                <div className="birth-gender-button">
+                  <section className="birthdate-container">
+                    <h2>Birthday</h2>
+                    <div className="birthdate">
+                      <select className = "birthmonth"
+                        value={this.state.birthmonth}
+                        onChange={this.updateForm} >
+                        { this.props.months.map((month, i) => {
+                          return <option value={month} key={i}>{month}</option>;
+                        }) }
+                      </select>
 
-              <section className="birthdate-container">
-                <h2>Birthday</h2>
-                <div className="birthdate">
-                  <select className = "birthmonth"
-                    value={this.state.birthmonth}
-                    onChange={this.updateForm} >
-                    { this.props.months.map((month, i) => {
-                      return <option value={month} key={i}>{month}</option>;
-                    }) }
-                  </select>
+                      <select className = "birthday"
+                        value={this.state.birthday}
+                        onChange={this.updateForm} >
+                        { this.props.days.map((day, i) => {
+                          return <option value={day} key={i}>{day}</option>;
+                        }) }
+                      </select>
 
-                  <select className = "birthday"
-                    value={this.state.birthday}
-                    onChange={this.updateForm} >
-                    { this.props.days.map((day, i) => {
-                      return <option value={day} key={i}>{day}</option>;
-                    }) }
-                  </select>
+                      <select className = "birthyear"
+                        value={this.state.birthyear}
+                        onChange={this.updateForm} >
+                        { this.props.years.map((year, i) => {
+                          return <option value={year} key={i}>{year}</option>;
+                        }) }
+                      </select>
+                    </div>
+                  </section>
 
-                  <select className = "birthyear"
-                    value={this.state.birthyear}
-                    onChange={this.updateForm} >
-                    { this.props.years.map((year, i) => {
-                      return <option value={year} key={i}>{year}</option>;
-                    }) }
-                  </select>
+                  <div className="gender-form">
+                    <label className="female">
+                      <input className="gender"
+                             onChange = {this.updateForm}
+                             type="radio"
+                             name="gender"
+                             value="female">
+                      </input>
+                      <div>Female</div>
+                    </label>
+
+                    <label className="male">
+                      <input className="gender"
+                             onChange = {this.updateForm}
+                             type="radio"
+                             name="gender"
+                             value="male">
+                      </input>
+                      <div>Male</div>
+                    </label>
+                  </div>
+
+                  <button className="sign-up-button" type="submit">Sign Up</button>
                 </div>
-              </section>
-
-              <div className="gender-form">
-                <label className="female">
-                  <input className="gender"
-                         onChange = {this.updateForm}
-                         type="radio"
-                         name="gender"
-                         value="female">
-                  </input>
-                  <div>Female</div>
-                </label>
-
-                <label className="male">
-                  <input className="gender"
-                         onChange = {this.updateForm}
-                         type="radio"
-                         name="gender"
-                         value="male">
-                  </input>
-                  <div>Male</div>
-                </label>
+                <ul className="signupErrors">
+                  {
+                    this.props.signupErrors.map((error, i) => {
+                      return <li key={i}>{error}</li>;
+                    })
+                  }
+                </ul>
               </div>
-
-              <button className="sign-up-button" type="submit">Sign Up</button>
 
             </form>
 
           </section>
+
+
+
         </section>
+
 
 
       </div>

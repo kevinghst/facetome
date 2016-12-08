@@ -4,6 +4,7 @@
 
 .header {
   background: #3b5998;
+  background-image: linear-gradient(#4e69a2, #3b5998 50%);
   color: white;
 }
 
@@ -57,6 +58,7 @@
   width: 980px;
   margin: 0 auto;
   margin-top: 30px;
+  position: relative;
 }
 
 .content-info {
@@ -204,4 +206,40 @@
 
 .info-two {
   margin-bottom: 22px;
+}
+
+.errors {
+  list-style: none;
+  color: red;
+}
+
+.errors > li {
+  margin-bottom: 3px;
+}
+
+.signupErrors {
+  float:left;
+  list-style: none;
+}
+
+.lowerhalf-signup {
+  display: flex;
+}
+
+.signupErrors {
+  margin-left: 25px;
+  margin-top: 15px;
+}
+
+.signupErrors > li {
+  margin-bottom: 10px;
+  color: red;
+}
+
+.loginErrors {
+  list-style: none;
+  color: red;
+  position: absolute;
+  right: 229px;
+  top: -20px;
 }

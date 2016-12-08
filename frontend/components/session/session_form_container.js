@@ -15,12 +15,33 @@ const mapStateToProps = (state) => {
     years.push(j);
   }
 
+  let signupArray = [];
+  if (state.session.signupErrors){
+    state.session.signupErrors.forEach((el) => {
+      if (el === "Password is too short (minimum is 6 characters)"){
+        signupArray.push("Password is too short! (minimum 6)");
+      }
+      else {
+        let appended = el + "!";
+        signupArray.push(appended);
+      }
+    });
+  }
+
+  let loginArray = [];
+  if (state.session.loginErrors){
+    state.session.loginErrors.forEach((el) => {
+      loginArray.push(el + "!");
+    });
+  }
+
   return {
     months: months,
     years: years,
     days: days,
     loggedIn: log,
-    errors: state.session.errors,
+    signupErrors: signupArray,
+    loginErrors: loginArray,
   };
 };
 
