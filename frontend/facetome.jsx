@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {signup, login, logout} from './actions/session_actions';
 import Root from './components/root';
+import {deleteUser} from './util/session_api_util';
 // import {signup, login, logout} from './util/session_api_util';
 
 import configureStore from './store/store.js';
@@ -12,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.signup = signup;
   window.login = login;
   window.logout = logout;
+  window.deleteUser = deleteUser;
 
   let store;
 

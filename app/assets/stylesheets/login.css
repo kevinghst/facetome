@@ -47,6 +47,15 @@
   font-size: 12px;
 }
 
+.demologin {
+  font-size: 13px;
+  background: #4267b2;
+  border: 1px solid #29487d;
+  padding: 3px 3px;
+  margin-right: 20px;
+}
+
+
 .submit-button {
   background: #4267b2;
   border: 1px solid #29487d;

@@ -14,9 +14,16 @@ class HomePage extends React.Component{
   }
 
   logoutnow(){
-    this.props.logout().then(() => {
-      this.props.router.push("/log");
-    });
+    if(this.props.currentUser.email === "guest@email.com"){
+      this.props.deleteUser(this.props.currentUser).then(() => {
+        this.props.router.push("/log");
+      });
+    }
+    else {
+      this.props.logout().then(() => {
+        this.props.router.push("/log");
+      });
+    }
   }
 
   render(){

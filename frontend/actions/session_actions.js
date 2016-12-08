@@ -52,3 +52,11 @@ export function logout(){
     );
   };
 }
+
+export function deleteUser(user){
+  return (dispatch) => {
+    return APIUtil.deleteUser(user).then(
+        () => dispatch(receiveCurrentUser(null))
+    );
+  };
+}

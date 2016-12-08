@@ -20,3 +20,11 @@ export const logout = () => {
     url: '/api/session',
   });
 };
+
+export const deleteUser = (user) => {
+  return $.ajax({
+    method: "DELETE",
+    url: `/api/users/${user.id}`,
+    data: { user }
+  });
+};

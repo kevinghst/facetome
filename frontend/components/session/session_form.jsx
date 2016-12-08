@@ -19,6 +19,7 @@ class SessionForm extends React.Component {
 
     this.updateForm = this.updateForm.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demologin = this.demologin.bind(this);
   }
 
   updateForm(e){
@@ -51,7 +52,21 @@ class SessionForm extends React.Component {
         this.props.router.push("/home");
       });
     }
+  }
 
+  demologin(){
+    var demoSignupState = {
+                          id: 9999999,
+                          firstname: "David",
+                          lastname: "Parker",
+                          email: "guest@email.com",
+                          password: "123456",
+                          birthday: "May-02 1980",
+                          gender: "Male"
+                          };
+    this.props.signup(demoSignupState).then((currentUser) => {
+      this.props.router.push("/home");
+    });
   }
 
   componentWillReceiveProps(){
@@ -73,6 +88,8 @@ class SessionForm extends React.Component {
 
             <form className="login group" onSubmit={this.handleSubmit} >
 
+              <button className="demologin" onClick={this.demologin}>Demo Login</button>
+
               <div className="email-field">
               <label>Email</label>
                 <input type="text"
@@ -84,7 +101,7 @@ class SessionForm extends React.Component {
 
               <div className="password-field">
               <label>Password</label>
-                <input type="text"
+                <input type="password"
                     className = "loginPassword"
                     value={this.state.loginPassword}
                     onChange = {this.updateForm}>
@@ -92,6 +109,7 @@ class SessionForm extends React.Component {
               </div>
 
               <input className="submit-button" type="submit" value="Log in" />
+
             </form>
 
           </nav>
@@ -156,7 +174,7 @@ class SessionForm extends React.Component {
                   onChange = {this.updateForm}>
               </input>
 
-              <input type="text"
+              <input type="password"
                   className = "signupPassword"
                   placeholder="Password"
                   value={this.state.signupPassword}
@@ -231,12 +249,7 @@ class SessionForm extends React.Component {
 
           </section>
 
-
-
         </section>
-
-
-
       </div>
     );
   }
