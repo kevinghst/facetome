@@ -56,10 +56,10 @@ class SessionForm extends React.Component {
 
   demologin(){
     var demoLoginState = { email: "harrypotter",
-                      password: "harrypotter"
+                          password: "harrypotter"
                     };
 
-    this.props.signup(demoLoginState).then((currentUser) => {
+    this.props.login(demoLoginState).then((currentUser) => {
       this.props.router.push("/home");
     });
   }
