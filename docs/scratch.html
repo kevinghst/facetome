@@ -26,19 +26,21 @@ git push heroku master
 work flow:
 
 
-<!-- <Provider store={ store }>
-  <Router history={ hashHistory }>
-    <Redirect from="/" to="/home"/>
+----------------------
+Application.yml:
+# Add configuration values here, as shown below.
+#
+# pusher_app_id: "2954"
+# pusher_key: 7381a978f7dd7f9a1117
+# pusher_secret: abdc3b896a0ffb85d373
+# stripe_api_key: sk_test_2J0l093xOyW72XUYJHE4Dv2r
+# stripe_publishable_key: pk_test_ro9jV5SNwGb1yYlQfzG17LHK
+#
+# production:
+#   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
+#   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
 
-    <Route path="/" component={App} >
-      <Route path="/home" component={ HomePageContainer } onEnter={redirectIfLoggedOut} >
 
-        <Route path="/home/:email" component={ UserPageContainer } onEnter={redirectIfLoggedOut} >
-          <Route path="/home/:email/about" component={ UserProfileContainer } onEnter={redirectIfLoggedOut} />
-        </Route>
-      </Route>
-
-      <Route path="/login" component={ SessionFormContainer } onEnter={redirectIfLoggedIn} />
-    </Route>
-  </Router>
-</Provider> -->
+Credentials for AWS:
+User name,Password,Access key ID,Secret access key
+Kevin,,AKIAIU6Q3Q2EV7Q2YHWQ,go9hcoHNMey/fxNmN4fGx0Kd2kFFL2g6qODV6Dsr
