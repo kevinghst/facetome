@@ -27,6 +27,7 @@ class UserProfile extends React.Component{
       </ul>
     );
 
+
     return(
       <div>
         {profile}

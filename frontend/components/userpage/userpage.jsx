@@ -7,7 +7,7 @@ class UserPage extends React.Component{
   }
 
   componentDidMount(){
-    this.props.fetchProfile(currentUser);
+    this.props.fetchProfile(this.props.targetEmail);
   }
 
   render(){
@@ -18,12 +18,11 @@ class UserPage extends React.Component{
       firstname = this.props.currentUser.firstname;
     }
 
-
     return(
       <div>
         {this.props.children}
 
-        <header className="header">
+        <header className="user-header">
           <ul className="rightList">
             <li><Link to={`home/${this.props.currentUser.email}`}>{firstname}</Link></li>
             <li><Link to="/home">Home</Link></li>

@@ -35,7 +35,7 @@ class HomePage extends React.Component{
           onClick={this.logoutnow}
         >Log Out</button>
       );
-      link = (<Link to={`home/${this.props.currentUser.email}`}>{this.props.currentUser.firstname}</Link>);
+      link = (<Link to={`/home/${this.props.currentUser.email}`}>{this.props.currentUser.firstname}</Link>);
     }
     else {
       content = (

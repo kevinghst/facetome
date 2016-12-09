@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :users
     resource :session
-    resources :profiles
+    resources :profiles, only: [:update] do
+      collection do
+        get ':email', to: "profiles#show"
+      end
+    end
   end
 end

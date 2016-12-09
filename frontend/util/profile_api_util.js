@@ -1,8 +1,7 @@
-export const fetchProfile = (user) => {
+export const fetchProfile = (email) => {
   return $.ajax({
     method: 'GET',
-    url: `/api/profiles/${user.id}`,
-    data: { user }
+    url: `/api/profiles/${email}`,
   });
 };
 

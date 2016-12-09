@@ -1,7 +1,8 @@
 class Api::ProfilesController < ApplicationController
 
   def show
-    @user = User.find_by_email(params[:user][:email])
+    
+    @user = User.find_by({ email: params[:email] })
     render :show
   end
 

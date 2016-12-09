@@ -30,13 +30,13 @@ export default function Root({store}){
 
         <Route path="/" component={App} >
           <Route path="/home" component={ HomePageContainer } onEnter={redirectIfLoggedOut} >
-
             <Route path="/home/:email" component={ UserPageContainer } onEnter={redirectIfLoggedOut} >
               <Route path="/home/:email/about" component={ UserProfileContainer } onEnter={redirectIfLoggedOut} />
             </Route>
           </Route>
           <Route path="/login" component={ SessionFormContainer } onEnter={redirectIfLoggedIn} />
         </Route>
+
       </Router>
     </Provider>
   );
