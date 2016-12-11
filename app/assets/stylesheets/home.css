@@ -1,0 +1,61 @@
+.universe {
+  background: #e9ebee;
+}
+
+.home-header {
+  background: #3b5998;
+  border-bottom: #29487d;
+}
+
+.home-nav {
+  margin: auto;
+  width: 850px;
+}
+
+.home-logo-thumb {
+  float: left;
+  display: block;
+  width: 22px;
+  height: 22px;
+  margin: 8px 0;
+}
+
+.home-list-right {
+  float: right;
+  margin: 8px 0;
+  color: white;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+}
+
+.home-list-right li {
+  text-transform: capitalize;
+}
+
+.nav-button {
+  padding: 0 15px;
+  display: flex;
+}
+
+.user-link {
+  border-right: 1px solid #696969;
+  align-items: center;
+}
+
+.home-nav img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.userthumb {
+  display: block;
+  margin-right: 7px;
+}
+
+.userthumb img {
+  height: 22px;
+  width: 22px;
+  object-fit: cover;
+}

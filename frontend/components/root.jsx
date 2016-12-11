@@ -6,6 +6,7 @@ import SessionFormContainer from './session/session_form_container';
 import HomePageContainer from './homepage/homepage_container';
 import UserPageContainer from './userpage/userpage_container';
 import UserProfileContainer from './userprofile/userprofile_container';
+import ImageUploadContainer from './imageupload/image_upload_container'
 
 export default function Root({store}){
   function redirectIfLoggedIn(_, replace){
@@ -31,6 +32,7 @@ export default function Root({store}){
         <Route path="/" component={App} >
           <Route path="/home" component={ HomePageContainer } onEnter={redirectIfLoggedOut} >
             <Route path="/home/:email" component={ UserPageContainer } onEnter={redirectIfLoggedOut} >
+              <Route path="/home/:email/update/:photo" component={ ImageUploadContainer } onEnter={redirectIfLoggedOut} />
               <Route path="/home/:email/about" component={ UserProfileContainer } onEnter={redirectIfLoggedOut} />
             </Route>
           </Route>

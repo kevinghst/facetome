@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   has_attached_file :photo, default_url: "missing.jpg"
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
 
-  has_attached_file :background, default_url: "background.jpg"
+  has_attached_file :background, default_url: "red_cover.jpg"
   validates_attachment_content_type :background, content_type: /\Aimage\/.*\Z/
 
 

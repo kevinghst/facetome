@@ -1,14 +1,13 @@
 class Api::ProfilesController < ApplicationController
 
   def show
-    
     @user = User.find_by({ email: params[:email] })
     render :show
   end
 
   def update
     @user = User.find_by_email(params[:user][:email])
-    if @user.update_attributes(user_params)
+    if @user.update(user_params)
       render :show
     else
       render json: ["Cannot update information"], status: 422
@@ -16,6 +15,6 @@ class Api::ProfilesController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:gender, :birthday, :hometown, :occupation)
+    params.require(:user).permit(:gender, :birthday, :hometown, :occupation, :photo, :background)
   end
 end

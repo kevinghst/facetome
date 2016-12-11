@@ -7,3 +7,4 @@ json.birthday user.birthday
 json.hometown user.hometown
 json.occupation user.occupation
 json.photo_url asset_path(user.photo.url)
+json.background_url asset_path(user.background.url)

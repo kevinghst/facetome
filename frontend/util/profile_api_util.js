@@ -5,10 +5,12 @@ export const fetchProfile = (email) => {
   });
 };
 
-export const updateProfile = (user) => {
+export const updateProfile = (formData) => {
   return $.ajax({
     method: 'PATCH',
-    url: `/api/profiles/${user.id}`,
-    data: {user}
+    url: `/api/profiles/1`,
+    data: formData,
+    contentType: false,
+    processData: false
   });
 };

@@ -14,45 +14,61 @@ class HomePage extends React.Component{
   }
 
   logoutnow(){
-    if(this.props.currentUser.email === "guest@email.com"){
-      this.props.deleteUser(this.props.currentUser).then(() => {
-        this.props.router.push("/login");
-      });
-    }
-    else {
       this.props.logout().then(() => {
         this.props.router.push("/login");
       });
     }
-  }
+
 
   render(){
-    let content;
-    let link;
+    let logOutButton;
+    let userLink;
+    let userthumb;
+
     if (this.props.loggedIn){
-      content = (
+      logOutButton = (
         <button
+          className="nav-button"
           onClick={this.logoutnow}
         >Log Out</button>
       );
-      link = (<Link to={`/home/${this.props.currentUser.email}`}>{this.props.currentUser.firstname}</Link>);
+
+      userthumb = (<div className="userthumb">
+                    <img src={this.props.currentUser.photo_url}/>
+                   </div>);
+
+      userLink = (<Link className="nav-button user-link"
+                        to={`/home/${this.props.currentUser.email}`}>
+                        {userthumb}
+                        <div>{this.props.currentUser.firstname}</div></Link>);
     }
     else {
-      content = (
+      logOutButton = (
         <div></div>
       );
     }
 
     return(
+    <div className="universe">
+      <header className="home-header">
+        <nav className="home-nav group">
+          <div className="home-logo-thumb">
+            <img src={window.fb_mini_logo}/>
+          </div>
 
-      <div>
-        <h1>Hey There!</h1>
-        {content}
+          <ul className="home-list-right group">
+            <li className="group">{userLink}</li>
+            <li><Link className="nav-button" to={`/home`}>Home</Link></li>
+            <li>{logOutButton}</li>
+          </ul>
 
-        {link}
 
-        {this.props.children}
-      </div>
+        </nav>
+
+
+      </header>
+      {this.props.children}
+    </div>
     );
   }
 }
