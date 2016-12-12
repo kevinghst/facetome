@@ -9,12 +9,15 @@ class HomePage extends React.Component{
   }
 
   componentDidMount(){
-    if (currentUser.id){
-      this.props.fetchOtherRequests(currentUser.id);
+    if (this.props.currentUser.id){
+      this.props.fetchOtherRequests(this.props.currentUser.id);
+      this.props.fetchOwnRequests(this.props.currentUser.id);
+      this.props.fetchFriends(this.props.currentUser.id);
     }
     if (this.props.loggedIn === false){
       this.props.router.push("/login");
     }
+
   }
 
   logoutnow(){
@@ -26,6 +29,7 @@ class HomePage extends React.Component{
     acceptRequest(e){
       let requestee_id = this.props.currentUser.id;
       let requester_id = parseInt(e.currentTarget.className);
+      this.props.acceptFriend({ user_id: requestee_id, friend_id: requester_id });
       this.props.deleteRequest(requester_id, requestee_id);
     }
 
@@ -58,21 +62,29 @@ class HomePage extends React.Component{
         <div></div>
       );
     }
+
     let otherRequestTabs;
     if (this.props.otherRequests) {
       let requests = this.props.otherRequests;
       let requestIds = Object.keys(requests);
       otherRequestTabs = (
-        <ul>
-          {
-            requestIds.map((id, idx) =>
-              <li key={idx}>
-                <Link to={`/home/${requests[id].requester_username}`}>{requests[id].requester_username}</Link>
-                <button className= {`${requests[id].requester_user_id}`} onClick={this.acceptRequest}>Accept Request</button>
-              </li>
-            )
-          }
-        </ul>
+        <div className="friendRequest-tab">
+          <div className="sub-friendRequest-tab">
+            <img src={window.friendship_logo}/>
+
+              <ul className="requests">
+                {
+                  requestIds.map((id, idx) =>
+                    <li key={idx}>
+                      <img src={requests[id].photo_url}/>
+                      <Link to={`/home/${requests[id].requester_username}`}>{requests[id].requester_username}</Link>
+                      <button className= {`${requests[id].requester_user_id}`} onClick={this.acceptRequest}>Accept Request</button>
+                    </li>
+                  )
+                }
+              </ul>
+          </div>
+        </div>
       );
     }
 
@@ -87,10 +99,15 @@ class HomePage extends React.Component{
           </div>
 
           <ul className="home-list-right group">
-            <li>{otherRequestTabs}</li>
             <li className="group">{userLink}</li>
             <li><Link className="nav-button" to={`/home`}>Home</Link></li>
-            <li>{logOutButton}</li>
+            <li>
+              <ul className="triple-logos">
+                <li>{otherRequestTabs}</li>
+              </ul>
+            </li>
+
+            <li className="logout-button">{logOutButton}</li>
           </ul>
 
         </nav>

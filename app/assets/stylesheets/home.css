@@ -17,14 +17,14 @@
   display: block;
   width: 22px;
   height: 22px;
-  margin: 8px 0;
+  margin: 7px 0;
 }
 
 .home-list-right {
   float: right;
-  margin: 8px 0;
+  margin: 7px 0;
   color: white;
-  font-size: 13px;
+  font-size: 12px;
   display: flex;
   align-items: center;
 }
@@ -58,4 +58,22 @@
   height: 22px;
   width: 22px;
   object-fit: cover;
+}
+
+.sub-friendRequest-tab {
+  position: relative;
+}
+
+.requests {
+  position: absolute;
+  z-index: 1;
+}
+
+.triple-logos {
+  margin: 0 20px;
+}
+
+.logout-button {
+  border-left: 1px solid #696969;
+  padding: 4px 0;
 }

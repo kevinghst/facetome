@@ -21,7 +21,6 @@ class UserProfile extends React.Component{
   }
 
   update(e) {
-    debugger
     let profileType = e.currentTarget.className;
     let updatedValue = e.currentTaret.value;
     this.setState({ [profileType]: updatedValue });

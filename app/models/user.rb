@@ -22,6 +22,8 @@ class User < ActiveRecord::Base
     :primary_key => :id
   )
 
+  has_many :friends, :through => :friendships, :source => :friend
+
   has_many(
     :ownrequests,
     :class_name => "Request",

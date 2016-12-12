@@ -5,19 +5,17 @@ import Root from './components/root';
 import {deleteUser} from './util/session_api_util';
 import {fetchProfile, updateProfile} from './actions/profile_actions';
 import {friendRequest, fetchOwnRequests, fetchOtherRequests, deleteRequest} from './actions/request_actions';
-import {friendAccept} from './util/friendship_api_util';
+import {acceptFriend, fetchFriends} from './actions/friendship_actions';
+import {deleteFriend} from './util/friendship_api_util';
 
 import configureStore from './store/store.js';
 
 
 document.addEventListener('DOMContentLoaded', () => {
 
-
-  window.friendRequest = friendRequest;
-  window.fetchOwnRequests = fetchOwnRequests;
-  window.fetchOtherRequests = fetchOtherRequests;
-  window.deleteRequest = deleteRequest;
-  window.friendAccept = friendAccept;
+  window.acceptFriend = acceptFriend;
+  window.fetchFriends = fetchFriends;
+  window.deleteFriend = deleteFriend;
 
   let store;
 
