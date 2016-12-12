@@ -1,0 +1,5 @@
+json.id request.id
+json.requester_user_id request.requester_user_id
+json.requestee_user_id request.requestee_user_id
+json.requester_username request.requester_username
+json.requestee_username request.requestee_username

@@ -1,19 +1,21 @@
 import {connect} from 'react-redux';
 import UserPage from './userpage';
 import {fetchProfile, updateProfile} from '../../actions/profile_actions';
+import {friendRequest} from '../../actions/request_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
     profile: state.profile,
     currentUser: state.session.currentUser,
-    targetEmail: ownProps.params.email,
+    targetusername: ownProps.params.username,
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return{
-    fetchProfile: (email) => dispatch(fetchProfile(email)),
-    updateProfile: (user) => dispatch(updateProfile(user))
+    fetchProfile: (username) => dispatch(fetchProfile(username)),
+    updateProfile: (user) => dispatch(updateProfile(user)),
+    friendRequest: (request) => dispatch(friendRequest(request))
   };
 };
 

@@ -9,9 +9,9 @@ export const receiveCurrentProfile = currentProfile => {
   };
 };
 
-export function fetchProfile(email){
+export function fetchProfile(username){
   return (dispatch) => {
-    return APIUtil.fetchProfile(email).then(
+    return APIUtil.fetchProfile(username).then(
       (currentProfile) => dispatch(receiveCurrentProfile(currentProfile))
     );
   };

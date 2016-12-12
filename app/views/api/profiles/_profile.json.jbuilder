@@ -1,7 +1,7 @@
 json.id user.id
 json.firstname user.firstname
 json.lastname user.lastname
-json.email user.email
+json.username user.username
 json.gender user.gender
 json.birthday user.birthday
 json.hometown user.hometown

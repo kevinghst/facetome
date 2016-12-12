@@ -31,9 +31,9 @@ export default function Root({store}){
 
         <Route path="/" component={App} >
           <Route path="/home" component={ HomePageContainer } onEnter={redirectIfLoggedOut} >
-            <Route path="/home/:email" component={ UserPageContainer } onEnter={redirectIfLoggedOut} >
-              <Route path="/home/:email/update/:photo" component={ ImageUploadContainer } onEnter={redirectIfLoggedOut} />
-              <Route path="/home/:email/about" component={ UserProfileContainer } onEnter={redirectIfLoggedOut} />
+            <Route path="/home/:username" component={ UserPageContainer } onEnter={redirectIfLoggedOut} >
+              <Route path="/home/:username/update/:photo" component={ ImageUploadContainer } onEnter={redirectIfLoggedOut} />
+              <Route path="/home/:username/about" component={ UserProfileContainer } onEnter={redirectIfLoggedOut} />
             </Route>
           </Route>
           <Route path="/login" component={ SessionFormContainer } onEnter={redirectIfLoggedIn} />
@@ -45,6 +45,6 @@ export default function Root({store}){
 }
 
 
-// window.signup({firstname: "harry", lastname: "potter", email: "harrypotter", password: "harrypotter", gender: "male", birthday: "1991"})(store.dispatch)
+// window.signup({firstname: "harry", lastname: "potter", username: "harrypotter", password: "harrypotter", gender: "male", birthday: "1991"})(store.dispatch)
 
 // window.logout()(store.dispatch)

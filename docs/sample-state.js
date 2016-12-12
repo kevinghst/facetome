@@ -21,12 +21,12 @@
   wallposts: {
     1: {
       authorId: 1,
-      authorUsername: "pinkman"
+      authorusername: "pinkman"
       body: "can't go back no no",
       comments: {
         id: 5,
         authorId: 2
-        authorUsername: "winnieThePooh"
+        authorusername: "winnieThePooh"
         body: "that's a lie",
         postId: 1,
         updated_at: "09:04:13, 12/12/2011"

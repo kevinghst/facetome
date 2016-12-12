@@ -9,7 +9,7 @@ class UserProfile extends React.Component{
     this.state = {
       firstname: "",
       lastname: "",
-      email: "",
+      username: "",
       gender: "",
       birthday: "",
       hometown: "",
@@ -29,13 +29,12 @@ class UserProfile extends React.Component{
 
   handleSubmit(e) {
     var formData = new FormData();
-    formData.append("user[email]", this.props.currentUser.email);
+    formData.append("user[username]", this.props.currentUser.username);
     formData.append("user[gender]", this.state.gender);
     this.props.updateProfile(formData);
   }
 
   render(){
-    debugger
     let profilePairs = Object.assign({}, this.props.profile);
     delete profilePairs["photo_url"];
     delete profilePairs["background_url"];

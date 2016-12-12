@@ -4,12 +4,12 @@ import { Link, withRouter } from 'react-router';
 class SessionForm extends React.Component {
   constructor(props){
     super(props);
-    this.state = { loginEmail: "",
+    this.state = { loginusername: "",
                    loginPassword: "",
 
                    firstname: "",
                    lastname: "",
-                   signupEmail: "",
+                   signupusername: "",
                    signupPassword: "",
                    birthday: "",
                    birthmonth: "",
@@ -31,7 +31,7 @@ class SessionForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     if (e.currentTarget.className === "login group"){
-      var loginState = { email: this.state.loginEmail,
+      var loginState = { username: this.state.loginusername,
                         password: this.state.loginPassword
                       };
 
@@ -43,7 +43,7 @@ class SessionForm extends React.Component {
       var birthdate = this.state.birthmonth + " " + this.state.birthday + ", " + this.state.birthyear;
       var signupState = { firstname: this.state.firstname,
                         lastname: this.state.lastname,
-                        email: this.state.signupEmail,
+                        username: this.state.signupusername,
                         password: this.state.signupPassword,
                         birthday: this.state.birthday,
                         gender: this.state.gender
@@ -55,7 +55,7 @@ class SessionForm extends React.Component {
   }
 
   demologin(){
-    var demoLoginState = { email: "harrypotter",
+    var demoLoginState = { username: "harrypotter",
                           password: "harrypotter"
                     };
 
@@ -65,7 +65,7 @@ class SessionForm extends React.Component {
   }
 
   componentWillReceiveProps(){
-    this.setState({ loginEmail: "",
+    this.setState({ loginusername: "",
                     loginPassword: "",
                   });
   }
@@ -85,11 +85,11 @@ class SessionForm extends React.Component {
 
               <button className="demologin" onClick={this.demologin}>Demo Login</button>
 
-              <div className="email-field">
-              <label>Email</label>
+              <div className="username-field">
+              <label>username</label>
                 <input type="text"
-                    className = "loginEmail"
-                    value={this.state.loginEmail}
+                    className = "loginusername"
+                    value={this.state.loginusername}
                     onChange = {this.updateForm}>
                 </input>
               </div>
@@ -163,9 +163,9 @@ class SessionForm extends React.Component {
               </input>
 
               <input type="text"
-                  className = "signupEmail"
-                  value={this.state.signupEmail}
-                  placeholder="Email"
+                  className = "signupusername"
+                  value={this.state.signupusername}
+                  placeholder="username"
                   onChange = {this.updateForm}>
               </input>
 

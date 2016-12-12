@@ -9,4 +9,8 @@
 
 User.destroy_all
 
-User.create({firstname: "harry", lastname: "potter", email: "harrypotter", password:"harrypotter", gender:"male", birthday:"May 01, 2016"})
+User.create({firstname: "harry", lastname: "potter", username: "harrypotter", password:"harrypotter", gender:"male", birthday:"May 01, 2016"})
+User.create({firstname: "sherlock", lastname: "holmes", username: "sherlock", password:"sherlock", gender:"male", birthday:"May 01, 2016"})
+User.create({firstname: "julius", lastname: "caesar", username: "caesar", password:"caesar", gender:"male", birthday:"May 01, 2016"})
+User.create({firstname: "cat", lastname: "woman", username: "catwoman", password:"catwoman", gender:"female", birthday:"May 01, 2016"})
+User.create({firstname: "peter", lastname: "griffin", username: "petergriffin", password:"petergriffin", gender:"male", birthday:"May 01, 2016"})

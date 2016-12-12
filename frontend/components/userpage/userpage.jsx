@@ -12,21 +12,16 @@ class UserPage extends React.Component{
     this.submitUpdate = this.submitUpdate.bind(this);
   }
 
-  componentDidMount(){
-    this.props.fetchProfile(this.props.targetEmail);
-    this.submitUpdate();
-  }
-
   submitUpdate(){
     if (this.state.photo){
       var formData = new FormData();
-      formData.append("user[email]", this.props.currentUser.email);
+      formData.append("user[username]", this.props.currentUser.username);
       formData.append(`user[photo]`, this.state.photo);
       this.props.updateProfile(formData);
     }
     else if (this.state.background){
       var formData = new FormData();
-      formData.append("user[email]", this.props.currentUser.email);
+      formData.append("user[username]", this.props.currentUser.username);
       formData.append(`user[background]`, this.state.background);
       this.props.updateProfile(formData);
     }
@@ -47,15 +42,24 @@ class UserPage extends React.Component{
   }
 
   render(){
-
+    this.props.fetchProfile(this.props.targetusername);
     this.submitUpdate();
 
-    let email;
+    let username;
     let firstname;
     if(this.props.currentUser){
-      email = this.props.currentUser.email;
+      username = this.props.currentUser.username;
       firstname = this.props.currentUser.firstname;
     }
+
+    let updateCover;
+    if(this.props.currentUser.id === this.props.profile.id){
+      updateCover = ( <label className="update-cover" >
+                        Edit Cover-Photo
+                        <input type="file" onChange={this.updateCover}/>
+                      </label> );
+    }
+
 
     return(
       <section className="userpage">
@@ -66,14 +70,11 @@ class UserPage extends React.Component{
             <img src={this.props.profile.photo_url}/>
           </div>
 
-          <label className="update-cover" >
-            Edit Cover-Photo
-            <input type="file" onChange={this.updateFile}/>
-          </label>
+          {updateCover}
 
           <ul className="user-nav-ul">
-            <li><Link to={`/home/${email}`} className="user-nav-list">Timeline</Link></li>
-            <li><Link to={`/home/${email}/about`} className="user-nav-list">About</Link></li>
+            <li><Link to={`/home/${username}`} className="user-nav-list">Timeline</Link></li>
+            <li><Link to={`/home/${username}/about`} className="user-nav-list">About</Link></li>
           </ul>
 
           <section className="test">

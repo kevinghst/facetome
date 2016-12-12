@@ -1,9 +1,10 @@
 import {RECEIVE_CURRENT_USER, RECEIVE_LOGIN_ERRORS, RECEIVE_SIGNUP_ERRORS} from '../actions/session_actions';
 
+
 const initState = {
   currentUser: null,
   signupErrors: [],
-  loginErrors: []
+  loginErrors: [],
 };
 
 const SessionReducer = (state = initState, action) => {

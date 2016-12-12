@@ -10,11 +10,11 @@ class Api::UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find_by_email(params[:user][:email])
+    @user = User.find_by_username(params[:user][:username])
     @user.destroy
   end
 
   def user_params
-    params.require(:user).permit(:firstname, :lastname, :gender, :birthday, :email, :password)
+    params.require(:user).permit(:firstname, :lastname, :gender, :birthday, :username, :password)
   end
 end

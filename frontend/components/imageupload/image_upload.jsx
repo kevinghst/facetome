@@ -22,11 +22,11 @@ class ImageUpload extends React.Component{
       }
 
       var formData = new FormData();
-      formData.append("user[email]", this.props.currentUser.email);
+      formData.append("user[username]", this.props.currentUser.username);
       formData.append(`user[${phototype}]`, this.state.imageFile);
 
       this.props.updateProfile(formData).then(()=>{
-        this.props.router.push(`/home/${this.props.currentUser.email}`);
+        this.props.router.push(`/home/${this.props.currentUser.username}`);
       });
     }
 

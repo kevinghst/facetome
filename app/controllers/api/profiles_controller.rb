@@ -1,12 +1,13 @@
 class Api::ProfilesController < ApplicationController
 
+
   def show
-    @user = User.find_by({ email: params[:email] })
+    @user = User.find_by({ username: params[:username] })
     render :show
   end
 
   def update
-    @user = User.find_by_email(params[:user][:email])
+    @user = User.find_by_username(params[:user][:username])
     if @user.update(user_params)
       render :show
     else

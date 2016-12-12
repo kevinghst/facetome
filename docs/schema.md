@@ -5,7 +5,7 @@
 | column name        | data type          | details |
 | ------------- |:-------------:| -----:|
 | id      | integer | not null, primary key|
-| email     | string     |   not null, indexed, unique |
+| username     | string     |   not null, indexed, unique |
 | firstname | string     |    not null |
 | lastname     | string | not null |
 | birthday    | string    |   not null |

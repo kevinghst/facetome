@@ -29,7 +29,7 @@
   margin-top: 20px;
 }
 
-.loginEmail, .loginPassword {
+.loginusername, .loginPassword {
   background: white;
   width: 160px;
   border: 1px solid black;
@@ -38,7 +38,7 @@
   color: black;
 }
 
-.email-field, .password-field {
+.username-field, .password-field {
   float: left;
   width: 180px;
 }
@@ -113,7 +113,7 @@
   width: 192px;
 }
 
-.firstname, .lastname, .signupEmail, .signupPassword {
+.firstname, .lastname, .signupusername, .signupPassword {
   background: white;
 }
 
@@ -121,7 +121,7 @@
   margin-right: 12px;
 }
 
-.signupEmail, .signupPassword {
+.signupusername, .signupPassword {
   width: 396px;
 }
 

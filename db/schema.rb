@@ -10,15 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161209011914) do
+ActiveRecord::Schema.define(version: 20161212002941) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "friendships", force: :cascade do |t|
+    t.integer  "user_id",     null: false
+    t.integer  "friend_id",   null: false
+    t.string   "user_name",   null: false
+    t.string   "friend_name", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.integer  "requester_user_id",  null: false
+    t.integer  "requestee_user_id",  null: false
+    t.string   "requester_username", null: false
+    t.string   "requestee_username", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "firstname",               null: false
     t.string   "lastname",                null: false
-    t.string   "email",                   null: false
+    t.string   "username",                null: false
     t.string   "gender",                  null: false
     t.string   "birthday",                null: false
     t.string   "password_digest",         null: false
@@ -35,8 +53,8 @@ ActiveRecord::Schema.define(version: 20161209011914) do
     t.string   "background_content_type"
     t.integer  "background_file_size"
     t.datetime "background_updated_at"
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["session_token"], name: "index_users_on_session_token", unique: true, using: :btree
+    t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
   end
 
 end

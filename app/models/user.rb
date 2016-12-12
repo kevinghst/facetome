@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   attr_reader :password
 
   validates :firstname, :lastname, :password_digest, :gender, :birthday, presence: true
-  validates :email, :session_token, presence: true, uniqueness: true
+  validates :username, :session_token, presence: true, uniqueness: true
   validates(
     :password,
     length: { minimum: 6, allow_nil: true }
@@ -15,9 +15,31 @@ class User < ActiveRecord::Base
   has_attached_file :background, default_url: "red_cover.jpg"
   validates_attachment_content_type :background, content_type: /\Aimage\/.*\Z/
 
+  has_many(
+    :friendships,
+    :class_name => "Friendship",
+    :foreign_key => :user_id,
+    :primary_key => :id
+  )
 
-  def self.find_by_credentials(email, password)
-    user = User.find_by(email: email)
+  has_many(
+    :ownrequests,
+    :class_name => "Request",
+    :foreign_key => :requester_user_id,
+    :primary_key => :id
+  )
+
+  has_many(
+    :otherrequests,
+    :class_name => "Request",
+    :foreign_key => :requestee_user_id,
+    :primary_key => :id
+  )
+
+
+
+  def self.find_by_credentials(username, password)
+    user = User.find_by(username: username)
 
     return nil if user.nil?
     user.is_password?(password) ? user : nil

@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return{
-    fetchProfile: (email) => dispatch(fetchProfile(email)),
+    fetchProfile: (username) => dispatch(fetchProfile(username)),
     updateProfile: (user) => dispatch(updateProfile(user))
   };
 };

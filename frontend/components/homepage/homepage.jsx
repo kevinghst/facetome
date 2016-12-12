@@ -5,9 +5,13 @@ class HomePage extends React.Component{
   constructor(props){
     super(props);
     this.logoutnow = this.logoutnow.bind(this);
+    this.acceptRequest = this.acceptRequest.bind(this);
   }
 
   componentDidMount(){
+    if (currentUser.id){
+      this.props.fetchOtherRequests(currentUser.id);
+    }
     if (this.props.loggedIn === false){
       this.props.router.push("/login");
     }
@@ -19,8 +23,15 @@ class HomePage extends React.Component{
       });
     }
 
+    acceptRequest(e){
+      let requestee_id = this.props.currentUser.id;
+      let requester_id = parseInt(e.currentTarget.className);
+      this.props.deleteRequest(requester_id, requestee_id);
+    }
+
 
   render(){
+
     let logOutButton;
     let userLink;
     let userthumb;
@@ -38,7 +49,7 @@ class HomePage extends React.Component{
                    </div>);
 
       userLink = (<Link className="nav-button user-link"
-                        to={`/home/${this.props.currentUser.email}`}>
+                        to={`/home/${this.props.currentUser.username}`}>
                         {userthumb}
                         <div>{this.props.currentUser.firstname}</div></Link>);
     }
@@ -47,6 +58,25 @@ class HomePage extends React.Component{
         <div></div>
       );
     }
+    let otherRequestTabs;
+    if (this.props.otherRequests) {
+      let requests = this.props.otherRequests;
+      let requestIds = Object.keys(requests);
+      otherRequestTabs = (
+        <ul>
+          {
+            requestIds.map((id, idx) =>
+              <li key={idx}>
+                <Link to={`/home/${requests[id].requester_username}`}>{requests[id].requester_username}</Link>
+                <button className= {`${requests[id].requester_user_id}`} onClick={this.acceptRequest}>Accept Request</button>
+              </li>
+            )
+          }
+        </ul>
+      );
+    }
+
+
 
     return(
     <div className="universe">
@@ -57,11 +87,11 @@ class HomePage extends React.Component{
           </div>
 
           <ul className="home-list-right group">
+            <li>{otherRequestTabs}</li>
             <li className="group">{userLink}</li>
             <li><Link className="nav-button" to={`/home`}>Home</Link></li>
             <li>{logOutButton}</li>
           </ul>
-
 
         </nav>
 
