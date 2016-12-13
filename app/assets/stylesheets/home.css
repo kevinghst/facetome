@@ -17,12 +17,12 @@
   display: block;
   width: 22px;
   height: 22px;
-  margin: 7px 0;
+  margin: 9px 0 5px 0;
 }
 
 .home-list-right {
   float: right;
-  margin: 7px 0;
+  margin: 9px 0 5px 0;
   color: white;
   font-size: 12px;
   display: flex;
@@ -118,4 +118,17 @@
   padding: 0 10px;
   height: 30px;
   border-radius: 5px;
+}
+
+.sub-friendRequest-tab > a {
+  position: relative;
+}
+
+.request-badge {
+  position: absolute;
+  top: -30px;
+  right: -32px;
+  background: red;
+  padding: 1px 2px;
+  border-radius: 2px;
 }

@@ -1,0 +1,74 @@
+.friend-image img {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+}
+
+.user-content {
+  margin: 20px;
+}
+
+.user-friends {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-friends-left {
+  display: flex;
+  align-items: center;
+}
+
+.friend-image {
+  margin-right: 15px;
+}
+
+.user-friends > li {
+  float: left;
+  width: 375px;
+  margin-left: 20px;
+  border: 1px solid #e9ebee;
+}
+
+.user-friendStatus {
+  margin-right: 10px;
+}
+
+.friend-name-link {
+  text-transform: capitalize;
+  color: #365899;
+  font-weight: bold;
+}
+
+.user-friendStatus {
+  background: #f6f7f9;
+  color: #4b4f56;
+  padding: 3px 10px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 1px;
+  cursor: default;
+}
+
+.user-friendStatus:hover .user-unfriend-button {
+  display: block;
+  border: 1px solid #A9A9A9;
+}
+
+.user-friendStatus:hover {
+  background: #A9A9A9;
+}
+
+.user-unfriend-button {
+  position: absolute;
+  right: -10px;
+  top: 19px;
+  padding: 3px 10px;
+  background: white;
+  border-radius: 1px;
+  display: none;
+}
+
+.user-subfriendStatus{
+  position: relative;
+}

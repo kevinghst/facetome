@@ -48,8 +48,15 @@
 .profile-line > input {
   border: 1px solid #d3d6db;
   border-radius: 1px;
+  width: 150px;
+  margin-right: 0;
 }
 
 .profile-line {
   margin-bottom: 10px;
+}
+
+.edit-profile-button {
+  display: inline-block;
+  margin-left: 20px;
 }

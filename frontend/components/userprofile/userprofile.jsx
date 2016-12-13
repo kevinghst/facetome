@@ -9,23 +9,40 @@ class UserProfile extends React.Component{
     super(props);
 
     this.state = {
+      editable: false,
       firstname: "",
       lastname: "",
-      username: "",
       gender: "",
-      birthday: "",
       hometown: "",
       occupation: ""
     };
 
     this.updateValue = this.updateValue.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.submitChange = this.submitChange.bind(this);
   }
 
   updateValue(e) {
     let profileType = e.currentTarget.className;
     let updatedValue = e.currentTarget.value;
     this.setState({ [profileType]: updatedValue });
+  }
+
+  submitChange(e){
+    let profileType = e.currentTarget.value;
+    if(this.state[[profileType]] !== ""){
+      var formData = new FormData();
+      formData.append("user[username]", this.props.currentUser.username);
+      formData.append(`user[${profileType}]`, this.state[[profileType]]);
+      this.props.updateProfile(formData);
+      this.setState( {[profileType]: "" } );
+    }
+  }
+
+  componentDidMount(){
+    if(this.props.currentUser.id === this.props.profile.id){
+      this.setState({ editable: true });
+    }
   }
 
   handleSubmit(e) {
@@ -40,6 +57,7 @@ class UserProfile extends React.Component{
     delete profilePairs["photo_url"];
     delete profilePairs["background_url"];
     delete profilePairs["id"];
+    delete profilePairs["birthday"];
     let profileKeys = Object.keys(profilePairs);
 
     let profileTriple = (
@@ -49,7 +67,14 @@ class UserProfile extends React.Component{
             <li key={idx} className="profile-line">
               <div className="profileKeys">{key}</div>
               <div className="profileValues">{profilePairs[key]}</div>
-              <input type="text" className={`${key}`} onChange={this.update}/>
+
+              {this.state.editable &&
+                <input type="text" className={`${key}`} value={this.state[[key]]} onChange={this.updateValue}/>
+              }
+
+              {this.state.editable &&
+                <button className= "edit-profile-button" value={`${key}`} onClick={this.submitChange}>Edit</button>
+              }
             </li>
         )}
       </ul>

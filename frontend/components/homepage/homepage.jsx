@@ -21,7 +21,7 @@ class RequestList extends React.Component {
                 <Link to={`/home/${requests[id].requester_username}`}>{requests[id].requester_username}</Link>
               </div>
 
-              <button className= {`${requests[id].requester_user_id} friend-thumb-accept`} onClick={this.acceptRequest}>Accept Request</button>
+              <button className= {`${requests[id].requester_user_id} friend-thumb-accept`} onClick={this.props.acceptRequest}>Accept Request</button>
             </li>
           )
         }
@@ -65,6 +65,7 @@ class HomePage extends React.Component{
     }
 
     acceptRequest(e){
+      e.preventDefault();
       let requestee_id = this.props.currentUser.id;
       let requester_id = parseInt(e.currentTarget.className);
       this.props.acceptFriend({ user_id: requestee_id, friend_id: requester_id });
@@ -105,15 +106,26 @@ class HomePage extends React.Component{
     if (this.props.otherRequests) {
       let requests = this.props.otherRequests;
       let requestIds = Object.keys(requests);
+      let requestCounts = requestIds.length;
+      let requestBadge;
+
+      if (requestCounts !== 0){
+        requestBadge = (
+          <strong className="request-badge">{requestCounts}</strong>
+        );
+      }
+
       otherRequestTabs = (
         <div className="friendRequest-tab">
           <div className="sub-friendRequest-tab">
             <a onClick={this.showRequests.bind(this)} href='#'>
               <img src={window.friendship_logo}/>
+              { requestBadge }
             </a>
             {this.state.showFriendRequests && < RequestList
                                                   requestIds={requestIds}
                                                   requests = {requests}
+                                                  acceptRequest = {this.acceptRequest}
                                               />}
           </div>
         </div>
@@ -143,8 +155,6 @@ class HomePage extends React.Component{
           </ul>
 
         </nav>
-
-
       </header>
       {this.props.children}
     </div>
