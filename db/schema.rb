@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161212002941) do
+ActiveRecord::Schema.define(version: 20161211001511) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,17 +20,17 @@ ActiveRecord::Schema.define(version: 20161212002941) do
     t.integer  "friend_id",   null: false
     t.string   "user_name",   null: false
     t.string   "friend_name", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "requests", force: :cascade do |t|
-    t.integer  "requester_user_id",  null: false
-    t.integer  "requestee_user_id",  null: false
     t.string   "requester_username", null: false
     t.string   "requestee_username", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "requestee_user_id",  null: false
+    t.integer  "requester_user_id",  null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,10 +41,10 @@ ActiveRecord::Schema.define(version: 20161212002941) do
     t.string   "birthday",                null: false
     t.string   "password_digest",         null: false
     t.string   "session_token",           null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.string   "hometown"
     t.string   "occupation"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
