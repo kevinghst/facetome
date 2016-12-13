@@ -9,7 +9,7 @@ class UserProfile extends React.Component{
     super(props);
 
     this.state = {
-      editable: false,
+      editable: true,
       firstname: "",
       lastname: "",
       gender: "",
@@ -18,7 +18,6 @@ class UserProfile extends React.Component{
     };
 
     this.updateValue = this.updateValue.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.submitChange = this.submitChange.bind(this);
   }
 
@@ -39,20 +38,15 @@ class UserProfile extends React.Component{
     }
   }
 
-  componentDidMount(){
-    if(this.props.currentUser.id === this.props.profile.id){
-      this.setState({ editable: true });
-    }
-  }
 
-  handleSubmit(e) {
-    var formData = new FormData();
-    formData.append("user[username]", this.props.currentUser.username);
-    formData.append("user[gender]", this.state.gender);
-    this.props.updateProfile(formData);
-  }
 
   render(){
+
+    let condition = true;
+    if(this.props.currentUser && this.props.profile && (this.props.currentUser.id !== this.props.profile.id)){
+      condition = false;
+    }
+
     let profilePairs = Object.assign({}, this.props.profile);
     delete profilePairs["photo_url"];
     delete profilePairs["background_url"];
@@ -68,11 +62,11 @@ class UserProfile extends React.Component{
               <div className="profileKeys">{key}</div>
               <div className="profileValues">{profilePairs[key]}</div>
 
-              {this.state.editable &&
+              {condition &&
                 <input type="text" className={`${key}`} value={this.state[[key]]} onChange={this.updateValue}/>
               }
 
-              {this.state.editable &&
+              {condition &&
                 <button className= "edit-profile-button" value={`${key}`} onClick={this.submitChange}>Edit</button>
               }
             </li>

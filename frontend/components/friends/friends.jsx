@@ -15,10 +15,6 @@ class Friends extends React.Component{
   componentDidMount(){
     if (this.props.profile.id){
       this.props.fetchFriends(this.props.profile.id);
-
-      if(this.props.currentUser.id === this.props.profile.id){
-        this.setState({ editable: true });
-      }
     }
 
   }
@@ -31,6 +27,12 @@ class Friends extends React.Component{
   }
 
   render(){
+
+    let condition = true;
+    if(this.props.currentUser && this.props.profile && (this.props.currentUser.id !== this.props.profile.id)){
+      condition = false;
+    }
+
     let friends;
 
     if(this.props.currentUser){
@@ -49,7 +51,7 @@ class Friends extends React.Component{
                   <Link className="friend-name-link" to={`/home/${this.props.friends[key].username}`}>{this.props.friends[key].username}</Link>
                 </div>
 
-                {this.state.editable &&
+                {condition &&
                   <div className="user-friendStatus">
                     <div className="user-subfriendStatus">
                       <div>Friends</div>

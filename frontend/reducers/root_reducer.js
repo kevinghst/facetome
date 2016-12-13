@@ -13,7 +13,7 @@ const rootReducer = combineReducers({
   ownRequests: OwnRequestsReducer,
   otherRequests: OtherRequestsReducer,
   friends: FriendshipReducer,
-  posts: PostReducer
+  postSlice: PostReducer
 });
 
 export default rootReducer;
