@@ -2,6 +2,8 @@ import React from 'react';
 import { Link, withRouter } from 'react-router';
 import merge from 'lodash/merge';
 
+
+
 class UserProfile extends React.Component{
   constructor(props){
     super(props);
@@ -16,13 +18,13 @@ class UserProfile extends React.Component{
       occupation: ""
     };
 
-    this.update = this.update.bind(this);
+    this.updateValue = this.updateValue.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  update(e) {
+  updateValue(e) {
     let profileType = e.currentTarget.className;
-    let updatedValue = e.currentTaret.value;
+    let updatedValue = e.currentTarget.value;
     this.setState({ [profileType]: updatedValue });
   }
 
@@ -40,52 +42,26 @@ class UserProfile extends React.Component{
     delete profilePairs["id"];
     let profileKeys = Object.keys(profilePairs);
 
-    let profile = (
-      <ul>
+    let profileTriple = (
+      <ul className="profileTriple">
         {
           profileKeys.map((key, idx) =>
-            <li key={idx}>
-              <div>{key}</div>
+            <li key={idx} className="profile-line">
+              <div className="profileKeys">{key}</div>
+              <div className="profileValues">{profilePairs[key]}</div>
+              <input type="text" className={`${key}`} onChange={this.update}/>
             </li>
         )}
       </ul>
     );
-
-    let profileValues = (
-      <ul>
-        {
-          profileKeys.map((key, idx) =>
-            <li key={idx}>
-              <div>{profilePairs[key]}</div>
-            </li>
-        )}
-      </ul>
-    );
-
-    let profileEdits = (
-      <ul>
-        {
-          profileKeys.map((key, idx) =>
-            <li key={idx}>
-              <input type="text"
-                     className={key}
-                     onChange={this.update}
-
-              />
-            </li>
-        )}
-      </ul>
-    );
-
 
     return(
-      <div>
-        {profile}
-        {profileValues}
-        {profileEdits}
+      <div className="profile-main">
+        <h2 className="profile-header">About</h2>
 
-        <button onClick={this.handleSubmit}>Update Profile</button>
-
+        <div className="profile-content">
+          {profileTriple}
+        </div>
       </div>
     );
   }

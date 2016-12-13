@@ -1,0 +1,55 @@
+/*.profileEdits input {
+  background: white;
+  border: 1px solid #d3d6db;
+}*/
+
+.profile-main {
+  background: white;
+  border: 1px solid #d3d6db;
+  margin-top: 20px;
+  border-radius: 1px;
+  font-size: 16px;
+
+}
+
+.profile-header {
+  background: #f6f7f9;
+  color: #4b4f56;
+  font-size: 22px;
+  font-weight: bolder;
+  border-bottom: 1px solid #d3d6db;
+  padding: 18px 22px;
+}
+
+.profile-content {
+  display: flex;
+  padding: 20px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.profileTriple > li {
+  display: flex;
+}
+
+.profileKeys, .profileValues {
+  text-transform: capitalize;
+}
+
+.profileValues {
+  width: 200px;
+}
+
+.profileKeys {
+  width: 150px;
+  color: #90949c;
+}
+
+.profile-line > input {
+  border: 1px solid #d3d6db;
+  border-radius: 1px;
+}
+
+.profile-line {
+  margin-bottom: 10px;
+}

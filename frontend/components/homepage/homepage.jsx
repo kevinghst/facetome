@@ -1,11 +1,44 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 
+class RequestList extends React.Component {
+  constructor(props){
+    super(props);
+  }
+
+  render(){
+    let requestIds = this.props.requestIds;
+    let requests = this.props.requests;
+    return(
+      <ul className="requests">
+        {
+          requestIds.map((id, idx) =>
+            <li className="request-line" key={idx}>
+              <div className="friend-thumb">
+                <Link className="friend-thumb-img" to={`/home/${requests[id].requester_username}`}>
+                  <img src={requests[id].requester.photo_url}/>
+                </Link>
+                <Link to={`/home/${requests[id].requester_username}`}>{requests[id].requester_username}</Link>
+              </div>
+
+              <button className= {`${requests[id].requester_user_id} friend-thumb-accept`} onClick={this.acceptRequest}>Accept Request</button>
+            </li>
+          )
+        }
+      </ul>
+    );
+  }
+}
+
 class HomePage extends React.Component{
   constructor(props){
     super(props);
+
+    this.state = { showFriendRequests: false }
+
     this.logoutnow = this.logoutnow.bind(this);
     this.acceptRequest = this.acceptRequest.bind(this);
+    this.showRequests = this.showRequests.bind(this);
   }
 
   componentDidMount(){
@@ -18,6 +51,11 @@ class HomePage extends React.Component{
       this.props.router.push("/login");
     }
 
+  }
+
+  showRequests(e){
+    e.preventDefault();
+    this.setState({ showFriendRequests: !this.state.showFriendRequests });
   }
 
   logoutnow(){
@@ -70,19 +108,13 @@ class HomePage extends React.Component{
       otherRequestTabs = (
         <div className="friendRequest-tab">
           <div className="sub-friendRequest-tab">
-            <img src={window.friendship_logo}/>
-
-              <ul className="requests">
-                {
-                  requestIds.map((id, idx) =>
-                    <li key={idx}>
-                      <img src={requests[id].photo_url}/>
-                      <Link to={`/home/${requests[id].requester_username}`}>{requests[id].requester_username}</Link>
-                      <button className= {`${requests[id].requester_user_id}`} onClick={this.acceptRequest}>Accept Request</button>
-                    </li>
-                  )
-                }
-              </ul>
+            <a onClick={this.showRequests.bind(this)} href='#'>
+              <img src={window.friendship_logo}/>
+            </a>
+            {this.state.showFriendRequests && < RequestList
+                                                  requestIds={requestIds}
+                                                  requests = {requests}
+                                              />}
           </div>
         </div>
       );

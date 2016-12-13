@@ -34,3 +34,50 @@ gem install bundler
 
 bundle install
 --------------------
+/ <button onClick={this.handleSubmit}>Update Profile</button>
+
+
+    // let profileForm = (
+    //   <ul className="profileForm">
+    //     {
+    //       profileKeys.map((key, idx) =>
+    //       <li key={idx}>
+    //         <InlineEditable
+    //           profileKey={key}
+    //           profileValue={profilePairs[key]}
+    //           updateValue={this.updateValue}
+    //         />
+    //       </li>
+    //     )}
+    //   </ul>
+    // );
+
+
+    //
+    // class InlineEditable extends Component {
+    //   constructor(props) {
+    //     super(props);
+    //     this.state = { editing: false }
+    //   }
+    //
+    //   handleSubmit(e) {
+    //     e.preventDefault()
+    //     this.props.updateValue(this.state).then(this.setState({ editing: false }))
+    //   }
+    //
+    //   render() {
+    //     if (this.state.editing) {
+    //       return (
+    //         <form onSubmit={ this.handleSubmit }>
+    //           <input type="text" className={`${this.props.profileKey}`}/>
+    //           <button>Save</button>
+    //         </form>
+    //       );
+    //     } else {
+    //       <section>
+    //         <p>{this.props.profileValue}</p>
+    //         <button onClick={ () => this.setState({ editing: true })}>Edit</button>
+    //       </section>
+    //     }
+    //   };
+    // }

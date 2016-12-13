@@ -1,21 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 
-
-class FriendDelete extends React.Component {
-  constructor(){
-    super();
-  };
-  render(){
-    return(
-      <button
-        className="unfriend-button"
-        onClick={this.unfriend}
-      >Unfriend</button>
-    );
-  }
-}
-
 class UserPage extends React.Component{
   constructor(props){
     super(props);
@@ -132,7 +117,10 @@ class UserPage extends React.Component{
           <div className="friendStatus">
             <div className="subfriendStatus">
               <div>Friends</div>
-              < FriendDelete />
+              <button
+                className="unfriend-button"
+                onClick={this.unfriend}
+              >Unfriend</button>
             </div>
           </div>
 
@@ -177,8 +165,9 @@ class UserPage extends React.Component{
           {friendStatus}
 
           <ul className="user-nav-ul">
-            <li><Link to={`/home/${username}`} className="user-nav-list">Timeline</Link></li>
-            <li><Link to={`/home/${username}/about`} className="user-nav-list">About</Link></li>
+            <li><Link to={`/home/${this.props.targetusername}`} className="user-nav-list">Timeline</Link></li>
+            <li><Link to={`/home/${this.props.targetusername}/about`} className="user-nav-list">About</Link></li>
+            <li><Link to={`/home/${this.props.targetusername}/friends`} className="user-nav-list">Friends</Link></li>
           </ul>
 
           <section className="test">

@@ -6,7 +6,8 @@ import SessionFormContainer from './session/session_form_container';
 import HomePageContainer from './homepage/homepage_container';
 import UserPageContainer from './userpage/userpage_container';
 import UserProfileContainer from './userprofile/userprofile_container';
-import ImageUploadContainer from './imageupload/image_upload_container'
+import ImageUploadContainer from './imageupload/image_upload_container';
+import FriendsContainer from './friends/friends_container';
 
 export default function Root({store}){
   function redirectIfLoggedIn(_, replace){
@@ -34,6 +35,7 @@ export default function Root({store}){
             <Route path="/home/:username" component={ UserPageContainer } onEnter={redirectIfLoggedOut} >
               <Route path="/home/:username/update/:photo" component={ ImageUploadContainer } onEnter={redirectIfLoggedOut} />
               <Route path="/home/:username/about" component={ UserProfileContainer } onEnter={redirectIfLoggedOut} />
+              <Route path="/home/:username/friends" component={ FriendsContainer } onEnter={redirectIfLoggedOut} />
             </Route>
           </Route>
           <Route path="/login" component={ SessionFormContainer } onEnter={redirectIfLoggedIn} />

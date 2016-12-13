@@ -35,3 +35,7 @@ ul {
 button:hover{
   cursor: pointer;
 }
+
+img {
+  border-radius: 1px;
+}

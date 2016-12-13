@@ -25,7 +25,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       fetchOtherRequests: (user) => dispatch(fetchOtherRequests(user)),
       deleteRequest: (requester_id, requestee_id) => dispatch(deleteRequest(requester_id, requestee_id)),
       acceptFriend: (friendship) => dispatch(acceptFriend(friendship)),
-      fetchFriends: (user_id) => dispatch(fetchFriends(user_id))
+      fetchFriends: (user_id) => dispatch(fetchFriends(user_id)),
+      deleteFriend: (user_id, friend_id) => dispatch(deleteFriend(user_id, friend_id))
   };
 };
 
