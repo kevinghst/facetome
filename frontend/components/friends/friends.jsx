@@ -24,9 +24,10 @@ class Friends extends React.Component{
   }
 
   unfriend(e){
+    e.preventDefault();
     let user_id = this.props.currentUser.id;
     let friend_id = parseInt(e.currentTarget.value);
-    this.props.deleteFriend(user_id, friend_id );
+    this.props.deleteFriend(user_id, friend_id )
   }
 
   render(){

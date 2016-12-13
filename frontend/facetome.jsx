@@ -7,6 +7,7 @@ import {fetchProfile, updateProfile} from './actions/profile_actions';
 import {friendRequest, fetchOwnRequests, fetchOtherRequests, deleteRequest} from './actions/request_actions';
 import {acceptFriend, fetchFriends} from './actions/friendship_actions';
 import {deleteFriend} from './util/friendship_api_util';
+import {createPost} from './actions/post_actions';
 
 import configureStore from './store/store.js';
 
@@ -16,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.acceptFriend = acceptFriend;
   window.fetchFriends = fetchFriends;
   window.deleteFriend = deleteFriend;
+  window.createPost = createPost;
 
   let store;
 

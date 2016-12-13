@@ -4,10 +4,11 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :users, only: [:create, :destroy]
     resource :session, only: [:create, :destroy]
-    resources :friendships
+    resources :friendships, only: [:show, :create, :destroy]
     resources :requests, only: [:show, :create, :destroy]
     resources :own_requests, only: [:show]
     resources :other_requests, only: [:show]
+    resources :posts
     resources :profiles, only: [:update] do
       collection do
         get ':username', to: "profiles#show"

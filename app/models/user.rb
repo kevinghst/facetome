@@ -38,7 +38,19 @@ class User < ActiveRecord::Base
     :primary_key => :id
   )
 
+  has_many(
+    :ownposts,
+    :class_name => "Post",
+    :foreign_key => :author_id,
+    :primary_key => :id
+  )
 
+  has_many(
+    :otherposts,
+    :class_name => "Post",
+    :foreign_key => :target_id,
+    :primary_key => :id
+  )
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
