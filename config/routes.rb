@@ -8,7 +8,9 @@ Rails.application.routes.draw do
     resources :requests, only: [:show, :create, :destroy]
     resources :own_requests, only: [:show]
     resources :other_requests, only: [:show]
-    resources :posts
+    resources :newsfeeds, only: [:show]
+    resources :wall, only: [:show]
+    resources :posts, only: [:create, :destroy]
     resources :profiles, only: [:update] do
       collection do
         get ':username', to: "profiles#show"

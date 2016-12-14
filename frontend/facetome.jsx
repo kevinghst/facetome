@@ -6,8 +6,8 @@ import {deleteUser} from './util/session_api_util';
 import {fetchProfile, updateProfile} from './actions/profile_actions';
 import {friendRequest, fetchOwnRequests, fetchOtherRequests, deleteRequest} from './actions/request_actions';
 import {acceptFriend, fetchFriends} from './actions/friendship_actions';
-import {deleteFriend} from './util/friendship_api_util';
-import {createPost} from './actions/post_actions';
+import {deleteFriend, createPostTest} from './util/friendship_api_util';
+import {createPost, fetchWall} from './actions/post_actions';
 
 import configureStore from './store/store.js';
 
@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
   window.fetchFriends = fetchFriends;
   window.deleteFriend = deleteFriend;
   window.createPost = createPost;
+  window.createPostTest = createPostTest;
+  window.fetchWall = fetchWall;
 
   let store;
 

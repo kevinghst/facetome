@@ -123,10 +123,10 @@ class HomePage extends React.Component{
               { requestBadge }
             </a>
             {this.state.showFriendRequests && < RequestList
-                                                  requestIds={requestIds}
-                                                  requests = {requests}
-                                                  acceptRequest = {this.acceptRequest}
-                                              />}
+                  requestIds={requestIds}
+                  requests = {requests}
+                  acceptRequest = {this.acceptRequest}
+              />}
           </div>
         </div>
       );
