@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 
+
 const PostItem = ({ post, deletePost, handler, displayDelete, currentUser }) => {
   let postImage = (
     <div className="post-img">
