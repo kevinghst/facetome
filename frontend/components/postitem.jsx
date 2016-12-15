@@ -6,6 +6,15 @@ class PostItem extends React.Component{
 
   constructor(props){
     super(props);
+    this.state = {
+      displayHidden: false
+    };
+    this.changeHiddenState = this.changeHiddenState.bind(this);
+  }
+
+  changeHiddenState(e){
+    e.preventDefault();
+    this.setState({ displayHidden: !this.state.displayHidden });
   }
 
   render() {
@@ -72,6 +81,8 @@ class PostItem extends React.Component{
                   currentUser={currentUser}
                   submitComment={submitComment}
                   commentBody={commentBody}
+                  displayHidden={this.state.displayHidden}
+                  changeHiddenState={this.changeHiddenState}
           />
 
         <div className="dropdown">

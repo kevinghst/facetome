@@ -1,73 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
-
-
-const PostItem = ({ post, deletePost, handler, displayDelete, currentUser }) => {
-  let postImage = (
-    <div className="post-img">
-      <img src={post.image_url}/>
-    </div>
-  );
-
-  let nameLink;
-  if (post.target_id === post.author_id){
-    nameLink = (<Link className="post-name-link-real"
-                      to={`/home/${post.author.username}`}
-                      >{post.author.firstname} {post.author.lastname}
-                </Link>);
-  } else {
-    nameLink = (
-      <div className="authorToTarget">
-        <Link className="post-name-link-real"
-              to={`/home/${post.author.username}`}
-              >{post.author.firstname} {post.author.lastname}
-        </Link>
-        <img src={window.smalltriangle}/>
-        <Link className="post-name-link-real"
-              to={`/home/${post.target.username}`}
-              > {post.target.firstname} {post.target.lastname}
-        </Link>
-      </div>
-    );
-  }
-
-  let removePost;
-  if(currentUser && (currentUser.username === post.author.username || currentUser.username === post.target.username)){
-    removePost = (
-      <button className="deletePost" value={`${post.id}`} onClick={deletePost}>Delete</button>
-    );
-  }
-
-  return (
-    <li className="post-item">
-      <div className="post-content">
-        <div className="post-author-thumb">
-          <Link className="post-thumb-img" to={`/home/${post.author.username}`}>
-            <img src={post.author.photo_url}/>
-          </Link>
-          <div className="post-name-link">
-            {nameLink}
-            <div className="post-date">{post.date} at {post.time}</div>
-          </div>
-        </div>
-
-        <div className="post-text">
-          {post.body}
-        </div>
-
-        { (post.image_url.indexOf("/assets/monolith") === -1) && postImage }
-      </div>
-
-      <div className="dropdown">
-        <a href='#'>
-          <img src={window.dropdown}/>
-          { removePost }
-        </a>
-      </div>
-
-    </li>
-  );
-};
+import Comments from '../comments';
+import PostItem from '../postitem';
 
 class Wall extends React.Component{
   constructor(props){
@@ -79,7 +13,10 @@ class Wall extends React.Component{
       imageUrl: null,
       body: "",
       author_id: null,
-      target_id: null
+      target_id: null,
+
+      post_id: null,
+      commentBody: ""
     };
 
     this.updateForm = this.updateForm.bind(this);
@@ -87,6 +24,8 @@ class Wall extends React.Component{
     this.updateImage = this.updateImage.bind(this);
     this.handler = this.handler.bind(this);
     this.deletePost = this.deletePost.bind(this);
+    this.updateComment = this.updateComment.bind(this);
+    this.submitComment = this.submitComment.bind(this);
   }
 
   componentDidUpdate(prevProps){
@@ -104,6 +43,27 @@ class Wall extends React.Component{
     this.setState({
       displayDelete: !this.state.displayDelete
     });
+  }
+
+  updateComment(e){
+    const commentValue = e.currentTarget.value;
+    this.setState({ commentBody: commentValue });
+  }
+
+  submitComment(e){
+    e.preventDefault(e);
+    this.setState({
+      commentBody: null
+    });
+
+    const postId = e.currentTarget.className.split(" ")[1];
+
+    var formData = new FormData();
+    formData.append("comment[body]", this.state.commentBody);
+    formData.append("comment[author_id]", this.props.currentUser.id);
+    formData.append("comment[post_id]", postId);
+
+    this.props.createComment(formData);
   }
 
 
@@ -223,7 +183,11 @@ class Wall extends React.Component{
                                           deletePost={this.deletePost}
                                           handler={this.handler}
                                           displayDelete={this.state.displayDelete}
-                                          currentUser={this.props.currentUser} />)
+                                          currentUser={this.props.currentUser}
+                                          updateComment={this.updateComment}
+                                          submitComment={this.submitComment}
+                                          commentBody={this.state.commentBody}
+                                          dynamicSet={this.dynamicSet} />)
             }
           </ul>
         </section>

@@ -6,12 +6,16 @@
 }
 
 .actual-comments {
-  margin-top: 10px;
+  margin-top: 7px;
 }
 
 .actual-comments > li {
   display: flex;
   margin-bottom: 5px;
+}
+
+.comment-section {
+  background: #f6f7f9;
 }
 
 .comment-main {
@@ -73,4 +77,11 @@
   font-size: 12px;
   font-weight: normal;
   padding-left: 5px;
+}
+
+.hiddenTrigger {
+  font-size: 13px;
+  color: #365899;
+  margin-left: 2px;
+  margin-bottom: 6px;
 }

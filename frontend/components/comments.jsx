@@ -1,15 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const Comments = ({updateComment, post, currentUser, submitComment, commentBody}) => {
+const Comments = ({updateComment, post, currentUser, submitComment, commentBody, displayHidden, changeHiddenState}) => {
 
 
   let comments = post.comments || [];
-  let hiddencomments;
   let firstThree;
+  let hiddenText;
   if(comments.length > 3){
     firstThree = comments.slice(Math.max(comments.length-3, 1));
-    hiddencomments = comments.filter(function(x) { return firstThree.indexOf(x) < 0 });
+    let commentState = "comments";
+    if(comments.length === 4){
+      commentState = "comment";
+    }
+
+    hiddenText = <div className="hiddenTrigger">
+                    <a  href='#'
+                        onClick={changeHiddenState}
+                     >View {comments.length - 3} more {commentState}</a>
+                    </div>
+
   } else {
     firstThree = comments;
   }
@@ -17,12 +27,16 @@ const Comments = ({updateComment, post, currentUser, submitComment, commentBody}
   commentBody = commentBody || "";
   currentUser = currentUser || {};
 
-  
+  if(displayHidden){
+    firstThree = comments;
+    hiddenText = <div></div>
+  }
 
   return (
     <section className= 'comment-section'>
-
       <ul className= "actual-comments">
+        {hiddenText}
+
         {
           firstThree.map((comment) =>
           <li key={comment.id}>
