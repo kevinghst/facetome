@@ -22,3 +22,7 @@ json.target do
   json.lastname post.target.lastname
   json.username post.target.username
 end
+
+json.comments do
+  json.array! post.comments, partial: 'api/comments/comment', as: :comment
+end

@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
+import Comments from '../comments';
 
-const PostItem = ({ post, deletePost, handler, displayDelete, currentUser }) => {
+const PostItem = ({ post, deletePost, handler, displayDelete, currentUser, updateComment,
+                    submitComment, commentBody }) => {
   let postImage = (
     <div className="post-img">
       <img src={post.image_url}/>
@@ -58,6 +60,13 @@ const PostItem = ({ post, deletePost, handler, displayDelete, currentUser }) => 
         { (post.image_url.indexOf("/assets/monolith") === -1) && postImage }
       </div>
 
+      <Comments updateComment={updateComment}
+                post={post}
+                currentUser={currentUser}
+                submitComment={submitComment}
+                commentBody={commentBody}
+        />
+
       <div className="dropdown">
         <a href='#'>
           <img src={window.dropdown}/>
@@ -79,7 +88,10 @@ class NewsFeed extends React.Component{
       imageUrl: null,
       body: "",
       author_id: null,
-      target_id: null
+      target_id: null,
+
+      post_id: null,
+      commentBody: ""
     };
 
     this.updateForm = this.updateForm.bind(this);
@@ -87,6 +99,8 @@ class NewsFeed extends React.Component{
     this.updateImage = this.updateImage.bind(this);
     this.handler = this.handler.bind(this);
     this.deletePost = this.deletePost.bind(this);
+    this.updateComment = this.updateComment.bind(this);
+    this.submitComment = this.submitComment.bind(this);
   }
 
   componentDidMount(){
@@ -102,6 +116,26 @@ class NewsFeed extends React.Component{
     });
   }
 
+  updateComment(e){
+    const commentValue = e.currentTarget.value;
+    this.setState({ commentBody: commentValue });
+  }
+
+  submitComment(e){
+    e.preventDefault(e);
+    this.setState({
+      commentBody: null
+    });
+
+    const postId = e.currentTarget.className.split(" ")[1];
+
+    var formData = new FormData();
+    formData.append("comment[body]", this.state.commentBody);
+    formData.append("comment[author_id]", this.props.currentUser.id);
+    formData.append("comment[post_id]", postId);
+
+    this.props.createComment(formData);
+  }
 
   handleSubmit(e){
     e.preventDefault(e);
@@ -164,12 +198,11 @@ class NewsFeed extends React.Component{
 
     return(
       <main className="main-feed">
-
         <section className="left-feed">
-
         </section>
-
         <section className="newsfeed-post-section">
+
+
 
           <form className="newsfeed-postform" onSubmit={this.handleSubmit}>
             <label className="newsfeed-image-upload">
@@ -190,12 +223,12 @@ class NewsFeed extends React.Component{
                 ></textarea>
 
               {this.state.displayPhoto && postPhoto}
-
               </div>
             </div>
-
             <input className="post-submit-button" type="submit" value="Post" />
           </form>
+
+
 
           <ul className="newsfeed-posts">
             {
@@ -204,21 +237,22 @@ class NewsFeed extends React.Component{
                                           deletePost={this.deletePost}
                                           handler={this.handler}
                                           displayDelete={this.state.displayDelete}
-                                          currentUser={this.props.currentUser} />)
+                                          currentUser={this.props.currentUser}
+                                          updateComment={this.updateComment}
+                                          submitComment={this.submitComment}
+                                          commentBody={this.state.commentBody} />)
             }
           </ul>
+
 
         </section>
 
         <section className="right-feed">
 
         </section>
-
       </main>
-
     );
   }
-
 }
 
 export default NewsFeed;

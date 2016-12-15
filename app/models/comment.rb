@@ -1,8 +1,5 @@
-class Post < ActiveRecord::Base
-  validates :body, :author_id, :target_id, presence: true
-
-  has_attached_file :image, default_url: "monolith.jpg"
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+class Comment < ActiveRecord::Base
+  validates :body, :author_id, :post_id, presence: true
 
   belongs_to(
     :author,
@@ -12,15 +9,8 @@ class Post < ActiveRecord::Base
   )
 
   belongs_to(
-    :target,
-    :class_name => "User",
-    :foreign_key => :target_id,
-    :primary_key => :id
-  )
-
-  has_many(
-    :comments,
-    :class_name => "Comment",
+    :post,
+    :class_name => "Post",
     :foreign_key => :post_id,
     :primary_key => :id
   )
@@ -43,5 +33,6 @@ class Post < ActiveRecord::Base
     end
     return "#{hours}:#{minutes}#{status}"
   end
+
 
 end

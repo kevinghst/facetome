@@ -18,24 +18,24 @@
   }
 
 
-  wallposts: {
-    1: {
-      authorId: 1,
-      authorusername: "pinkman"
-      body: "can't go back no no",
-      comments: {
-        id: 5,
-        authorId: 2
-        authorusername: "winnieThePooh"
-        body: "that's a lie",
-        postId: 1,
-        updated_at: "09:04:13, 12/12/2011"
+  postSlice: {
+    posts: [
+      1: {
+        authorId: 1,
+        authorusername: "pinkman"
+        body: "can't go back no no",
+        comments: {
+          id: 5,
+          authorId: 2
+          authorusername: "winnieThePooh"
+          body: "that's a lie",
+          postId: 1,
+          updated_at: "09:04:13, 12/12/2011"
+        }
       }
-    }
-    2: {
-      body: "can't open my eyes",
-      updated_at: "09:05:14, 12/12/2012"
-    }
+
+    ]
+
   }
 
 

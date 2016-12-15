@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :newsfeeds, only: [:show]
     resources :wall, only: [:show]
     resources :posts, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy, :show]
     resources :profiles, only: [:update] do
       collection do
         get ':username', to: "profiles#show"
