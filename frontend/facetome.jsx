@@ -1,25 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {signup, login, logout} from './actions/session_actions';
-import Root from './components/root';
-import {deleteUser} from './util/session_api_util';
-import {fetchProfile, updateProfile} from './actions/profile_actions';
-import {friendRequest, fetchOwnRequests, fetchOtherRequests, deleteRequest} from './actions/request_actions';
-import {acceptFriend, fetchFriends} from './actions/friendship_actions';
-import {deleteFriend, createPostTest} from './util/friendship_api_util';
-import {createPost, fetchWall} from './actions/post_actions';
-
 import configureStore from './store/store.js';
-
+import Root from './components/root';
+import {deleteFriend, createPostTest} from './util/friendship_api_util';
+import {createPost, fetchWall, deletePost} from './actions/post_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  window.acceptFriend = acceptFriend;
-  window.fetchFriends = fetchFriends;
-  window.deleteFriend = deleteFriend;
   window.createPost = createPost;
   window.createPostTest = createPostTest;
   window.fetchWall = fetchWall;
+  window.deletePost = deletePost;
 
   let store;
 

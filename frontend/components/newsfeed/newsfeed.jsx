@@ -1,12 +1,42 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 
-const PostItem = ({ post }) => {
+const PostItem = ({ post, deletePost, handler, displayDelete, currentUser }) => {
   let postImage = (
     <div className="post-img">
       <img src={post.image_url}/>
     </div>
   );
+
+  let nameLink;
+  if (post.target_id === post.author_id){
+    nameLink = (<Link className="post-name-link-real"
+                      to={`/home/${post.author.username}`}
+                      >{post.author.firstname} {post.author.lastname}
+                </Link>);
+  } else {
+    nameLink = (
+      <div className="authorToTarget">
+        <Link className="post-name-link-real"
+              to={`/home/${post.author.username}`}
+              >{post.author.firstname} {post.author.lastname}
+        </Link>
+        <img src={window.smalltriangle}/>
+        <Link className="post-name-link-real"
+              to={`/home/${post.target.username}`}
+              > {post.target.firstname} {post.target.lastname}
+        </Link>
+      </div>
+    );
+  }
+
+  let removePost;
+  if(currentUser && (currentUser.username === post.author.username || currentUser.username === post.target.username)){
+    removePost = (
+      <button className="deletePost" value={`${post.id}`} onClick={deletePost}>Delete</button>
+    );
+  }
+
 
   return (
     <li className="post-item">
@@ -16,7 +46,7 @@ const PostItem = ({ post }) => {
             <img src={post.author.photo_url}/>
           </Link>
           <div className="post-name-link">
-            <Link className="post-name-link-real" to={`/home/${post.author.username}`}>{post.author.firstname} {post.author.lastname}</Link>
+            {nameLink}
             <div className="post-date">{post.date} at {post.time}</div>
           </div>
         </div>
@@ -26,7 +56,13 @@ const PostItem = ({ post }) => {
         </div>
 
         { (post.image_url.indexOf("/assets/monolith") === -1) && postImage }
+      </div>
 
+      <div className="dropdown">
+        <a href='#'>
+          <img src={window.dropdown}/>
+          { removePost }
+        </a>
       </div>
 
     </li>
@@ -37,6 +73,7 @@ class NewsFeed extends React.Component{
   constructor(props){
     super(props);
     this.state = {
+      displayDelete: false,
       displayPhoto: false,
       image: null,
       imageUrl: null,
@@ -48,6 +85,8 @@ class NewsFeed extends React.Component{
     this.updateForm = this.updateForm.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateImage = this.updateImage.bind(this);
+    this.handler = this.handler.bind(this);
+    this.deletePost = this.deletePost.bind(this);
   }
 
   componentDidMount(){
@@ -56,10 +95,18 @@ class NewsFeed extends React.Component{
     }
   }
 
+  handler(e){
+    e.preventDefault();
+    this.setState({
+      displayDelete: !this.state.displayDelete
+    });
+  }
+
+
   handleSubmit(e){
     e.preventDefault(e);
     this.setState({
-      displayPhoto: false,
+      displayDelete: false,
       image: null,
       imageUrl: null,
       body: "",
@@ -98,6 +145,12 @@ class NewsFeed extends React.Component{
     }
   }
 
+  deletePost(e){
+    e.preventDefault();
+    var postId = e.currentTarget.value;
+    this.props.deletePost(postId);
+  }
+
   render(){
     let posts = this.props.posts
     let postPhoto = (<div className="newsfeed-photo-upload">
@@ -120,7 +173,7 @@ class NewsFeed extends React.Component{
 
           <form className="newsfeed-postform" onSubmit={this.handleSubmit}>
             <label className="newsfeed-image-upload">
-              <div>Upload Photo</div>
+              <div>Photo</div>
               <input type="file" onChange={this.updateImage}></input>
             </label>
 
@@ -146,7 +199,12 @@ class NewsFeed extends React.Component{
 
           <ul className="newsfeed-posts">
             {
-              posts.map(post => <PostItem key={post.id} post={post} />)
+              posts.map(post => <PostItem key={post.id}
+                                          post={post}
+                                          deletePost={this.deletePost}
+                                          handler={this.handler}
+                                          displayDelete={this.state.displayDelete}
+                                          currentUser={this.props.currentUser} />)
             }
           </ul>
 

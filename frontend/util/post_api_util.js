@@ -8,14 +8,6 @@ export const createPost = (formData) => {
   });
 };
 
-export const createPostTest = (post) => {
-  return $.ajax({
-    method: 'POST',
-    url: '/api/posts',
-    data: {post}
-  });
-};
-
 export const fetchNewsFeed = (user_id) => {
   return $.ajax({
     method: 'GET',
@@ -23,9 +15,16 @@ export const fetchNewsFeed = (user_id) => {
   });
 }
 
-export const fetchWall = (user_id) => {
+export const fetchWall = (username) => {
   return $.ajax({
     method: 'GET',
-    url: `/api/wall/${user_id}`,
+    url: `/api/wall/${username}`,
+  });
+}
+
+export const deletePost = (post_id) => {
+  return $.ajax({
+    method: 'DELETE',
+    url: `/api/posts/${post_id}`,
   });
 }

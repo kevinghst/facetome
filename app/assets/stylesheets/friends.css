@@ -2,7 +2,7 @@
   height: 100px;
   width: 100px;
   object-fit: cover;
-  border: 1px solid rgba(0, 0, 0, .1);
+  border: 1px solid #D3D3D3;
 }
 
 .user-content {
@@ -16,6 +16,7 @@
 }
 
 .user-friends-left {
+  padding: 4px 4px 1px 4px;
   display: flex;
   align-items: center;
 }

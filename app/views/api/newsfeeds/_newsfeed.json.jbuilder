@@ -15,3 +15,10 @@ json.author do
   json.lastname post.author.lastname
   json.username post.author.username
 end
+
+json.target do
+  json.photo_url asset_path(post.target.photo.url)
+  json.firstname post.target.firstname
+  json.lastname post.target.lastname
+  json.username post.target.username
+end
