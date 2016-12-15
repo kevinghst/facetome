@@ -172,6 +172,38 @@ class Wall extends React.Component{
       }
     }
 
+    let postForm;
+
+    if(this.props.friendNames.includes(this.props.targetusername) || currentUser.username === this.props.targetusername){
+      postForm = (
+        <form className="newsfeed-postform" onSubmit={this.handleSubmit}>
+          <label className="newsfeed-image-upload">
+            <div>Photo</div>
+            <input type="file" onChange={this.updateImage}></input>
+          </label>
+
+          <div className="newsfeed-post-content">
+            <div className="newsfeed-post-body group">
+              <Link className="poster-thumb-img" to={`/home/${currentUser.username}`}>
+                <img src={currentUser.photo_url}/>
+              </Link>
+
+              <textarea className="newsfeed-post-textarea"
+                        value={this.state.body}
+                        placeholder={placeHolder}
+                        onChange = {this.updateForm}
+              ></textarea>
+
+            {this.state.displayPhoto && postPhoto}
+
+            </div>
+          </div>
+
+          <input className="post-submit-button" type="submit" value="Post" />
+        </form>
+      );
+    }
+
     return(
       <main className="main-feed">
 
@@ -181,31 +213,7 @@ class Wall extends React.Component{
 
         <section className="newsfeed-post-section wall">
 
-          <form className="newsfeed-postform" onSubmit={this.handleSubmit}>
-            <label className="newsfeed-image-upload">
-              <div>Photo</div>
-              <input type="file" onChange={this.updateImage}></input>
-            </label>
-
-            <div className="newsfeed-post-content">
-              <div className="newsfeed-post-body group">
-                <Link className="poster-thumb-img" to={`/home/${currentUser.username}`}>
-                  <img src={currentUser.photo_url}/>
-                </Link>
-
-                <textarea className="newsfeed-post-textarea"
-                          value={this.state.body}
-                          placeholder={placeHolder}
-                          onChange = {this.updateForm}
-                ></textarea>
-
-              {this.state.displayPhoto && postPhoto}
-
-              </div>
-            </div>
-
-            <input className="post-submit-button" type="submit" value="Post" />
-          </form>
+          {postForm}
 
           <ul className="newsfeed-posts">
             {
@@ -217,16 +225,10 @@ class Wall extends React.Component{
                                           currentUser={this.props.currentUser} />)
             }
           </ul>
-
         </section>
-
-
-
       </main>
-
     );
   }
-
 }
 
 

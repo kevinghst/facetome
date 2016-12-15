@@ -1,6 +1,7 @@
 import {connect} from 'react-redux';
 import Wall from './wall';
 import {createPost, fetchWall, deletePost} from '../../actions/post_actions';
+import {getFriendsNames} from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -9,6 +10,7 @@ const mapStateToProps = (state, ownProps) => {
     posts: state.postSlice.posts,
     profile: state.profile,
     targetusername: ownProps.params.username,
+    friendNames: getFriendsNames(state),
   };
 };
 
