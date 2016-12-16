@@ -14,7 +14,7 @@ module FaceBook
 
     config.paperclip_defaults = {
       :storage => :s3,
-      # :s3_protocol => :https,
+      :s3_protocol => :https,
       # url: 's3_domain_url',
       # s3_host_name: "s3-#{ENV['s3_region']}.amazonaws.com",
       :s3_region => ENV["s3_region"],
