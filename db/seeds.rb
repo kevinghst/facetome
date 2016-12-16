@@ -9,6 +9,8 @@
 
 User.destroy_all
 
+Friendship.destroy_all
+
 #10
 User.create({firstname: "Harry", lastname: "Potter", username: "harrypotter", password:"harrypotter", gender:"male", birthday:"May 01, 2016"})
 #11
