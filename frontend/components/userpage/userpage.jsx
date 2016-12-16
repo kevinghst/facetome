@@ -114,7 +114,6 @@ class UserPage extends React.Component{
                       </label> );
 
     } else {
-      debugger
       if(this.props.friendNames.includes(this.props.targetusername)){
         friendStatus = (
           <div className="friendStatus">

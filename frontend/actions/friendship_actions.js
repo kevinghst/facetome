@@ -3,11 +3,19 @@ import * as APIUtil from '../util/friendship_api_util'
 export const RECEIVE_FRIEND = "RECEIVE_FRIEND";
 export const RECEIVE_FRIENDS = "RECEIVE_FRIENDS";
 export const REMOVE_FRIEND = "REMOVE_FRIEND";
+export const RECEIVE_USER_FRIENDS = "RECEIVE_USER_FRIENDS";
 
 export const receiveFriend = friend => {
   return {
     type: RECEIVE_FRIEND,
     friend
+  };
+};
+
+export const receiveUserFriends = userFriends => {
+  return {
+    type: RECEIVE_USER_FRIENDS,
+    userFriends
   };
 };
 
@@ -45,6 +53,14 @@ export function fetchFriends(user_id){
   return (dispatch) => {
     return APIUtil.fetchFriends(user_id).then(
       (friends) => dispatch(receiveFriends(friends))
+    );
+  };
+}
+
+export function fetchUserFriends(user_id){
+  return (dispatch) => {
+    return APIUtil.fetchFriends(user_id).then(
+      (userFriends) => dispatch(receiveUserFriends(userFriends))
     );
   };
 }

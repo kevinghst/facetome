@@ -4,6 +4,7 @@ import ProfileReducer from './profile_reducer';
 import OwnRequestsReducer from './own_request_reducer';
 import OtherRequestsReducer from './other_request_reducer';
 import FriendshipReducer from './friendship_reducer';
+import UserFriendshipReducer from './user_friendship_reducer';
 import PostReducer from './post_reducer';
 
 
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
   ownRequests: OwnRequestsReducer,
   otherRequests: OtherRequestsReducer,
   friends: FriendshipReducer,
-  postSlice: PostReducer
+  postSlice: PostReducer,
+  userFriends: UserFriendshipReducer
 });
 
 export default rootReducer;

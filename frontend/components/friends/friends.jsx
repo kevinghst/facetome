@@ -14,7 +14,7 @@ class Friends extends React.Component{
 
   componentDidMount(){
     if (this.props.profile.id){
-      this.props.fetchFriends(this.props.profile.id);
+      this.props.fetchUserFriends(this.props.profile.id);
     }
 
   }
@@ -36,7 +36,7 @@ class Friends extends React.Component{
     let friends;
 
     if(this.props.currentUser){
-      let friendKeys = Object.keys(this.props.friends);
+      let friendKeys = Object.keys(this.props.userFriends);
 
       friends = (
         <ul className="user-friends group">
@@ -44,11 +44,11 @@ class Friends extends React.Component{
             friendKeys.map((key, idx) =>
               <li key={idx} className="user-friends">
                 <div className="user-friends-left">
-                  <Link className="friend-image" to={`/home/${this.props.friends[key].username}`}>
-                    <img src={this.props.friends[key].photo_url}/>
+                  <Link className="friend-image" to={`/home/${this.props.userFriends[key].username}`}>
+                    <img src={this.props.userFriends[key].photo_url}/>
                   </Link>
 
-                  <Link className="friend-name-link" to={`/home/${this.props.friends[key].username}`}>{this.props.friends[key].username}</Link>
+                  <Link className="friend-name-link" to={`/home/${this.props.userFriends[key].username}`}>{this.props.userFriends[key].username}</Link>
                 </div>
 
                 {condition &&
@@ -56,7 +56,7 @@ class Friends extends React.Component{
                     <div className="user-subfriendStatus">
                       <div>Friends</div>
                       <button
-                        value = {`${this.props.friends[key].id}`}
+                        value = {`${this.props.userFriends[key].id}`}
                         className="user-unfriend-button"
                         onClick={this.unfriend}
                       >Unfriend</button>
