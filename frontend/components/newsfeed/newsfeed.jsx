@@ -27,6 +27,7 @@ class NewsFeed extends React.Component{
     this.deletePost = this.deletePost.bind(this);
     this.updateComment = this.updateComment.bind(this);
     this.submitComment = this.submitComment.bind(this);
+    this.deleteComment = this.deleteComment.bind(this);
   }
 
   componentDidMount(){
@@ -111,6 +112,12 @@ class NewsFeed extends React.Component{
     this.props.deletePost(postId);
   }
 
+  deleteComment(e){
+    e.preventDefault();
+    var commentId = e.currentTarget.value;
+    this.props.deleteComment(commentId);
+  }
+
   render(){
     let posts = this.props.posts
     let postPhoto = (<div className="newsfeed-photo-upload">
@@ -167,7 +174,8 @@ class NewsFeed extends React.Component{
                                           updateComment={this.updateComment}
                                           submitComment={this.submitComment}
                                           commentBody={this.state.commentBody}
-                                          dynamicSet={this.dynamicSet} />)
+                                          dynamicSet={this.dynamicSet}
+                                          deleteComment={this.deleteComment} />)
             }
           </ul>
 

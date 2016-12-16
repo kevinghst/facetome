@@ -7,3 +7,10 @@ export const createComment = (formData) => {
     processData: false
   });
 };
+
+export const deleteComment = (comment_id) => {
+  return $.ajax({
+    method: 'DELETE',
+    url: `/api/comments/${comment_id}`,
+  });
+}

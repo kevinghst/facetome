@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const Comments = ({updateComment, post, currentUser, submitComment, commentBody, displayHidden, changeHiddenState}) => {
+const Comments = ({updateComment, post, currentUser, submitComment, commentBody, displayHidden, changeHiddenState, deleteComment}) => {
 
 
   let comments = post.comments || [];
@@ -39,7 +39,7 @@ const Comments = ({updateComment, post, currentUser, submitComment, commentBody,
 
         {
           firstThree.map((comment) =>
-          <li key={comment.id}>
+          <li className="a-comment" key={comment.id}>
 
             <div className="comment-thumb-img">
               <Link  to={`/home/${comment.author.username}`}>
@@ -60,7 +60,19 @@ const Comments = ({updateComment, post, currentUser, submitComment, commentBody,
               <div className="comment-date">
                 {comment.date} at {comment.time}
               </div>
+
+              <div className="remove-word">Remove this</div>
+
             </div>
+
+
+            <input className="deleteButton"
+                   type="image"
+                   onClick={deleteComment}
+                   value={comment.id}
+            src={window.removeCross}/>
+
+
           </li>
         )}
       </ul>

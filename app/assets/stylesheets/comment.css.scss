@@ -12,10 +12,14 @@
 .actual-comments > li {
   display: flex;
   margin-bottom: 5px;
+  position: relative;
 }
 
 .comment-section {
   background: #f6f7f9;
+  padding: 0 12px;
+  border-top: 1px solid #D3D3D3;
+
 }
 
 .comment-main {
@@ -64,7 +68,7 @@
 .section-create-post {
   display: flex;
   align-items: center;
-
+  padding-bottom: 4px;
 }
 
 .comment-input {
@@ -84,4 +88,55 @@
   color: #365899;
   margin-left: 2px;
   margin-bottom: 6px;
+}
+
+.delete-Button {
+    overflow: hidden;
+    display: inline-block;
+    position: absolute;
+    border: 1px solid white;
+    font-weight: normal;
+    background: image-url("removeCross.jpg");
+    height: 21px;
+    width: 28px;
+    background-size: cover;
+    border-radius: 3px;
+    cursor: pointer;
+    border: 1px solid #e5e6e9;
+}
+
+.deleteButton {
+  background: image-url("removeCross.jpg");
+  width: 16px;
+  height: 16px;
+  cursor: default;
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: none;
+}
+
+.a-comment:hover .deleteButton {
+  display:block;
+}
+
+.deleteButton:hover{
+  cursor:pointer;
+}
+
+.deleteButton:hover .remove-word{
+  display: block;
+}
+
+.remove-word {
+  position: absolute;
+  top: -25px;
+  right: -30px;
+  font-size: 12px;
+  font-weight: bold;
+  background: #1d2129;
+  color: white;
+  padding: 5px;
+  border-radius: 2px;
+  display: none;
 }

@@ -1,5 +1,5 @@
 import {RECEIVE_POST, RECEIVE_POSTS, RECEIVE_POST_ERRORS, REMOVE_POST} from '../actions/post_actions';
-import {RECEIVE_COMMENT} from '../actions/comment_actions';
+import {RECEIVE_COMMENT, REMOVE_COMMENT} from '../actions/comment_actions';
 import {merge} from 'lodash';
 
 const initState = {
@@ -53,6 +53,39 @@ const PostReducer = (state = initState, action) => {
         cloneState.posts.unshift(targetPost);
       }
       return cloneState;
+
+    case REMOVE_COMMENT:
+      let rm_post_id = action.comment.post_id;
+      let rm_targetPost;
+      let rm_index;
+      let rm_cloneState = merge({}, state);
+      let indox;
+
+      for(var i=0; i< rm_cloneState.posts.length; i++){
+        if(rm_cloneState.posts[i].id === rm_post_id){
+          rm_targetPost = rm_cloneState.posts[i];
+          rm_index = i;
+        }
+      }
+
+      rm_cloneState.posts = rm_cloneState.posts || [];
+      rm_targetPost.comments = rm_targetPost.comments || [];
+
+      for(var j=0; j<rm_targetPost.comments.length; j++){
+        if(rm_targetPost.comments[j].id === action.comment.id){
+          indox = j;
+        }
+      }
+
+      if(indox > -1){
+        rm_targetPost.comments.splice(indox, 1);
+      }
+
+      if(index > -1){
+        rm_cloneState.posts.splice(rm_index, 1);
+        rm_cloneState.posts.unshift(rm_targetPost);
+      }
+      return rm_cloneState;
 
     case RECEIVE_POST_ERRORS:
       return { posts: state.posts, postErrors: action.postErrors };
