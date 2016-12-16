@@ -16,7 +16,7 @@ module FaceBook
       :storage => :s3,
       :s3_protocol => :https,
       url: 's3_domain_url',
-      s3_host_name: "s3-#{ENV['AWS_REGION']}.amazonaws.com",
+      s3_host_name: "s3-#{ENV['s3_region']}.amazonaws.com",
       :s3_credentials => {
         :bucket => ENV["s3_bucket"],
         :access_key_id => ENV["s3_access_key_id"],
