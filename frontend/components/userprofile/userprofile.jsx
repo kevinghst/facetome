@@ -52,6 +52,7 @@ class UserProfile extends React.Component{
     delete profilePairs["background_url"];
     delete profilePairs["id"];
     delete profilePairs["birthday"];
+    delete profilePairs["username"];
     let profileKeys = Object.keys(profilePairs);
 
     let profileTriple = (
