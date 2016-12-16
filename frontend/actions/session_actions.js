@@ -47,8 +47,7 @@ export function login(user){
 export function logout(){
   return (dispatch) => {
     return APIUtil.logout().then(
-      (currentUser) => dispatch(receiveCurrentUser(null)),
-      (err) => dispatch(receiveErrors(err.responseJSON))
+      (currentUser) => dispatch(receiveCurrentUser(null))
     );
   };
 }
