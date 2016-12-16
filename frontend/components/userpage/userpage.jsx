@@ -53,6 +53,7 @@ class UserPage extends React.Component{
   }
 
   updateCover(e){
+    debugger
     var file = e.currentTarget.files[0];
     var fileReader = new FileReader();
     fileReader.onloadend = function() {

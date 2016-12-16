@@ -2,7 +2,7 @@ import {connect} from 'react-redux';
 import Wall from './wall';
 import {createPost, fetchWall, deletePost} from '../../actions/post_actions';
 import {getFriendsNames} from '../../reducers/selectors';
-import {createComment} from '../../actions/comment_actions';
+import {createComment, deleteComment} from '../../actions/comment_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -21,7 +21,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     createPost: (post) => dispatch(createPost(post)),
     fetchWall: (user_id) => dispatch(fetchWall(user_id)),
     deletePost: (post_id) => dispatch(deletePost(post_id)),
-    createComment: (comment) => dispatch(createComment(comment))
+    createComment: (comment) => dispatch(createComment(comment)),
+    deleteComment: (comment_id) => dispatch(deleteComment(comment_id))
+
   };
 };
 
