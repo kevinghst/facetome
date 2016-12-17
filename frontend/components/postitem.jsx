@@ -10,6 +10,7 @@ class PostItem extends React.Component{
       displayHidden: false
     };
     this.changeHiddenState = this.changeHiddenState.bind(this);
+
   }
 
   changeHiddenState(e){

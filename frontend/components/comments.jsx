@@ -49,12 +49,16 @@ const Comments = ({updateComment, post, currentUser, submitComment, commentBody,
 
             <div className="comment-main">
               <div className="comment-text">
+
                 <Link className="commenter-link" to={`/home/${comment.author.username}`}>
-                  <div>{comment.author.firstname} {comment.author.lastname}</div>
+                  <div>
+                    {comment.author.firstname} {comment.author.lastname}
+                  </div>
                 </Link>
                 <div className="comment-body">
                   {comment.body}
                 </div>
+
               </div>
 
               <div className="comment-date">
