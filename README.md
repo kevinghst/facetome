@@ -15,6 +15,8 @@ Explore the website in full at https://facetome.herokuapp.com/#/login
 
 ### Technical Details:
 * Friendship requests
+
+
 To enable users to request and accept friendships, I created two tables on Rails back-end - a requests table in addition to a friendship table.
 
 
@@ -22,6 +24,8 @@ Upon signing in to the homepage, the logged in user receives a list of users tha
 Upon entering another user's wall, the logged in user receives both the list of users whom he had sent request to, as well as the list of users from which he had received a request. By checking whether the particular user which the logged in member is visiting is contained in one of those two groups, I used conditional logic to display either a label that says they are already friends, a button for friendship request, a label saying that the request had been sent, or a button for accepting friendship.
 
 * Friendship Icon
+
+
 When the logged in user has any friendship requests coming from other users, a red badge with the number of such requests is displayed over the friendship icon on the blue navigation bar on the top of the user's homepage, and upon clicking it, the user can then see the list of the requestees' profile picture thumbs and name links.
 In order to do this, I included a displayRequests key in the state of the homepage React component, which is a boolean variable with only True or False as its value. The list of friends' profile names and namelinks is only displayed if the displayRequests condition is false.
 
