@@ -1,24 +1,5 @@
-# README
+# FaceTome
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Facetome is a web application for social networking. It was inspired by FaceBook and built using Ruby on Rails for backend and React.js for front-end.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Explore the website at https://facetome.herokuapp.com/#/login
