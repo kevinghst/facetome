@@ -42,11 +42,11 @@ class HomePage extends React.Component{
   }
 
   componentDidMount(){
-    if (this.props.currentUser.id){
+
       this.props.fetchOtherRequests(this.props.currentUser.id);
       this.props.fetchOwnRequests(this.props.currentUser.id);
       this.props.fetchFriends(this.props.currentUser.id);
-    }
+
     if (this.props.loggedIn === false){
       this.props.router.push("/login");
     }
