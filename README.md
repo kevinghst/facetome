@@ -5,7 +5,7 @@ Facetome is a web application for social networking. It was inspired by FaceBook
 Explore the website in full at https://facetome.herokuapp.com/#/login
 
 ### Login Page:
-
+![alt text](https://github.com/kevinghst/facetome/blob/master/docs/production%20images/friendsPage.jpg)
 
 
 ### Features
