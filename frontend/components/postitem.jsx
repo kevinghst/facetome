@@ -20,7 +20,7 @@ class PostItem extends React.Component{
 
   render() {
     const { post, deletePost, handler, displayDelete, currentUser, updateComment,
-            submitComment, commentBody, dynamicSet, deleteComment } = this.props;
+            submitComment, commentBody, dynamicSet, deleteComment, currentPostId } = this.props;
 
     let postImage = (
       <div className="post-img">
@@ -86,6 +86,7 @@ class PostItem extends React.Component{
                   displayHidden={this.state.displayHidden}
                   changeHiddenState={this.changeHiddenState}
                   deleteComment={deleteComment}
+                  currentPostId={currentPostId}
           />
 
         <div className="dropdown">
