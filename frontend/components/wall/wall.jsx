@@ -48,6 +48,8 @@ class Wall extends React.Component{
 
   updateComment(e){
     const commentValue = e.currentTarget.value;
+    const postId = parseInt(e.currentTarget.className.split(" ")[1]);
+    this.setState({ post_id: postId });
     this.setState({ commentBody: commentValue });
   }
 
@@ -195,7 +197,8 @@ class Wall extends React.Component{
                                           submitComment={this.submitComment}
                                           commentBody={this.state.commentBody}
                                           dynamicSet={this.dynamicSet}
-                                          deleteComment={this.deleteComment}/>)
+                                          deleteComment={this.deleteComment}
+                                          currentPostId={this.state.post_id} />)
             }
           </ul>
         </section>
