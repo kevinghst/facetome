@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import NewsFeed from './newsfeed';
-import {createPost, fetchNewsFeed, fetchWall, deletePost} from '../../actions/post_actions';
+import {createPost, fetchNewsFeed, fetchWall, deletePost, updatePost} from '../../actions/post_actions';
 import {fetchProfile} from '../../actions/profile_actions';
 import {createComment, deleteComment} from '../../actions/comment_actions';
 
@@ -18,6 +18,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     createPost: (post) => dispatch(createPost(post)),
+    updatePost: (formData) => dispatch(updatePost(formData)),
     fetchNewsFeed: (user_id) => dispatch(fetchNewsFeed(user_id)),
     fetchWall:(user_id) => dispatch(fetchWall(user_id)),
     fetchProfile: (username) => dispatch(fetchProfile(username)),

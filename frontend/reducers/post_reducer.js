@@ -1,4 +1,4 @@
-import {RECEIVE_POST, RECEIVE_POSTS, RECEIVE_POST_ERRORS, REMOVE_POST} from '../actions/post_actions';
+import {RECEIVE_POST, RECEIVE_POSTS, RECEIVE_POST_ERRORS, REMOVE_POST, CHANGE_POST} from '../actions/post_actions';
 import {RECEIVE_COMMENT, REMOVE_COMMENT} from '../actions/comment_actions';
 import {merge} from 'lodash';
 
@@ -16,6 +16,18 @@ const PostReducer = (state = initState, action) => {
     case RECEIVE_POST:
       let postsClone = [].concat(action.post).concat(state.posts);
       return { posts: postsClone, postErrors: state.postErrors };
+
+    case CHANGE_POST:
+      let postsCloneTwo = [].concat(state.posts);
+      for(var x=0; x < postsCloneTwo.length; x++){
+        if(postsCloneTwo[x].id === action.post.id){
+          postsCloneTwo.splice(x, 1);
+          break;
+        }
+      }
+      postsCloneTwo = [].concat(action.post).concat(postsCloneTwo);
+      return { posts: postsCloneTwo, postErrors: state.postErrors };
+
     case REMOVE_POST:
       let clone = merge({}, state);
       var index;

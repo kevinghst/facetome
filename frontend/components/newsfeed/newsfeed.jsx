@@ -28,6 +28,7 @@ class NewsFeed extends React.Component{
     this.updateComment = this.updateComment.bind(this);
     this.submitComment = this.submitComment.bind(this);
     this.deleteComment = this.deleteComment.bind(this);
+    this.updatePost = this.updatePost.bind(this);
   }
 
   componentDidMount(){
@@ -66,10 +67,18 @@ class NewsFeed extends React.Component{
     this.props.createComment(formData);
   }
 
+  updatePost(id, body){
+    var formData = new FormData();
+    formData.append("post[body]", body);
+    formData.append("post[id]", id);
+    this.props.updatePost(formData);
+  }
+
   handleSubmit(e){
     e.preventDefault(e);
     this.setState({
       displayDelete: false,
+      displayPhoto: false,
       image: null,
       imageUrl: null,
       body: "",
@@ -178,7 +187,8 @@ class NewsFeed extends React.Component{
                                           commentBody={this.state.commentBody}
                                           dynamicSet={this.dynamicSet}
                                           deleteComment={this.deleteComment}
-                                          currentPostId={this.state.post_id} />)
+                                          currentPostId={this.state.post_id}
+                                          updatePost={this.updatePost} />)
             }
           </ul>
 

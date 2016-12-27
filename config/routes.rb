@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :other_requests, only: [:show]
     resources :newsfeeds, only: [:show]
     resources :wall, only: [:show]
-    resources :posts, only: [:create, :destroy]
+    resources :posts, only: [:create, :destroy, :update]
     resources :comments, only: [:create, :destroy, :show]
     resources :profiles, only: [:update] do
       collection do

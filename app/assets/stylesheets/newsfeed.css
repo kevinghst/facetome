@@ -76,7 +76,7 @@
   position: relative;
 }
 
-.dropdown > a:hover .deletePost{
+.dropdown > a:hover .deleteEdit{
   display: block;
 }
 
@@ -85,17 +85,43 @@
   color: white;
 }
 
-.deletePost {
+.editPost:hover{
+  background: #4267b2;
+  color: white;
+}
+
+.deletePost, .editPost {
+  padding: 3px 5px 3px 5px;
+  margin: 3px 0;
+}
+
+.editPost{
+  padding-right: 19px;
+}
+
+.deleteContainer{
+  position: relative;
+}
+
+.borderline{
+  position: absolute;
+  right: 4px;
+  bottom: 0;
+  width: 40px;
+  height: 1px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.deleteEdit {
   position: absolute;
   top: 13px;
   right: 3px;
-  font-size: 13px;
   border: 1px solid rgba(0, 0, 0, .15);
-  box-shadow: 0 3px 8px rgba(0, 0, 0, .3);
-  border-radius: 3px;
-  padding: 3px 5px;
   color: #1d2129;
   display: none;
+  font-size: 13px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .3);
+  border-radius: 3px;
 }
 
 .left-feed{
