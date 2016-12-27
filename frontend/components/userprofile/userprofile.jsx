@@ -1,47 +1,24 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import merge from 'lodash/merge';
-
+import InlineEditable from '../inlineEditable';
 
 
 class UserProfile extends React.Component{
   constructor(props){
     super(props);
-
-    this.state = {
-      editable: true,
-      firstname: "",
-      lastname: "",
-      gender: "",
-      hometown: "",
-      occupation: ""
-    };
-
     this.updateValue = this.updateValue.bind(this);
-    this.submitChange = this.submitChange.bind(this);
   }
 
-  updateValue(e) {
-    let profileType = e.currentTarget.className;
-    let updatedValue = e.currentTarget.value;
-    this.setState({ [profileType]: updatedValue });
+  updateValue(profileType, profileValue){
+    var formData = new FormData();
+    formData.append("user[username]", this.props.currentUser.username);
+    formData.append(`user[${profileType}]`, profileValue);
+    this.props.updateProfile(formData);
   }
-
-  submitChange(e){
-    let profileType = e.currentTarget.value;
-    if(this.state[[profileType]] !== ""){
-      var formData = new FormData();
-      formData.append("user[username]", this.props.currentUser.username);
-      formData.append(`user[${profileType}]`, this.state[[profileType]]);
-      this.props.updateProfile(formData);
-      this.setState( {[profileType]: "" } );
-    }
-  }
-
 
 
   render(){
-
     let condition = true;
     if(this.props.currentUser && this.props.profile && (this.props.currentUser.id !== this.props.profile.id)){
       condition = false;
@@ -55,23 +32,31 @@ class UserProfile extends React.Component{
     delete profilePairs["username"];
     let profileKeys = Object.keys(profilePairs);
 
-    let profileTriple = (
-      <ul className="profileTriple">
+    let profileTypes = (
+      <ul className="profileTypes">
         {
           profileKeys.map((key, idx) =>
-            <li key={idx} className="profile-line">
-              <div className="profileKeys">{key}</div>
-              <div className="profileValues">{profilePairs[key]}</div>
-
-              {condition &&
-                <input type="text" className={`${key}`} value={this.state[[key]]} onChange={this.updateValue}/>
-              }
-
-              {condition &&
-                <button className= "edit-profile-button" value={`${key}`} onClick={this.submitChange}>Edit</button>
-              }
-            </li>
+          <li className="profileform-type-li" key={idx}>
+            {key}
+          </li>
         )}
+      </ul>
+    );
+
+    let profileForm=(
+      <ul className="profileForm">
+      {
+        profileKeys.map((key, idx) =>
+        <li className="profileform-li" key={idx}>
+          <InlineEditable
+            profileKey={key}
+            profileValue={profilePairs[key]}
+            updateValue={this.updateValue}
+            currentUser={this.props.currentUser}
+            profile={this.props.profile}
+          />
+        </li>
+      )}
       </ul>
     );
 
@@ -80,7 +65,7 @@ class UserProfile extends React.Component{
         <h2 className="profile-header">About</h2>
 
         <div className="profile-content">
-          {profileTriple}
+          {profileForm}
         </div>
       </div>
     );

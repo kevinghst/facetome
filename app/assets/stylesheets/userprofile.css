@@ -25,38 +25,59 @@
   display: flex;
   padding: 20px;
   margin-left: 20px;
-  margin-top: 20px;
+  margin-top: 10px;
+  font-size: 15px;
 }
 
-.profileTriple > li {
-  display: flex;
+.profileform-type-li {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  padding-right: 130px;
+  text-transform: capitalize;
+  color: #90949c;
+  border-bottom: 1px solid #e5e6e9;
 }
 
-.profileKeys, .profileValues {
+.profileform-li {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #e5e6e9;
+}
+
+.profileform-double-edit, .profileform-double-unedit {
+  width: 300px;
+}
+
+.profileform-input-edit {
+  float: left;
+}
+
+.profileform-input-unedit {
+  float: left;
   text-transform: capitalize;
 }
 
-.profileValues {
-  width: 200px;
+.profileform-button-unedit {
+  float: right;
+  font-size: 12px;
+  color: #4080ff;
 }
 
-.profileKeys {
-  width: 150px;
-  color: #90949c;
+.profileform-double-edit {
+  margin: -2px;
 }
 
-.profile-line > input {
+.profileform-button-edit{
+  float: right;
+  color: white;
+  background: #4267b2;
+  padding: 4px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.profileform-input-edit {
   border: 1px solid #d3d6db;
-  border-radius: 1px;
-  width: 150px;
-  margin-right: 0;
-}
-
-.profile-line {
-  margin-bottom: 10px;
-}
-
-.edit-profile-button {
-  display: inline-block;
-  margin-left: 20px;
 }
