@@ -83,6 +83,9 @@ class PostItem extends React.Component{
       return (
          <div>
             <form className="newsfeed-postform" onSubmit={this.handleSubmit}>
+
+              <div className="edit-sign">Edit Post</div>
+
               <div className="newsfeed-post-content">
                 <div className="newsfeed-post-body group">
                   <Link className="poster-thumb-img" to={`/home/${currentUser.username}`}>
@@ -133,10 +136,10 @@ class PostItem extends React.Component{
               />
 
             <div className="dropdown">
-              <a href='#'>
+              <div>
                 <img src={window.dropdown}/>
                 { removeEdit }
-              </a>
+              </div>
             </div>
 
           </li>

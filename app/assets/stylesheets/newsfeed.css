@@ -72,11 +72,11 @@
   right: 7px;
 }
 
-.dropdown > a {
+.dropdown > div {
   position: relative;
 }
 
-.dropdown > a:hover .deleteEdit{
+.dropdown > div:hover .deleteEdit{
   display: block;
 }
 
@@ -251,4 +251,11 @@
 
 .authorToTarget img {
   margin: 0 5px;
+}
+
+.edit-sign {
+  color: #365899;
+  font-size: 15px;
+  font-weight: bolder;
+  margin-bottom: 8px;
 }

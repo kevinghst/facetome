@@ -130,7 +130,7 @@ class NewsFeed extends React.Component{
   }
 
   render(){
-    let posts = this.props.posts
+    let posts = this.props.posts;
     let postPhoto = (<div className="newsfeed-photo-upload">
                        <img src={this.state.imageUrl}/>
                      </div>);

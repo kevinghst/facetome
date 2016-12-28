@@ -27,6 +27,7 @@ class Wall extends React.Component{
     this.updateComment = this.updateComment.bind(this);
     this.submitComment = this.submitComment.bind(this);
     this.deleteComment = this.deleteComment.bind(this);
+    this.updatePost = this.updatePost.bind(this);
   }
 
   componentDidUpdate(prevProps){
@@ -73,6 +74,13 @@ class Wall extends React.Component{
     e.preventDefault();
     var commentId = e.currentTarget.value;
     this.props.deleteComment(commentId);
+  }
+
+  updatePost(id, body){
+    var formData = new FormData();
+    formData.append("post[body]", body);
+    formData.append("post[id]", id);
+    this.props.updatePost(formData);
   }
 
 
@@ -125,7 +133,7 @@ class Wall extends React.Component{
   }
 
   render(){
-    let posts = this.props.posts
+    let posts = this.props.posts;
     let postPhoto = (<div className="newsfeed-photo-upload">
                        <img src={this.state.imageUrl}/>
                      </div>);
@@ -198,7 +206,8 @@ class Wall extends React.Component{
                                           commentBody={this.state.commentBody}
                                           dynamicSet={this.dynamicSet}
                                           deleteComment={this.deleteComment}
-                                          currentPostId={this.state.post_id} />)
+                                          currentPostId={this.state.post_id}
+                                          updatePost={this.updatePost} />)
             }
           </ul>
         </section>
