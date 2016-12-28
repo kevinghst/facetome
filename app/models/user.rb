@@ -59,6 +59,13 @@ class User < ActiveRecord::Base
     :primary_key => :id
   )
 
+  has_many(
+    :likes,
+    :class_name => "Like",
+    :foreign_key => :liker_id,
+    :primary_key => :id
+  )
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
 

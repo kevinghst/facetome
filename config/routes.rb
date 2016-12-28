@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :wall, only: [:show]
     resources :posts, only: [:create, :destroy, :update]
     resources :comments, only: [:create, :destroy, :show]
+    resources :likes, only: [:create, :destroy, :show, :index]
     resources :profiles, only: [:update] do
       collection do
         get ':username', to: "profiles#show"
