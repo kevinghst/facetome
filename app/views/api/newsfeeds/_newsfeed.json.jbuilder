@@ -26,3 +26,7 @@ end
 json.comments do
   json.array! post.comments, partial: 'api/comments/comment', as: :comment
 end
+
+json.likes do
+  json.array! post.likes, partial: 'api/likes/like', as: :like
+end

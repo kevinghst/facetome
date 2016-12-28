@@ -56,12 +56,14 @@
 
 .post-content {
   padding-bottom: 25px;
-  padding: 12px 12px 0 15px;
+  padding: 12px 15px 0 15px;
 }
 
 .post-img img {
-  margin-top: 13px;
-  width: 474px;
+  margin-top: 5px;
+  margin-bottom: 7px;
+  width: 100%;
+  height: auto;
   object-fit: cover;
   border: 1px solid #D3D3D3;
 }
@@ -258,4 +260,70 @@
   font-size: 15px;
   font-weight: bolder;
   margin-bottom: 8px;
+}
+
+.like-bar{
+  margin: 0 15px 5px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.likeToken{
+  display: flex;
+  position: relative;
+  padding-top: 10px;
+  margin-top: -10px;
+}
+
+.likeToken > label {
+  font-size: 13px;
+  margin-left: 3px;
+  padding-top: 1px;
+}
+
+.showLikers:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.likers-details{
+  font-size: 12px;
+  color: white;
+  padding: 5px 5px 2px 5px;
+  background: #1C1C1C;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .3);
+  border-radius: 3px;
+  position: absolute;
+  bottom: 25px;
+  right: -15px;
+  display: none;
+}
+
+.likeToken:hover .likers-details{
+  display: block;
+}
+
+.likers-details > li{
+  margin-bottom: 3px;
+}
+
+.liker:hover{
+  color: #4080ff;
+}
+
+.like-button{
+  margin-top: 2px;
+}
+
+.unlike-button{
+  margin-left: 1px;
+}
+
+.liker-name{
+  display: flex;
+}
+
+.liker-firstname{
+  margin-right: 3px;
 }

@@ -28,6 +28,8 @@ class Wall extends React.Component{
     this.submitComment = this.submitComment.bind(this);
     this.deleteComment = this.deleteComment.bind(this);
     this.updatePost = this.updatePost.bind(this);
+    this.likePost = this.likePost.bind(this);
+    this.unlikePost = this.unlikePost.bind(this);
   }
 
   componentDidUpdate(prevProps){
@@ -132,6 +134,18 @@ class Wall extends React.Component{
     this.props.deletePost(postId);
   }
 
+  likePost(e){
+    e.preventDefault();
+    var postId = e.currentTarget.className;
+    this.props.createLike({ liker_id: this.props.currentUser.id, post_id: postId})
+  }
+
+  unlikePost(e){
+    e.preventDefault();
+    var likeId = e.currentTarget.className;
+    this.props.deleteLike(likeId);
+  }
+
   render(){
     let posts = this.props.posts;
     let postPhoto = (<div className="newsfeed-photo-upload">
@@ -207,7 +221,9 @@ class Wall extends React.Component{
                                           dynamicSet={this.dynamicSet}
                                           deleteComment={this.deleteComment}
                                           currentPostId={this.state.post_id}
-                                          updatePost={this.updatePost} />)
+                                          updatePost={this.updatePost}
+                                          likePost={this.likePost}
+                                          unlikePost={this.unlikePost}/>)
             }
           </ul>
         </section>

@@ -2,6 +2,30 @@ import React from 'react';
 import { Link, withRouter } from 'react-router';
 import Comments from './comments';
 
+class LikerList extends React.Component{
+  constructor(props){
+    super(props);
+  }
+
+  render(){
+    let likers = this.props.likers;
+    return(
+      <ul className="likers-details">
+        {
+          likers.map((liker, idx) =>
+            <li className="liker" key={idx}>
+              <Link className="liker-name"
+                    to={`/home/${liker.username}`}
+              ><div className="liker-firstname">{liker.firstname}</div><div>{liker.lastname}</div>
+              </Link>
+            </li>
+          )
+        }
+      </ul>
+    )
+  }
+}
+
 class PostItem extends React.Component{
 
   constructor(props){
@@ -9,7 +33,7 @@ class PostItem extends React.Component{
     this.state = {
       editing: false,
       displayHidden: false,
-      body: this.props.post.body
+      body: this.props.post.body,
     };
     this.changeHiddenState = this.changeHiddenState.bind(this);
     this.updateForm = this.updateForm.bind(this);
@@ -36,7 +60,7 @@ class PostItem extends React.Component{
   render() {
     const { post, deletePost, handler, displayDelete, currentUser, updateComment,
             submitComment, commentBody, dynamicSet, deleteComment, currentPostId,
-            updatePost } = this.props;
+            updatePost, likePost, unlikePost } = this.props;
 
     let postImage = (
       <div className="post-img">
@@ -77,6 +101,35 @@ class PostItem extends React.Component{
           <button className="editPost" onClick={ ()=>this.setState({ editing: true})}>Edit</button>
         </div>
       );
+    }
+
+    let likeToken;
+    let likeButton = (
+      <a onClick={likePost} href='#' className={`${post.id} like-button`}>
+        <img src={window.like}/>
+      </a>
+    );
+    if(post.likes && post.likes.length > 0){
+      likeToken = (
+        <div className="likeToken">
+          <div>
+            <img src={window.likeToken}/>
+          </div>
+          <label className="showLikers">{post.likes.length}</label>
+          <LikerList
+            likers={post.likes.map((like) => like.liker)}
+          />
+        </div>
+      );
+      post.likes.forEach((like) => {
+        if(currentUser && (like.liker_id === currentUser.id)){
+          likeButton = (
+            <a onClick={unlikePost} href='#' className={`${like.id} unlike-button`}>
+              <img src={window.unlike}/>
+            </a>
+          );
+        }
+      });
     }
 
     if (this.state.editing){
@@ -122,6 +175,11 @@ class PostItem extends React.Component{
               </div>
 
               { (post.image_url.indexOf("/assets/monolith") === -1) && postImage }
+            </div>
+
+            <div className="like-bar">
+              {likeButton}
+              {likeToken}
             </div>
 
             <Comments updateComment={updateComment}

@@ -22,3 +22,7 @@ json.target do
   json.lastname post.target.lastname
   json.username post.target.username
 end
+
+json.likes do
+  json.array! post.likes, partial: 'api/likes/like', as: :like
+end

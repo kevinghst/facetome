@@ -5,6 +5,7 @@ import Root from './components/root';
 import {deleteFriend, createPostTest} from './util/friendship_api_util';
 import {createPost, fetchWall, deletePost} from './actions/post_actions';
 import {createComment, deleteComment} from './actions/comment_actions';
+import {createLike} from './util/like_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -14,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.deletePost = deletePost;
   window.createComment = createComment;
   window.deleteComment = deleteComment;
+  window.createLike = createLike;
 
   let store;
 

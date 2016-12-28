@@ -9,6 +9,8 @@ export const receiveCurrentProfile = currentProfile => {
   };
 };
 
+
+
 export function fetchProfile(username){
   return (dispatch) => {
     return APIUtil.fetchProfile(username).then(
