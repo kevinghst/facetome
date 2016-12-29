@@ -4,25 +4,16 @@ import {Link, withRouter} from 'react-router';
 class SearchBar extends React.Component{
   constructor(props){
     super(props);
-    this.state = { letters: "" };
-    this.add = this.add.bind(this);
     this.list = this.list.bind(this);
   }
-
-  add(e){
-    let name = e.target.value;
-    this.setState({letters: name});
-  }
-
-
 
   list(){
     let that=this;
     let filteredUsers;
-    if (this.state.letters === ""){
+    if (this.props.letters === ""){
       filteredUsers = [];
     } else {
-      let namesArray = this.state.letters.split(" ");
+      let namesArray = this.props.letters.split(" ");
       let firstname;
       let lastname;
       if(namesArray.length === 1){
@@ -59,8 +50,8 @@ class SearchBar extends React.Component{
       <div className="searchBar">
         <input type="text"
                className="searchInput"
-               value={this.state.letters}
-               onChange={this.add}
+               value={this.props.letters}
+               onChange={this.props.add}
                placeholder = "Search Facetome"
         ></input>
 

@@ -35,24 +35,34 @@ class HomePage extends React.Component{
   constructor(props){
     super(props);
 
-    this.state = { showFriendRequests: false };
+    this.state = { showFriendRequests: false,
+                   letters: ""};
 
+    this.add = this.add.bind(this);
     this.logoutnow = this.logoutnow.bind(this);
     this.acceptRequest = this.acceptRequest.bind(this);
     this.showRequests = this.showRequests.bind(this);
   }
 
   componentDidMount(){
-
       this.props.fetchOtherRequests(this.props.currentUser.id);
       this.props.fetchOwnRequests(this.props.currentUser.id);
       this.props.fetchFriends(this.props.currentUser.id);
       this.props.fetchAllUsers(this.props.fetchAllUsers);
-
     if (this.props.loggedIn === false){
       this.props.router.push("/login");
     }
+  }
 
+  componentDidUpdate(prevProps){
+    if(prevProps.params !== this.props.params){
+      this.setState({letters: ""});
+    }
+  }
+
+  add(e){
+    let name = e.target.value;
+    this.setState({letters: name});
   }
 
   showRequests(e){
@@ -76,7 +86,6 @@ class HomePage extends React.Component{
 
 
   render(){
-
     let logOutButton;
     let userLink;
     let userthumb;
@@ -144,7 +153,10 @@ class HomePage extends React.Component{
               <img src={window.fb_mini_logo}/>
             </div>
 
-            <SearchBar users={this.props.allUsers} usersNames={this.props.allUsersNames}/>
+            <SearchBar users={this.props.allUsers}
+                       usersNames={this.props.allUsersNames}
+                       add={this.add}
+                       letters={this.state.letters}/>
           </div>
 
 
