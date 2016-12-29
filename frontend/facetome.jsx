@@ -6,16 +6,11 @@ import {deleteFriend, createPostTest} from './util/friendship_api_util';
 import {createPost, fetchWall, deletePost} from './actions/post_actions';
 import {createComment, deleteComment} from './actions/comment_actions';
 import {createLike} from './util/like_api_util';
+import {fetchAllProfiles} from './actions/profile_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  window.createPost = createPost;
-  window.createPostTest = createPostTest;
-  window.fetchWall = fetchWall;
-  window.deletePost = deletePost;
-  window.createComment = createComment;
-  window.deleteComment = deleteComment;
-  window.createLike = createLike;
+  window.fetchAllProfiles = fetchAllProfiles;
 
   let store;
 

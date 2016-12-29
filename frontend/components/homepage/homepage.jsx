@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
+import SearchBar from '../searchbar';
 
 class RequestList extends React.Component {
   constructor(props){
@@ -46,6 +47,7 @@ class HomePage extends React.Component{
       this.props.fetchOtherRequests(this.props.currentUser.id);
       this.props.fetchOwnRequests(this.props.currentUser.id);
       this.props.fetchFriends(this.props.currentUser.id);
+      this.props.fetchAllUsers(this.props.fetchAllUsers);
 
     if (this.props.loggedIn === false){
       this.props.router.push("/login");
@@ -132,15 +134,19 @@ class HomePage extends React.Component{
       );
     }
 
-
-
     return(
     <div className="universe">
       <header className="home-header">
         <nav className="home-nav group">
-          <div className="home-logo-thumb">
-            <img src={window.fb_mini_logo}/>
+
+          <div className="logo-search">
+            <div className="home-logo-thumb">
+              <img src={window.fb_mini_logo}/>
+            </div>
+
+            <SearchBar users={this.props.allUsers} usersNames={this.props.allUsersNames}/>
           </div>
+
 
           <ul className="home-list-right group">
             <li className="group">{userLink}</li>

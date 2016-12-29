@@ -6,3 +6,7 @@ export const getFriendsNames = ({friends}) => {
 export const getOtherRequestsNames = ({otherRequests}) => {
   return Object.keys(otherRequests).map( id => otherRequests[id].requester_user_id )
 };
+
+export const getUsersFullNames = (users) => {
+  return users.map(user => (user.firstname + " " + user.lastname).toLowerCase())
+};

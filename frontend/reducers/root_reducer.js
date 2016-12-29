@@ -6,7 +6,7 @@ import OtherRequestsReducer from './other_request_reducer';
 import FriendshipReducer from './friendship_reducer';
 import UserFriendshipReducer from './user_friendship_reducer';
 import PostReducer from './post_reducer';
-
+import UserReducer from './user_reducer';
 
 const rootReducer = combineReducers({
   session: SessionReducer,
@@ -15,7 +15,8 @@ const rootReducer = combineReducers({
   otherRequests: OtherRequestsReducer,
   friends: FriendshipReducer,
   postSlice: PostReducer,
-  userFriends: UserFriendshipReducer
+  userFriends: UserFriendshipReducer,
+  users: UserReducer
 });
 
 export default rootReducer;

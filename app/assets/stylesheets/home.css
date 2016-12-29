@@ -13,10 +13,13 @@
 }
 
 .home-logo-thumb {
-  float: left;
   display: block;
   width: 22px;
   height: 22px;
+}
+
+.logo-search {
+  float: left;
   margin: 9px 0 5px 0;
 }
 
@@ -131,4 +134,66 @@
   background: red;
   padding: 1px 2px;
   border-radius: 2px;
+}
+
+.searchInput{
+  background: white;
+  width: 350px;
+  height: 22px;
+  padding: 2px 10px 2px 10px;
+  border-radius: 3px;
+  color: #90949c;
+  font-size: 14px;
+  font-weight: lighter;
+}
+
+.logo-search{
+  display: flex;
+  align-items: center;
+}
+
+.home-logo-thumb{
+  margin-right: 8px;
+}
+
+.searchBar{
+  position: relative;
+}
+
+.searchResults{
+  position: absolute;
+  top: 22px;
+  padding: 5px 0;
+  background: white;
+  z-index: 1;
+  border: 1px solid rgba(0, 0, 0, .15);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .3);
+}
+
+.searchProfile{
+  display: flex;
+  align-items: center;
+  color: #333;
+  font-weight: bolder;
+  font-size: 14px;
+  padding: 5px;
+  width: 348px;
+}
+
+.searchProfile:hover{
+  background: #dfe3ee;
+}
+
+.searchProfile-pic img {
+  height: 36px;
+  width: 36px;
+  object-fit: cover;
+}
+
+.searchProfile-pic {
+  margin-right: 8px;
+}
+
+.searchProfile-firstname {
+  margin-right: 4px;
 }

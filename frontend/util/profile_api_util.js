@@ -14,3 +14,10 @@ export const updateProfile = (formData) => {
     processData: false
   });
 };
+
+export const fetchAllUsers = () => {
+  return $.ajax({
+    method: "GET",
+    url: `/api/profiles`,
+  });
+}
