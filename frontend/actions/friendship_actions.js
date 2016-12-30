@@ -1,4 +1,5 @@
 import * as APIUtil from '../util/friendship_api_util'
+import {createConvo} from '../util/convo_api_util'
 
 export const RECEIVE_FRIEND = "RECEIVE_FRIEND";
 export const RECEIVE_FRIENDS = "RECEIVE_FRIENDS";
@@ -43,6 +44,7 @@ export function deleteFriend(user_id, friend_id) {
 
 export function acceptFriend(friendship) {
   return (dispatch) => {
+    createConvo(friendship);
     return APIUtil.acceptFriend(friendship).then(
       (friend) => dispatch(receiveFriend(friend))
     );

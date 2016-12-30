@@ -11,14 +11,7 @@ class Friends extends React.Component{
 
     this.unfriend = this.unfriend.bind(this);
   }
-
-  componentDidMount(){
-    if (this.props.profile.id){
-      this.props.fetchUserFriends(this.props.profile.id);
-    }
-
-  }
-
+  
   unfriend(e){
     e.preventDefault();
     let user_id = this.props.currentUser.id;
@@ -27,7 +20,6 @@ class Friends extends React.Component{
   }
 
   render(){
-
     let condition = true;
     if(this.props.currentUser && this.props.profile && (this.props.currentUser.id !== this.props.profile.id)){
       condition = false;

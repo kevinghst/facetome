@@ -7,10 +7,14 @@ import {createPost, fetchWall, deletePost} from './actions/post_actions';
 import {createComment, deleteComment} from './actions/comment_actions';
 import {createLike} from './util/like_api_util';
 import {fetchAllProfiles} from './actions/profile_actions';
+import {createConvo} from './util/convo_api_util';
+import {createMessage} from './util/message_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
 
   window.fetchAllProfiles = fetchAllProfiles;
+  window.createConvo = createConvo;
+  window.createMessage = createMessage;
 
   let store;
 

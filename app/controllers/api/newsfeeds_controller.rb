@@ -13,19 +13,3 @@ class Api::NewsfeedsController < ApplicationController
     render :show
   end
 end
-
-=begin
-get all posts where author.id === params[:id]
-get all posts where target.id === params[:id]
-
-get all posts where author.id IN (user's friends IDs)
-get all posts where target.id IN (user's friends IDs)
-
-
-name_relation = first_name_relation.or(last_name_relation)
-
-Client.where(:orders_count => [1,3,5])
-
-
-
-=end

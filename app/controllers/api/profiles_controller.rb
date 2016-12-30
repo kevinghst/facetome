@@ -1,7 +1,7 @@
 class Api::ProfilesController < ApplicationController
 
   def index
-    @users = User.all
+    @users = User.all.order('firstname')
     render :index
   end
 

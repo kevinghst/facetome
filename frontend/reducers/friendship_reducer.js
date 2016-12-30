@@ -9,7 +9,7 @@ const FriendshipReducer = (state={}, action) => {
       return merge({}, action.friends);
     case REMOVE_FRIEND:
       let clone = merge({}, state);
-      delete clone[action.friend.id]
+      delete clone[action.friend.id];
       return clone;
     default:
       return state;

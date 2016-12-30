@@ -4,7 +4,7 @@ import {fetchProfile, updateProfile} from '../../actions/profile_actions';
 import {friendRequest} from '../../actions/request_actions';
 import {logout, deleteUser} from '../../actions/session_actions';
 import {fetchOwnRequests, fetchOtherRequests, deleteRequest} from '../../actions/request_actions';
-import {acceptFriend, fetchFriends, deleteFriend} from '../../actions/friendship_actions';
+import {acceptFriend, fetchFriends, deleteFriend, fetchUserFriends} from '../../actions/friendship_actions';
 import {getFriendsNames, getOtherRequestsNames} from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
@@ -15,6 +15,7 @@ const mapStateToProps = (state, ownProps) => {
     ownRequests: state.ownRequests,
     otherRequests: state.otherRequests,
     otherRequestsNames: getOtherRequestsNames(state),
+    userFriends: state.userFriends,
     friends: state.friends,
     friendNames: getFriendsNames(state),
   };
@@ -23,6 +24,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return{
     fetchProfile: (username) => dispatch(fetchProfile(username)),
+    fetchUserFriends: (user_id) => dispatch(fetchUserFriends(user_id)),
     updateProfile: (user) => dispatch(updateProfile(user)),
     friendRequest: (request) => dispatch(friendRequest(request)),
     fetchFriends: (user_id) => dispatch(fetchFriends(user_id)),

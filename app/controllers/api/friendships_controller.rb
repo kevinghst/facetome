@@ -47,7 +47,7 @@ class Api::FriendshipsController < ApplicationController
     end
   end
 
-  def friendship_params;
+  def friendship_params
     params.require(:friendship).permit(:user_id, :friend_id)
   end
 

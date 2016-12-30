@@ -79,7 +79,9 @@ class UserPage extends React.Component{
   }
 
   componentDidMount(){
-    this.props.fetchProfile(this.props.targetusername);
+    this.props.fetchProfile(this.props.targetusername).then(() => {
+      this.props.fetchUserFriends(this.props.profile.id);
+    });
   }
 
   componentDidUpdate(prevProps){
