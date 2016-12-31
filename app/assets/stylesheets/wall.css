@@ -6,3 +6,140 @@
 .newsfeed-post-section.wall {
   width: 510px;
 }
+
+.profile-area{
+  background: #fff;
+  border: 1px solid #e5e6e9;
+  width: 323px;
+  padding: 12px;
+  border-radius: 1px;
+  margin-bottom: 20px;
+}
+
+.friends-area{
+  background: #fff;
+  border: 1px solid #e5e6e9;
+  width: 323px;
+  border-radius: 1px;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  color: #4b4f56;
+}
+
+.friends-info {
+  margin: 12px;
+  display: flex;
+  align-items: center;
+  color: #4b4f56;
+}
+
+.profile-info label{
+  margin-left: 10px;
+  margin-bottom: 3px;
+  width: 240px;
+}
+
+.profileContent {
+  border-top: 1px solid #e9ebee;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.profileContent-line {
+  display: flex;
+  height: 17px;
+  align-items: center;
+  margin-top: 8px;
+  text-transform: capitalize;
+}
+
+.profile-kind {
+  margin-right: 5px;
+  width: 85px;
+}
+
+.profileContent li:first-child{
+  margin-top: 10px;
+}
+
+.profile-icon{
+  width: 30px;
+}
+
+.work-icon img{
+  height: 15px;
+  width: 15px;
+  object-fit: cover;
+}
+
+.profile-substance {
+  width: 160px;
+}
+
+.profile-linkto{
+  font-size: 13px;
+  margin-bottom: 2px;
+  color: #365899;
+}
+
+.profile-linkto:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.friends-info div:last-child{
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
+
+.friends-linkto:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.friends-numbers {
+  color: #90949c;
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+.selected-friend-image img{
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  border: 1px solid #D3D3D3;
+  margin-right: 4px;
+}
+
+.selected-friend-image:hover{
+  cursor: pointer;
+}
+
+.selected-friends{
+  display: flex;
+  margin-left: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 3px;
+}
+
+.selected-friend-image{
+  position: relative;
+}
+
+.selected-friend-name{
+  position: absolute;
+  bottom: 10px;
+  color: white;
+  font-weight: 100;
+  font-size: 13px;
+  width: 100px;
+}
+
+.selected-friend-name > div{
+  width: 90px;
+  padding: 0 5px;
+  text-align: center;
+}

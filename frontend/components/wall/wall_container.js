@@ -14,6 +14,7 @@ const mapStateToProps = (state, ownProps) => {
     targetusername: ownProps.params.username,
     friendNames: getFriendsNames(state),
     params: ownProps.params,
+    userFriends: state.userFriends,
   };
 };
 

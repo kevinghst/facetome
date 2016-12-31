@@ -153,11 +153,25 @@ class NewsFeed extends React.Component{
     if(this.props.currentUser){
       currentUser = this.props.currentUser;
     }
-
     return(
       <main className="main-feed">
         <section className="left-feed">
+
+          <Link className="userpage-link" to={`/home/${currentUser.username}`}>
+            <div className="mini-userthumb">
+              <img src={currentUser.photo_url}/>
+            </div>
+            <div className="mini-userlabel">{currentUser.firstname} {currentUser.lastname}</div>
+          </Link>
+
+          <Link className="newsfeed-link" to={`/home`}>
+            <div className="newsfeedthumb">
+              <img src={window.newsfeed}/>
+            </div>
+            <div className="mini-newsfeedlabel">News Feed</div>
+          </Link>
         </section>
+
         <section className="newsfeed-post-section">
 
 

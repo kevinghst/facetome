@@ -327,3 +327,32 @@
 .liker-firstname{
   margin-right: 3px;
 }
+
+.mini-userthumb img{
+  height: 20px;
+  width: 20px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.left-feed {
+  margin-top: 10px;
+}
+
+.userpage-link, .newsfeed-link{
+  display: flex;
+  font-size: 13px;
+  align-items: center;
+  margin-bottom: 10px;
+  border: 1px solid #e9ebee;
+}
+
+.mini-userlabel, .mini-newsfeedlabel{
+  margin-left: 5px;
+}
+
+.userpage-link:hover, .newsfeed-link:hover {
+  background: #f6f7f9;
+  border: 1px solid #e5e6e9;
+  cursor: pointer;
+}

@@ -174,9 +174,6 @@ class UserPage extends React.Component{
             <li><Link to={`/home/${this.props.targetusername}/friends`} className="user-nav-list">Friends</Link></li>
           </ul>
 
-          <section className="test">
-
-          </section>
         </div>
 
         {this.props.children}

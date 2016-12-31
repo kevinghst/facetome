@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router';
 import Comments from '../comments';
 import PostItem from '../postitem';
+import SelectedFriends from '../selectedFriends';
 
 class Wall extends React.Component{
   constructor(props){
@@ -151,7 +152,6 @@ class Wall extends React.Component{
     let postPhoto = (<div className="newsfeed-photo-upload">
                        <img src={this.state.imageUrl}/>
                      </div>);
-
     let currentUser = {};
     let placeHolder;
     if(this.props.currentUser){
@@ -165,7 +165,6 @@ class Wall extends React.Component{
     }
 
     let postForm;
-
     if(this.props.friendNames.includes(this.props.targetusername) || currentUser.username === this.props.targetusername){
       postForm = (
         <form className="newsfeed-postform" onSubmit={this.handleSubmit}>
@@ -173,33 +172,109 @@ class Wall extends React.Component{
             <div>Photo</div>
             <input type="file" onChange={this.updateImage}></input>
           </label>
-
           <div className="newsfeed-post-content">
             <div className="newsfeed-post-body group">
               <Link className="poster-thumb-img" to={`/home/${currentUser.username}`}>
                 <img src={currentUser.photo_url}/>
               </Link>
-
               <textarea className="newsfeed-post-textarea"
                         value={this.state.body}
                         placeholder={placeHolder}
                         onChange = {this.updateForm}
               ></textarea>
-
             {this.state.displayPhoto && postPhoto}
-
             </div>
           </div>
-
           <input className="post-submit-button" type="submit" value="Post" />
         </form>
       );
     }
 
+    let profilePairs = Object.assign({}, this.props.profile);
+    delete profilePairs["photo_url"];
+    delete profilePairs["background_url"];
+    delete profilePairs["id"];
+    delete profilePairs["username"];
+    let profileKeys = Object.keys(profilePairs);
+    let profileContent;
+
+    let edit = (
+      <div></div>
+    );
+    if (this.props.currentUser && (this.props.currentUser.id === this.props.profile.id)){
+      edit = (
+        <Link className="profile-linkto" to={`/home/${this.props.currentUser.username}/about`}>Edit</Link>
+      );
+    }
+
+      profileContent= (
+        <ul className="profileContent">
+            <li className="profileContent-line">
+              <div className="profile-icon"></div>
+              <div className="profile-kind">Firstname</div>
+              <div className="profile-substance">{profilePairs["firstname"]}</div>
+            </li>
+            <li className="profileContent-line">
+              <div className="profile-icon"></div>
+              <div className="profile-kind">Lastname</div>
+              <div className="profile-substance">{profilePairs['lastname']}</div>
+            </li>
+            <li className="profileContent-line">
+              <div className="profile-icon"></div>
+              <div className="profile-kind">Gender</div>
+              <div className="profile-substance">{profilePairs['gender']}</div>
+            </li>
+            <li className="profileContent-line">
+              <div className="profile-icon">
+                <img src={window.birthdayIcon}/>
+              </div>
+              <div className="profile-kind">Birthday</div>
+              <div className="profile-substance">{profilePairs['birthday']}</div>
+            </li>
+            <li className="profileContent-line">
+              <div className="profile-icon">
+                <img src={window.hometownIcon}/>
+              </div>
+              <div className="profile-kind">HomeTown</div>
+              <div className="profile-substance">{profilePairs['hometown']}</div>
+            </li>
+            <li className="profileContent-line">
+              <div className="profile-icon work-icon">
+                <img src={window.workIcon}/>
+              </div>
+              <div className="profile-kind">Occupation</div>
+              <div className="profile-substance">{profilePairs['occupation']}</div>
+            </li>
+        </ul>
+      )
+
+
     return(
       <main className="main-feed">
-
         <section className="left-pane">
+          <div className="profile-area">
+            <div className="profile-info">
+              <div>
+                <img src={window.profileLabel}/>
+              </div>
+              <label>Intro</label>
+              {edit}
+            </div>
+            {profileContent}
+          </div>
+
+          <div className="friends-area">
+            <div className="friends-info">
+              <div>
+                <img src={window.friendsIcon}/>
+              </div>
+              <div>
+                <Link className="friends-linkto" to={`/home/${this.props.profile.username}/friends`}>Friends</Link>
+                <label className="friends-numbers">{this.props.friendNames.length}</label>
+              </div>
+            </div>
+            <SelectedFriends friends={this.props.userFriends}/>
+          </div>
 
         </section>
 
