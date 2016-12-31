@@ -12,4 +12,10 @@ class Api::ConvosController < ApplicationController
     convo = Convo.new(names: combined_names)
     convo.save
   end
+
+  def show
+    username = User.find(params[:id]).username
+    @user_convos = Convo.where("names like ?", "%#{username}%")
+    render :index
+  end
 end

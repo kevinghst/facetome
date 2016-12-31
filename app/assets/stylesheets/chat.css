@@ -1,0 +1,152 @@
+.chat-area{
+  position: absolute;
+  bottom:0;
+  right:50px;
+  z-index: 2;
+}
+
+.chat-expanded {
+  width: 200px;
+  height: 330px;
+  border: 1px solid rgba(0, 0, 0, .15);
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .3);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.chat-hidden {
+  width: 200px;
+  height: 26px;
+  border: 1px solid rgba(0, 0, 0, .15);
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .3);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.convo-box{
+  width: 230px;
+  height: 330px;
+  border: 1px solid rgba(0, 0, 0, .15);
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .3);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  margin-right: 15px;
+}
+
+.chat-friend-image img {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border: 1px solid rgba(0, 0, 0, .15);
+}
+
+.chat-friends {
+  background-color: #e9ebee;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.chat-friend {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  padding: 4px 8px;
+}
+
+.chat-friend:hover{
+  cursor: pointer;
+  background: #D0D3D4;
+}
+
+.chat-friend-image {
+  margin-right: 10px;
+}
+
+.chat-friend-firstname{
+  margin-right: 3px;
+}
+
+.chat-header {
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  background: #4080ff;
+  padding: 5px 12px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.convo-top-bar{
+  padding: 5px 12px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background: #e9ebee;
+  border-bottom: 1px solid rgba(29, 49, 91, .3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.exitChat:hover{
+  cursor: pointer;
+}
+
+.convo-header{
+  font-size: 14px;
+  font-weight: 600;
+  color: #4b4f56;
+  display: block;
+}
+
+.convo-header:hover {
+  text-decoration: underline;
+}
+
+.chat-header:hover{
+  cursor: pointer;
+}
+
+.convo-box, .chat-expanded, .chat-hidden{
+  float: left;
+  display: block;
+}
+
+.convo-box {
+  background: #f6f7f9;
+}
+
+.messages {
+  padding: 10px 10px 0 10px;
+  height: 260px;
+  font-size: 13px;
+  overflow: scroll;
+}
+
+.message {
+  margin-bottom: 2px;
+}
+
+.message-body{
+  padding: 5px 8px;
+  border-radius: 10px;
+  background: #dfe3ee;
+}
+
+.from-me {
+  text-align: right;
+}
+
+.from-me div {
+  background: #4080ff;
+  color: white;
+}
+
+.message-body {
+  display: inline-block;
+}
+
+.chatInput{
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: 13px;
+}

@@ -1,8 +1,6 @@
 class Convo < ActiveRecord::Base
   validates :names, presence: true
 
-  serialize: names,Array
-
   has_many(
     :messages,
     :class_name => "Message",

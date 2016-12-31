@@ -5,7 +5,7 @@ import {fetchOwnRequests, fetchOtherRequests, deleteRequest} from '../../actions
 import {acceptFriend, fetchFriends} from '../../actions/friendship_actions';
 import {getFriendsNames, getUsersFullNames} from '../../reducers/selectors';
 import {fetchAllUsers} from '../../actions/profile_actions';
-
+import {fetchConvos, createMessage} from '../../actions/convo_actions';
 
 const mapStateToProps = (state) => {
   const log = !!state.session.currentUser;
@@ -18,6 +18,7 @@ const mapStateToProps = (state) => {
     friendNames: getFriendsNames(state),
     allUsers: state.users,
     allUsersNames: getUsersFullNames(state.users),
+    convos: state.convos,
   };
 };
 
@@ -31,7 +32,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       acceptFriend: (friendship) => dispatch(acceptFriend(friendship)),
       fetchFriends: (user_id) => dispatch(fetchFriends(user_id)),
       deleteFriend: (user_id, friend_id) => dispatch(deleteFriend(user_id, friend_id)),
-      fetchAllUsers: () => dispatch(fetchAllUsers())
+      fetchAllUsers: () => dispatch(fetchAllUsers()),
+      fetchConvos: (user_id) => dispatch(fetchConvos(user_id)),
+      createMessage: (message) => dispatch(createMessage(message))
   };
 };
 

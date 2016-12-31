@@ -12,7 +12,8 @@ class Api::MessagesController < ApplicationController
 
     convo_id = Convo.find_by_names(combined_names).id
 
-    message = Message.new(body: body, sendee_id: sendee_id, sender_id: sender_id, convo_id: convo_id)
-    message.save
+    @message = Message.new(body: body, sendee_id: sendee_id, sender_id: sender_id, convo_id: convo_id)
+    @message.save
+    render :show
   end
 end

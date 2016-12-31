@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import SearchBar from '../searchbar';
+import Chat from '../chat';
 
 class RequestList extends React.Component {
   constructor(props){
@@ -42,13 +43,16 @@ class HomePage extends React.Component{
     this.logoutnow = this.logoutnow.bind(this);
     this.acceptRequest = this.acceptRequest.bind(this);
     this.showRequests = this.showRequests.bind(this);
+    // this.createMessage = this.createMessage.bind(this);
   }
 
   componentDidMount(){
       this.props.fetchOtherRequests(this.props.currentUser.id);
       this.props.fetchOwnRequests(this.props.currentUser.id);
       this.props.fetchFriends(this.props.currentUser.id);
+      this.props.fetchConvos(this.props.currentUser.id);
       this.props.fetchAllUsers(this.props.fetchAllUsers);
+
     if (this.props.loggedIn === false){
       this.props.router.push("/login");
     }
@@ -76,13 +80,21 @@ class HomePage extends React.Component{
       });
     }
 
-    acceptRequest(e){
-      e.preventDefault();
-      let requestee_id = this.props.currentUser.id;
-      let requester_id = parseInt(e.currentTarget.className);
-      this.props.acceptFriend({ user_id: requestee_id, friend_id: requester_id });
-      this.props.deleteRequest(requester_id, requestee_id);
-    }
+  acceptRequest(e){
+    e.preventDefault();
+    let requestee_id = this.props.currentUser.id;
+    let requester_id = parseInt(e.currentTarget.className);
+    this.props.acceptFriend({ user_id: requestee_id, friend_id: requester_id });
+    this.props.deleteRequest(requester_id, requestee_id);
+  }
+
+  // createMessage(e){
+  //   e.preventDefault();
+  //   let sender_id = parseInt(e.currentTarget.className.split(" ")[0]);
+  //   let sendee_id = parseInt(e.currentTarget.className.split(" ")[1]);
+  //   let message = e.currentTarget.value;
+  //   this.props.createMessage({sender_id: sender_id, sendee_id: sendee_id, body: message});
+  // }
 
 
   render(){
@@ -159,7 +171,6 @@ class HomePage extends React.Component{
                        letters={this.state.letters}/>
           </div>
 
-
           <ul className="home-list-right group">
             <li className="group">{userLink}</li>
             <li><Link className="nav-button" to={`/home`}>Home</Link></li>
@@ -168,12 +179,17 @@ class HomePage extends React.Component{
                 <li>{otherRequestTabs}</li>
               </ul>
             </li>
-
             <li className="logout-button">{logOutButton}</li>
           </ul>
-
         </nav>
       </header>
+
+      <Chat friends={this.props.friends}
+            convos={this.props.convos}
+            currentUser={this.props.currentUser}
+            createMessage={this.props.createMessage}
+      />
+
       {this.props.children}
     </div>
     );
