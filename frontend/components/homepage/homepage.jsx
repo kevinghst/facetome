@@ -188,6 +188,7 @@ class HomePage extends React.Component{
             convos={this.props.convos}
             currentUser={this.props.currentUser}
             createMessage={this.props.createMessage}
+            friendNames={this.props.friendNames}
       />
 
       {this.props.children}

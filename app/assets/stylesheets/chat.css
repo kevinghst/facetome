@@ -1,5 +1,5 @@
 .chat-area{
-  position: absolute;
+  position: fixed;
   bottom:0;
   right:50px;
   z-index: 2;
@@ -12,6 +12,7 @@
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .3);
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
+  background-color: #e9ebee;
 }
 
 .chat-hidden {
@@ -41,7 +42,6 @@
 }
 
 .chat-friends {
-  background-color: #e9ebee;
   margin-top: 5px;
   margin-bottom: 5px;
 }

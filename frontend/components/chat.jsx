@@ -125,7 +125,7 @@ class Chat extends React.Component{
   }
 
   render(){
-    const { friends, convos, currentUser, createMessage } = this.props;
+    const { friends, convos, currentUser, createMessage, friendNames } = this.props;
     let friendKeys = Object.keys(friends);
     let chatFriends = (
       <ul className="chat-friends">
