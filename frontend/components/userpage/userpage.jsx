@@ -86,7 +86,9 @@ class UserPage extends React.Component{
 
   componentDidUpdate(prevProps){
     if(prevProps.params !== this.props.params){
-      this.props.fetchProfile(this.props.targetusername);
+      this.props.fetchProfile(this.props.targetusername).then(() => {
+        this.props.fetchUserFriends(this.props.profile.id);
+      });
     }
   }
 

@@ -4,6 +4,7 @@ import {createPost, fetchWall, deletePost, updatePost} from '../../actions/post_
 import {getFriendsNames} from '../../reducers/selectors';
 import {createComment, deleteComment} from '../../actions/comment_actions';
 import {createLike, deleteLike} from '../../actions/like_actions';
+import {fetchUserFriends} from '../../actions/friendship_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -20,6 +21,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
+    fetchUserFriends: (id) => dispatch(fetchUserFriends(id)),
     createPost: (post) => dispatch(createPost(post)),
     updatePost: (formData) => dispatch(updatePost(formData)),
     createLike: (like) => dispatch(createLike(like)),
