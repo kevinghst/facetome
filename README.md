@@ -8,7 +8,7 @@ Explore the website in full at https://facetome.herokuapp.com/#/login
 ![alt text](https://github.com/kevinghst/facetome/blob/master/docs/production%20images/login.jpg)
 
 ### User Wall:
-![alt text](https://github.com/kevinghst/facetome/blob/master/docs/production%20images/userwall.jpg)
+![alt text](https://github.com/kevinghst/facetome/blob/master/docs/production%20images/wallpic.png)
 
 ### User Friends Page:
 ![alt text](https://github.com/kevinghst/facetome/blob/master/docs/production%20images/friendsPage.jpg)
