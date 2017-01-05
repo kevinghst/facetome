@@ -130,13 +130,17 @@
   padding: 5px 8px;
   border-radius: 10px;
   background: #dfe3ee;
+  word-wrap: break-word;
+  max-width: 140px;
 }
 
 .from-me {
   text-align: right;
+  position: relative;
 }
 
 .from-me div {
+
   background: #4080ff;
   color: white;
 }

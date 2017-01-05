@@ -10,9 +10,6 @@ Explore the website in full at https://facetome.herokuapp.com/#/login
 ### User Wall:
 ![alt text](https://github.com/kevinghst/facetome/blob/master/docs/production%20images/wallpic.png)
 
-### User Friends Page:
-![alt text](https://github.com/kevinghst/facetome/blob/master/docs/production%20images/friendsPage.jpg)
-
 ### Technical Details:
 #### Friendship requests
 
