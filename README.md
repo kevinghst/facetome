@@ -18,8 +18,12 @@ Explore the website in full at https://facetome.herokuapp.com/#/login
 ### Preview
 ![alt text](https://github.com/kevinghst/facetome/blob/master/docs/production%20images/login.jpg)
 ---------------------------------------------------------------------------------------------------
+
+
 ![alt text](https://github.com/kevinghst/facetome/blob/master/docs/production%20images/wallpic.png)
 ---------------------------------------------------------------------------------------------------
+
+
 ![alt text](https://github.com/kevinghst/facetome/blob/master/docs/production%20images/chat.png)
 
 
