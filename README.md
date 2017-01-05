@@ -6,20 +6,21 @@ Explore the website in full at https://facetome.herokuapp.com/#/login
 
 
 ### Features
-#### Sign up/in with username
+* Sign up/in with username
+* Upload/edit user profile
+* Create/delete/edit posts
+* Create/delete comments
+* Newsfeed and wall posts display
+* Creation of friendships
+* Chat
+* Search
+
+### Preview
 ![alt text](https://github.com/kevinghst/facetome/blob/master/docs/production%20images/login.jpg)
 
-#### Upload/edit user profile
-#### Create/delete/edit posts
-#### Create/delete comments
-#### Newsfeed and wall posts display
-#### Creation of friendships
 ![alt text](https://github.com/kevinghst/facetome/blob/master/docs/production%20images/wallpic.png)
 
-#### Chat
 ![alt text](https://github.com/kevinghst/facetome/blob/master/docs/production%20images/chat.png)
-
-#### Search
 
 
 ### Technical Details:
