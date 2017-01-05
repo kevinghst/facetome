@@ -126,6 +126,10 @@
   margin-bottom: 2px;
 }
 
+.diffLast {
+  margin-top: 10px;
+}
+
 .message-body{
   padding: 5px 8px;
   border-radius: 10px;

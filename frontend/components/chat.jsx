@@ -7,11 +7,12 @@ class Message extends React.Component{
   }
 
   render(){
-    const { currentUser, message} = this.props;
+    const { currentUser, message, lastmessage} = this.props;
     let cu = currentUser || {};
     const fromMe = cu.id === message.sender_id ? 'from-me' : '';
+    const diffFromLast = (lastmessage && lastmessage.sender_id !== message.sender_id) ? 'diffLast' : 'sameLast';
     return(
-      <li className={`message ${fromMe}`}>
+      <li className={`message ${fromMe} ${diffFromLast}`}>
         <div className={`message-body`}>{message.body}</div>
       </li>
     );
@@ -67,8 +68,9 @@ class Convo extends React.Component{
         <ul id="messages" className="messages">
           {
             messages.map((message, idy) =>
-              <Message currentUser={currentUser} message={message} key={idy} />
+              <Message currentUser={currentUser} lastmessage={messages[idy-1]} message={message} key={idy} />
             )
+
           }
         </ul>
 
