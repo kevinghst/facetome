@@ -61,7 +61,7 @@ class Convo extends React.Component{
         <div className="convo-top-bar">
           <Link className="convo-header" to={`/home/${currentFriendname}`}>{currentFriendname}</Link>
           <div className="exitChat" onClick={hideConvo}>
-            <img src={window.chatExit}/>
+            <img src={window.assets.chatExit}/>
           </div>
         </div>
 

@@ -142,7 +142,7 @@ class HomePage extends React.Component{
         <div className="friendRequest-tab">
           <div className="sub-friendRequest-tab">
             <a onClick={this.showRequests.bind(this)} href='#'>
-              <img src={window.friendship_logo}/>
+              <img src={window.assets.friendship_logo}/>
               { requestBadge }
             </a>
             {this.state.showFriendRequests && < RequestList
@@ -162,7 +162,7 @@ class HomePage extends React.Component{
 
           <div className="logo-search">
             <div className="home-logo-thumb">
-              <img src={window.fb_mini_logo}/>
+              <img src={window.assets.fb_mini_logo}/>
             </div>
 
             <SearchBar users={this.props.allUsers}

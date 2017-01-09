@@ -25,13 +25,10 @@ export default function Root({store}){
     }
   }
 
-
-
   return (
     <Provider store={ store }>
       <Router history={ hashHistory }>
         <Redirect from="/" to="/home"/>
-
         <Route path="/" component={App} >
           <Route path="/home" component={ HomePageContainer } onEnter={redirectIfLoggedOut} >
             <IndexRoute component={NewsFeed}/>
@@ -48,8 +45,3 @@ export default function Root({store}){
     </Provider>
   );
 }
-
-
-// window.signup({firstname: "harry", lastname: "potter", username: "harrypotter", password: "harrypotter", gender: "male", birthday: "1991"})(store.dispatch)
-
-// window.logout()(store.dispatch)

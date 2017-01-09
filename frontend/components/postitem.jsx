@@ -81,7 +81,7 @@ class PostItem extends React.Component{
                 to={`/home/${post.author.username}`}
                 >{post.author.firstname} {post.author.lastname}
           </Link>
-          <img src={window.smalltriangle}/>
+          <img src={window.assets.smalltriangle}/>
           <Link className="post-name-link-real"
                 to={`/home/${post.target.username}`}
                 > {post.target.firstname} {post.target.lastname}
@@ -106,14 +106,14 @@ class PostItem extends React.Component{
     let likeToken;
     let likeButton = (
       <a onClick={likePost} href='#' className={`${post.id} like-button`}>
-        <img src={window.like}/>
+        <img src={window.assets.like}/>
       </a>
     );
     if(post.likes && post.likes.length > 0){
       likeToken = (
         <div className="likeToken">
           <div>
-            <img src={window.likeToken}/>
+            <img src={window.assets.likeToken}/>
           </div>
           <label className="showLikers">{post.likes.length}</label>
           <LikerList
@@ -125,7 +125,7 @@ class PostItem extends React.Component{
         if(currentUser && (like.liker_id === currentUser.id)){
           likeButton = (
             <a onClick={unlikePost} href='#' className={`${like.id} unlike-button`}>
-              <img src={window.unlike}/>
+              <img src={window.assets.unlike}/>
             </a>
           );
         }
@@ -195,7 +195,7 @@ class PostItem extends React.Component{
 
             <div className="dropdown">
               <div>
-                <img src={window.dropdown}/>
+                <img src={window.assets.dropdown}/>
                 { removeEdit }
               </div>
             </div>

@@ -71,7 +71,6 @@ class SessionForm extends React.Component {
   }
 
   render(){
-
     return (
       <div className="login-main">
 
@@ -125,17 +124,17 @@ class SessionForm extends React.Component {
 
             <section className="info-list">
               <div className="info-one group">
-                <img src={window.login_photo_one}/>
+                <img src={window.assets.login_photo_one}/>
                 <div>See photos and updates  from friends in News Feed.</div>
               </div>
 
               <div className="info-two group">
-                <img src={window.login_photo_two}/>
+                <img src={window.assets.login_photo_two}/>
                 <div>Share what's new  in your life on your Timeline.</div>
               </div>
 
               <div className="info-three group">
-                <img src={window.login_photo_three}/>
+                <img src={window.assets.login_photo_three}/>
                 <div>Find more  of what you're looking for with Facebook Search.</div>
               </div>
 

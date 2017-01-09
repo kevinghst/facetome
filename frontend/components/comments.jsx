@@ -71,7 +71,7 @@ const Comments = ({updateComment, post, currentUser, submitComment, commentBody,
                    type="image"
                    onClick={deleteComment}
                    value={comment.id}
-            src={window.removeCross}/>
+            src={window.assets.removeCross}/>
           </li>
         )}
       </ul>

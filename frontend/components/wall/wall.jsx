@@ -226,21 +226,21 @@ class Wall extends React.Component{
             </li>
             <li className="profileContent-line">
               <div className="profile-icon">
-                <img src={window.birthdayIcon}/>
+                <img src={window.assets.birthdayIcon}/>
               </div>
               <div className="profile-kind">Birthday</div>
               <div className="profile-substance">{profilePairs['birthday']}</div>
             </li>
             <li className="profileContent-line">
               <div className="profile-icon">
-                <img src={window.hometownIcon}/>
+                <img src={window.assets.hometownIcon}/>
               </div>
               <div className="profile-kind">HomeTown</div>
               <div className="profile-substance">{profilePairs['hometown']}</div>
             </li>
             <li className="profileContent-line">
               <div className="profile-icon work-icon">
-                <img src={window.workIcon}/>
+                <img src={window.assets.workIcon}/>
               </div>
               <div className="profile-kind">Occupation</div>
               <div className="profile-substance">{profilePairs['occupation']}</div>
@@ -255,7 +255,7 @@ class Wall extends React.Component{
           <div className="profile-area">
             <div className="profile-info">
               <div>
-                <img src={window.profileLabel}/>
+                <img src={window.assets.profileLabel}/>
               </div>
               <label>Intro</label>
               {edit}
@@ -266,7 +266,7 @@ class Wall extends React.Component{
           <div className="friends-area">
             <div className="friends-info">
               <div>
-                <img src={window.friendsIcon}/>
+                <img src={window.assets.friendsIcon}/>
               </div>
               <div>
                 <Link className="friends-linkto" to={`/home/${this.props.profile.username}/friends`}>Friends</Link>

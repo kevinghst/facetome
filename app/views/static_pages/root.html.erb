@@ -4,27 +4,28 @@
       <%= render("api/users/user.json.jbuilder", user: current_user).html_safe %>
   <% end %>
 
-
-  window.login_photo_one = "<%= image_url('fb1.png') %>";
-  window.login_photo_two = "<%= image_url('fb2.png') %>";
-  window.login_photo_three = "<%= image_url('fb3.png') %>";
-  window.fb_mini_logo = "<%= image_url('fbminilogo.jpg') %>";
-  window.profile_upload_button = "<%= image_url('profile-upload-button.png') %>";
-  window.friendship_logo = "<%= image_url('friendship_logo.png') %>";
-  window.smalltriangle = "<%= image_url('smalltriangle.jpg') %>";
-  window.dropdown = "<%= image_url('dropdown.jpg') %>";
-  window.removeCross = "<%= image_url('removeCross.jpg') %>";
-  window.like = "<%= image_url('like.png') %>";
-  window.unlike = "<%= image_url('unlike.png') %>";
-  window.likeToken = "<%= image_url('likeToken.png') %>";
-  window.chatExit = "<%= image_url('chatExit.png') %>";
-  window.newsfeed = "<%= image_url('newsfeed.png') %>";
-  window.profileLabel = "<%= image_url('profileLabel.png') %>";
-  window.birthdayIcon = "<%= image_url('birthdayIcon.png') %>";
-  window.hometownIcon = "<%= image_url('hometownIcon.png') %>";
-  window.workIcon = "<%= image_url('workIcon.png') %>";
-  window.friendsIcon = "<%= image_url('friendsIcon.png') %>";
-  window.favicon = "<%= image_url('favicon.ico') %>";
+  window.assets = {
+    login_photo_one: "<%= image_url('fb1.png') %>",
+    login_photo_two: "<%= image_url('fb2.png') %>",
+    login_photo_three: "<%= image_url('fb3.png') %>",
+    fb_mini_logo: "<%= image_url('fbminilogo.jpg') %>",
+    profile_upload_button: "<%= image_url('profile-upload-button.png') %>",
+    friendship_logo: "<%= image_url('friendship_logo.png') %>",
+    smalltriangle: "<%= image_url('smalltriangle.jpg') %>",
+    dropdown: "<%= image_url('dropdown.jpg') %>",
+    removeCross: "<%= image_url('removeCross.jpg') %>",
+    like: "<%= image_url('like.png') %>",
+    unlike: "<%= image_url('unlike.png') %>",
+    likeToken: "<%= image_url('likeToken.png') %>",
+    chatExit: "<%= image_url('chatExit.png') %>",
+    newsfeed: "<%= image_url('newsfeed.png') %>",
+    profileLabel: "<%= image_url('profileLabel.png') %>",
+    birthdayIcon: "<%= image_url('birthdayIcon.png') %>",
+    hometownIcon: "<%= image_url('hometownIcon.png') %>",
+    workIcon: "<%= image_url('workIcon.png') %>",
+    friendsIcon: "<%= image_url('friendsIcon.png') %>",
+    favicon: "<%= image_url('favicon.ico') %>"
+  }
 
 
 </script>

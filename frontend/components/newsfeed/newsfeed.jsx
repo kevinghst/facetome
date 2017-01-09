@@ -166,7 +166,7 @@ class NewsFeed extends React.Component{
 
           <Link className="newsfeed-link" to={`/home`}>
             <div className="newsfeedthumb">
-              <img src={window.newsfeed}/>
+              <img src={window.assets.newsfeed}/>
             </div>
             <div className="mini-newsfeedlabel">News Feed</div>
           </Link>

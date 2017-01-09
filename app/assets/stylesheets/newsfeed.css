@@ -115,6 +115,8 @@
 }
 
 .deleteEdit {
+  z-index: 1;
+  background: white; 
   position: absolute;
   top: 13px;
   right: 3px;
