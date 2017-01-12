@@ -109,14 +109,16 @@ class UserPage extends React.Component{
     let updatePhoto;
     let friendStatus;
     if(this.props.currentUser && (this.props.currentUser.id === this.props.profile.id)){
-      updateCover = ( <label className="update-cover" >
+      updateCover = (
+                      <i className="fa fa-camera update-cover" aria-hidden="true">
                         <input type="file" onChange={this.updateCover}/>
-                      </label> );
+                      </i>
+                    );
 
 
-      updatePhoto = ( <label className="update-photo" >
+      updatePhoto = ( <i className="fa fa-camera update-photo" aria-hidden="true">
                         <input type="file" onChange={this.updatePhoto}/>
-                      </label> );
+                      </i> );
 
     } else {
       if(this.props.friendNames.includes(this.props.targetusername)){
