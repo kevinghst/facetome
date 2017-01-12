@@ -226,7 +226,31 @@ class NewsFeed extends React.Component{
         </section>
 
         <section className="right-feed">
+          <div className="nights-watch">
+            <img src={window.assets.nightswatch}/>
+          </div>
 
+          <div className="about-me">
+            <ul className="portfolio-list">
+              <li className="portfolio">
+                <a href="http://www.wczhang.com" target="_blank">
+                  <img src={window.assets.me}/>
+                </a>
+              </li>
+
+              <li className="linkedin">
+                <a href="https://www.linkedin.com/in/wancongzhang" target="_blank">
+                  <img src={window.assets.linkedinlogo}/>
+                </a>
+              </li>
+
+              <li className="github">
+                <a href="https://github.com/kevinghst" target="_blank">
+                  <img src={window.assets.gitlogo}/>
+                </a>
+              </li>
+            </ul>
+          </div>
         </section>
       </main>
     );

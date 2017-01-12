@@ -161,9 +161,10 @@ class HomePage extends React.Component{
         <nav className="home-nav group">
 
           <div className="logo-search">
-            <div className="home-logo-thumb">
+
+            <Link className="home-logo-thumb" to={`/home`}>
               <img src={window.assets.fb_mini_logo}/>
-            </div>
+            </Link>
 
             <SearchBar users={this.props.allUsers}
                        usersNames={this.props.allUsersNames}
