@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import Wall from './wall';
 import {createPost, fetchWall, deletePost, updatePost} from '../../actions/post_actions';
-import {getFriendsNames} from '../../reducers/selectors';
+import {getFriendsNames, getSelectedFriends} from '../../reducers/selectors';
 import {createComment, deleteComment} from '../../actions/comment_actions';
 import {createLike, deleteLike} from '../../actions/like_actions';
 import {fetchUserFriends} from '../../actions/friendship_actions';
@@ -16,6 +16,7 @@ const mapStateToProps = (state, ownProps) => {
     friendNames: getFriendsNames(state),
     params: ownProps.params,
     userFriends: state.userFriends,
+    selectedFriendKeys: getSelectedFriends(state),
   };
 };
 

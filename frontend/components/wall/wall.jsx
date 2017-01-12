@@ -273,7 +273,7 @@ class Wall extends React.Component{
                 <label className="friends-numbers">{this.props.friendNames.length}</label>
               </div>
             </div>
-            <SelectedFriends friends={this.props.userFriends}/>
+            <SelectedFriends friends={this.props.userFriends} selectedFriendKeys={this.props.selectedFriendKeys}/>
           </div>
 
         </section>

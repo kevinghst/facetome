@@ -8,11 +8,7 @@ class SelectedFriends extends React.Component{
 
   render(){
     const {friends} = this.props;
-
-    let friendKeys = Object.keys(friends);
-    if(friendKeys.length > 9 ){
-      friendKeys = friendKeys.sort(function(){ return 0.5 - Math.random() }).slice(0,9);
-    }
+    let friendKeys = this.props.selectedFriendKeys;
 
     let selectedFriends = (
       <ul className="selected-friends">

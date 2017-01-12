@@ -10,3 +10,11 @@ export const getOtherRequestsNames = ({otherRequests}) => {
 export const getUsersFullNames = (users) => {
   return users.map(user => (user.firstname + " " + user.lastname).toLowerCase())
 };
+
+export const getSelectedFriends = ({userFriends}) => {
+  let selectedFriendKeys = Object.keys(userFriends);
+  if(selectedFriendKeys.length > 9){
+    selectedFriendKeys = selectedFriendKeys.sort(function(){ return 0.5 - Math.random() }).slice(0,9);
+  }
+  return selectedFriendKeys;
+};
