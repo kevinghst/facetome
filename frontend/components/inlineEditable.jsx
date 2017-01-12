@@ -36,7 +36,7 @@ class InlineEditable extends React.Component {
         <div className="profile-edit group">
           <div className="profile-keys">{this.props.profileKey}</div>
           <form className="profileform-double-edit group" onSubmit={ this.handleSubmit }>
-            <input className="profileform-input-edit" type="text" onChange= {this.updateForm}/>
+            <input className="profileform-input-edit" placeholder={profileValue} type="text" onChange= {this.updateForm}/>
             <button className="profileform-button-edit" type="submit">Save Changes</button>
           </form>
         </div>

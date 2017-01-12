@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router';
 import Comments from '../comments';
 import PostItem from '../postitem';
+import { StickyContainer, Sticky } from 'react-sticky';
 
 
 class NewsFeed extends React.Component{
@@ -154,7 +155,7 @@ class NewsFeed extends React.Component{
       currentUser = this.props.currentUser;
     }
     return(
-      <main className="main-feed">
+      <StickyContainer className="main-feed">
         <section className="left-feed">
 
           <Link className="userpage-link" to={`/home/${currentUser.username}`}>
@@ -226,33 +227,36 @@ class NewsFeed extends React.Component{
         </section>
 
         <section className="right-feed">
-          <div className="nights-watch">
-            <img src={window.assets.nightswatch}/>
-          </div>
+            <div className="nights-watch">
+              <img src={window.assets.nightswatch}/>
+            </div>
 
-          <div className="about-me">
-            <ul className="portfolio-list">
-              <li className="portfolio">
-                <a href="http://www.wczhang.com" target="_blank">
-                  <img src={window.assets.me}/>
-                </a>
-              </li>
+            <Sticky className="about-me" stickyClassName="sticky">
+              <ul className="portfolio-list">
+                <li className="portfolio">
+                  <a href="http://www.wczhang.com" target="_blank">
+                    <img src={window.assets.me}/>
+                  </a>
+                </li>
 
-              <li className="linkedin">
-                <a href="https://www.linkedin.com/in/wancongzhang" target="_blank">
-                  <img src={window.assets.linkedinlogo}/>
-                </a>
-              </li>
+                <li className="linkedin">
+                  <a href="https://www.linkedin.com/in/wancongzhang" target="_blank">
+                    <img src={window.assets.linkedinlogo}/>
+                  </a>
+                </li>
 
-              <li className="github">
-                <a href="https://github.com/kevinghst" target="_blank">
-                  <img src={window.assets.gitlogo}/>
-                </a>
-              </li>
-            </ul>
-          </div>
+                <li className="github">
+                  <a href="https://github.com/kevinghst" target="_blank">
+                    <img src={window.assets.gitlogo}/>
+                  </a>
+                </li>
+              </ul>
+            </Sticky>
+
         </section>
-      </main>
+
+
+      </StickyContainer>
     );
   }
 }

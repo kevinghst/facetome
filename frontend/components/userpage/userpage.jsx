@@ -113,6 +113,7 @@ class UserPage extends React.Component{
                         <input type="file" onChange={this.updateCover}/>
                       </label> );
 
+
       updatePhoto = ( <label className="update-photo" >
                         <input type="file" onChange={this.updatePhoto}/>
                       </label> );

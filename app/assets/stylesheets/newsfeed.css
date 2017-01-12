@@ -355,11 +355,12 @@
 }
 
 .right-feed{
-  width: 310px;
+  width: 320px;
   height: 535px;
   background: white;
   border-radius: 1px;
   border: 1px solid #D3D3D3;
+  position: relative:
 }
 
 .nights-watch {
@@ -415,4 +416,22 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.sticky {
+  background: white;
+  border-radius: 1px;
+  border-right: 1px solid #D3D3D3;
+  border-left: 1px solid #D3D3D3;
+  border-bottom: 1px solid #D3D3D3;
+  padding-left: 10px;
+  margin-left: -1px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  border-top: 1px solid #e5e5e5;
+  margin-top: -10px;
+}
+
+.sticky > ul {
+  padding-right: 9px;
 }
