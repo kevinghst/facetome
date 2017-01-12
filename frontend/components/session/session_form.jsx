@@ -20,6 +20,7 @@ class SessionForm extends React.Component {
     this.updateForm = this.updateForm.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demologin = this.demologin.bind(this);
+    this.demologinTwo = this.demologinTwo.bind(this);
   }
 
   updateForm(e){
@@ -54,11 +55,21 @@ class SessionForm extends React.Component {
     }
   }
 
-  demologin(){
-    var demoLoginState = { username: "aryastark",
-                          password: "aryastark"
-                    };
+  demologinTwo(){
+    var demoLoginState = {
+      username: "tyrion",
+      password: "tyrion"
+    };
+    this.props.login(demoLoginState).then((currentUser) => {
+      this.props.router.push("/home");
+    });
+  }
 
+  demologin(){
+    var demoLoginState = {
+      username: "aryastark",
+      password: "aryastark"
+    };
     this.props.login(demoLoginState).then((currentUser) => {
       this.props.router.push("/home");
     });
@@ -82,7 +93,10 @@ class SessionForm extends React.Component {
 
             <form className="login group" onSubmit={this.handleSubmit} >
 
-              <button className="demologin" onClick={this.demologin}>Demo Login</button>
+              <div className="demologin">
+                <button className="demologin-harry" onClick={this.demologinTwo}>Login as Tyrion</button>
+                <button className="demologin-arya" onClick={this.demologin}>Login as Arya</button>
+              </div>
 
               <div className="username-field">
               <label>username</label>

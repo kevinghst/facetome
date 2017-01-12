@@ -11,43 +11,40 @@ User.destroy_all
 
 Friendship.destroy_all
 
-#10
-User.create({firstname: "Harry", lastname: "Potter", username: "harrypotter", password:"harrypotter", gender:"male", birthday:"May 01, 2016"})
-#11
-User.create({firstname: "Sherlock", lastname: "Holmes", username: "sherlock", password:"sherlock", gender:"male", birthday:"May 01, 2016"})
-#12
-User.create({firstname: "Julius", lastname: "Caesar", username: "caesar", password:"caesar", gender:"male", birthday:"May 01, 2016"})
-#13
-User.create({firstname: "Cat", lastname: "Woman", username: "catwoman", password:"catwoman", gender:"female", birthday:"May 01, 2016"})
-#14
-User.create({firstname: "Peter", lastname: "Griffin", username: "petergriffin", password:"petergriffin", gender:"male", birthday:"May 01, 2016"})
-
-User.create({firstname: "Steven", lastname: "King", username: "stevenking", password:"stevenking", gender:"male", birthday:"May 01, 2016"})
-
-User.create({firstname: "Elon", lastname: "Musk", username: "elonmusk", password:"elonmusk", gender:"male", birthday:"May 01, 2016"})
-
-User.create({firstname: "Nikola", lastname: "Tesla", username: "nikolatesla", password:"nikolatesla", gender:"male", birthday:"May 01, 2016"})
-
 User.create({firstname: "Arya", lastname: "Stark", username: "aryastark", password:"aryastark", gender:"female", birthday:"May 01, 2016"})
 
-User.create({firstname: "Hermione", lastname: "Granger", username: "hermione", password:"hermione", gender:"female", birthday:"May 01, 2016"})
+User.create({firstname: "Tyrion", lastname: "Lannister", username: "tyrion", password:"tyrion", gender:"male", birthday:"May 01, 2016"})
 
-User.create({firstname: "Walter", lastname: "White", username: "walterwhite", password:"walterwhite", gender:"male", birthday:"May 01, 2016"})
+User.create({firstname: "Jon", lastname: "Snow", username: "jonsnow", password:"jonsnow", gender:"male", birthday:"May 01, 2016"})
 
-User.create({firstname: "Jesse", lastname: "Pinkman", username: "jessepinkman", password:"jessepinkman", gender:"male", birthday:"May 01, 2016"})
+User.create({firstname: "Sansa", lastname: "Stark", username: "sansastark", password:"sansastark", gender:"female", birthday:"May 01, 2016"})
 
-User.create({firstname: "Mathilda", lastname: "Lando", username: "mathilda", password:"mathilda", gender:"female", birthday:"May 01, 2016"})
+User.create({firstname: "Daenerys", lastname: "Targaryen", username: "daenerys", password:"daenerys", gender:"female", birthday:"May 01, 2016"})
 
-User.create({firstname: "Leon", lastname: "Montana", username: "leonmontana", password:"leonmontana", gender:"male", birthday:"May 01, 2016"})
+User.create({firstname: "Khal", lastname: "Drogo", username: "khaldrogo", password:"khaldrogo", gender:"male", birthday:"May 01, 2016"})
 
-User.create({firstname: "Cleopatra", lastname: "Philopator", username: "cleopatra", password:"cleopatra", gender:"female", birthday:"May 01, 2016"})
+User.create({firstname: "Cersei", lastname: "Lannister", username: "cersei", password:"cersei", gender:"female", birthday:"May 01, 2016"})
 
-User.create({firstname: "Gaius", lastname: "Octavius", username: "augustus", password:"augustus", gender:"male", birthday:"May 01, 2016"})
+User.create({firstname: "Tyrion", lastname: "Lannister", username: "tyrion", password:"tyrion", gender:"male", birthday:"May 01, 2016"})
 
-User.create({firstname: "Peter", lastname: "Thiel", username: "peterthiel", password:"peterthiel", gender:"male", birthday:"May 01, 2016"})
+User.create({firstname: "Joffrey", lastname: "Baratheon", username: "joffrey", password:"joffrey", gender:"male", birthday:"May 01, 2016"})
 
-User.create({firstname: "Ada", lastname: "Lovelace", username: "adalovelace", password:"adalovelace", gender:"female", birthday:"May 01, 2016"})
+User.create({firstname: "Sandor", lastname: "Clegane", username: "sandor", password:"sandor", gender:"male", birthday:"May 01, 2016"})
 
-User.create({firstname: "Jeff", lastname: "Bezos", username: "jeffbezos", password:"jeffbezos", gender:"male", birthday:"May 01, 2016"})
+User.create({firstname: "Red", lastname: "Woman", username: "redwoman", password:"redwoman", gender:"female", birthday:"May 01, 2016"})
 
-User.create({firstname: "Marie", lastname: "Curie", username: "mariecurie", password:"mariecurie", gender:"female", birthday:"May 01, 2016"})
+User.create({firstname: "Ramsay", lastname: "Bolton", username: "ramsay", password:"ramsay", gender:"male", birthday:"May 01, 2016"})
+
+User.create({firstname: "Hodor", lastname: "hodor", username: "hodorhodor", password:"hodorhodor", gender:"male", birthday:"May 01, 2016"})
+
+User.create({firstname: "Petyr", lastname: "Baelish", username: "petyrbaelish", password:"petyrbaelish", gender:"male", birthday:"May 01, 2016"})
+
+User.create({firstname: "Lord", lastname: "Varys", username: "lordvarys", password:"lordvarys", gender:"male", birthday:"May 01, 2016"})
+
+User.create({firstname: "Margaery", lastname: "Tyrell", username: "margaery", password:"margaery", gender:"female", birthday:"May 01, 2016"})
+
+User.create({firstname: "Stannis", lastname: "Baratheon", username: "stannis", password:"stannis", gender:"male", birthday:"May 01, 2016"})
+
+User.create({firstname: "Theon", lastname: "Greyjoy", username: "theongreyjoy", password:"theongreyjoy", gender:"male", birthday:"May 01, 2016"})
+
+User.create({firstname: "Oberyn", lastname: "Martell", username: "oberyn", password:"oberyn", gender:"male", birthday:"May 01, 2016"})

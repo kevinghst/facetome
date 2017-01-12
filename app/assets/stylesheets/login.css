@@ -47,15 +47,21 @@
   font-size: 12px;
 }
 
-.demologin {
+.demologin-arya, .demologin-harry {
   font-size: 13px;
   background: #4267b2;
   border: 1px solid #29487d;
-  padding: 3px 3px;
-  margin-right: 20px;
+  padding: 3px 4px;
   cursor: pointer;
 }
 
+.demologin {
+  margin-right: 20px;
+}
+
+.demologin-arya{
+  margin-left: 10px;
+}
 
 .submit-button {
   background: #4267b2;
