@@ -43,8 +43,17 @@ class Convo extends React.Component{
   }
 
   componentDidMount(){
+    let that = this;
     const objDiv = document.getElementById('messages');
     objDiv.scrollTop = objDiv.scrollHeight;
+
+    var pusher = new Pusher('1dfe5c568d3c1fc1e1e1', {
+      encrypted: true
+    });
+    var channel = pusher.subscribe('chat_' + this.props.currentConvo);
+    channel.bind('message_sent', function(data) {
+      that.props.fetchConvos(that.props.currentUser.id);
+    });
   }
 
   componentDidUpdate() {
@@ -127,7 +136,7 @@ class Chat extends React.Component{
   }
 
   render(){
-    const { friends, convos, currentUser, createMessage, friendNames } = this.props;
+    const { friends, convos, currentUser, createMessage, friendNames, fetchConvos } = this.props;
     let friendKeys = Object.keys(friends);
     let chatFriends = (
       <ul className="chat-friends">
@@ -157,6 +166,7 @@ class Chat extends React.Component{
                                     createMessage={createMessage}
                                     friendId={this.state.currentFriendId}
                                     hideConvo={this.hideConvo}
+                                    fetchConvos={fetchConvos}
                                   />}
         <div className={`${chatDisplay}`}>
           <div className={`chat-header`} onClick={this.showChat}>Chat</div>

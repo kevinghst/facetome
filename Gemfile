@@ -16,6 +16,8 @@ gem 'coffee-rails', '~> 4.2'
 
 gem 'figaro'
 
+gem 'pusher'
+
 gem 'aws-sdk', '>= 2.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

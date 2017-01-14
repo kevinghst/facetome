@@ -88,15 +88,6 @@ class HomePage extends React.Component{
     this.props.deleteRequest(requester_id, requestee_id);
   }
 
-  // createMessage(e){
-  //   e.preventDefault();
-  //   let sender_id = parseInt(e.currentTarget.className.split(" ")[0]);
-  //   let sendee_id = parseInt(e.currentTarget.className.split(" ")[1]);
-  //   let message = e.currentTarget.value;
-  //   this.props.createMessage({sender_id: sender_id, sendee_id: sendee_id, body: message});
-  // }
-
-
   render(){
     let logOutButton;
     let userLink;
@@ -190,6 +181,7 @@ class HomePage extends React.Component{
             currentUser={this.props.currentUser}
             createMessage={this.props.createMessage}
             friendNames={this.props.friendNames}
+            fetchConvos={this.props.fetchConvos}
       />
 
       {this.props.children}
