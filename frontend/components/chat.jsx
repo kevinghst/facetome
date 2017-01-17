@@ -113,6 +113,7 @@ class Chat extends React.Component{
 
   showChat(e){
     e.preventDefault();
+    this.setState({ showConvo: false });
     this.setState({ showChat: !this.state.showChat });
   }
 
