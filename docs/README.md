@@ -10,6 +10,7 @@ FaceTome is a web application inspired by FaceBook using Ruby on Rails and React
 - [ ] Friend requests and acceptance
 - [ ] Newsfeed
 - [ ] Comments
+- [ ] Sticky Advertisement
 
 ## Design Docs
 * [View Wireframes] (./wireframes)

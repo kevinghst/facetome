@@ -12,8 +12,9 @@ Explore the website in full at https://facetome.herokuapp.com/#/login
 * Create/delete comments
 * Newsfeed and wall posts display
 * Creation of friendships
-* Chat
+* Live Chat
 * Search
+* Sticky Advertisement
 
 ### Preview
 ![alt text](https://github.com/kevinghst/facetome/blob/master/docs/production%20images/login.jpg)
@@ -33,22 +34,18 @@ Explore the website in full at https://facetome.herokuapp.com/#/login
 ### Technical Details:
 #### Friendship requests
 
+A two-step friendship creation process is instantiated using the Request and Friendship models on Rails backend.
+Upon clicking the friendship request button, an Ajax request gets transmitted to the Request Controller on Rails and subsequently a new Request model object between the two users gets created. As a user logs into his homepage, the ComponentDidMount lifecycle method on React Component sends an Ajax request that fetch a list of all the users that have sent the current user a request, as well as a list of all the users whom the current user has sent request to, gets fetched and stored in the Redux store. As the current user enters another user's page, the name of the visited user is checked for inclusion in the two requests lists stored in Redux store, and front-end conditional logic is used to display the current friendship status between the current user and the visited user.
 
-To enable users to request and accept friendships, I created two tables on Rails back-end - a requests table in addition to a friendship table.
+Upon accepting another user's friendship request, first a DELETE request is sent to Rails to destroy the Request model object, before two new Friendship model objects between the two users gets created.
 
+#### Live Chat
 
-Upon signing in to the homepage, the logged in user receives a list of users that have sent him a friend request as props through the homepage container. The profile picture thumbs and name links of these users are displayed in a list, which can be accessed by clicking the friendship icon on the top blue navigation bar.
-Upon entering another user's wall, the logged in user receives both the list of users whom he had sent request to, as well as the list of users from which he had received a request. By checking whether the particular user which the logged in member is visiting is contained in one of those two groups, I used conditional logic to display either a label that says they are already friends, a button for friendship request, a label saying that the request had been sent, or a button for accepting friendship.
+Message and Conversation Models are set up on Rails to support the live chat functionality. Messages are created with sender_id and sendee_id attributes, and have belongs_to association with Conversation. A Conversation model object gets created between two users at the same time as the creation of their Friendship. As the current user logs into his homepage, a list of all conversations with his participation is fetched from Rails, and displayed under the Chat bar. Upon clicking on a conversation, the messanger bar pops out and displays all of the messages associated with the conversation in chronological order, as well as an input text box that is responsible for the creation of new message between the users.
+Pusher is used to make chatting live.
 
 #### Friendship Icon
 
+When the current user has existing friendship requests from other users, a red badge with the number of requests is displayed over the friendship icon on on the top of the user's homepage. Upon clicking the icon, the user can then see a list of the requestees' profile pictures and name links.
 
-When the logged in user has any friendship requests coming from other users, a red badge with the number of such requests is displayed over the friendship icon on the blue navigation bar on the top of the user's homepage, and upon clicking it, the user can then see the list of the requestees' profile picture thumbs and name links.
-In order to do this, I included a displayRequests key in the state of the homepage React component, which is a boolean variable with only True or False as its value. The list of friends' profile names and namelinks is only displayed if the displayRequests condition is false.
-
-
-The displayRequests value is set to false by default, thus upon entering the page no such list is displayed. There is an onClick property within the friendship logo button that switches the current displayRequests value to its opposite. In this way, whenever the user clicks the friendship logo, the displayRequests is changed in the state, which triggers re-rendering of the component, as well as the showing or the hiding of the requestees' information.
-
-
-### To-Do:
-- [ ] Display of commercials
+To engineer this, a displayRequests key is placed in the state of the homepage React Component, with its value being a boolean variable and automatically set to false. The list of friends' profile names and namelinks is only displayed if the displayRequests condition is true. There is an onClick property on the friendship logo button that switches the current displayRequests value to its opposite. In this way, whenever the user clicks the friendship logo, the displayRequests is changed in the state, which triggers re-rendering of the component, and shows or hides the list of requesters depending on the value of the displayRequests key at that given time.
