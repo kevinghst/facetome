@@ -2,7 +2,7 @@
 
 Facetome is a web application for social networking. It was inspired by FaceBook and built using Ruby on Rails for backend and React.js for front-end.
 
-Explore the website in full at https://facetome.herokuapp.com/#/login
+Explore the website in full at https://facetome.site
 
 
 ### Features
@@ -35,9 +35,10 @@ Explore the website in full at https://facetome.herokuapp.com/#/login
 #### Friendship requests
 
 A two-step friendship creation process is instantiated using the Request and Friendship models on Rails backend.
-Upon clicking the friendship request button, an Ajax request gets transmitted to the Request Controller on Rails and subsequently a new Request model object between the two users gets created. As a user logs into his homepage, the ComponentDidMount lifecycle method on React Component sends an Ajax request that fetch a list of all the users that have sent the current user a request, as well as a list of all the users whom the current user has sent request to from Rails and store them in the Redux store. As the current user enters another user's page, the name of the visited user is checked for inclusion in the two requests lists stored in Redux store, and front-end conditional logic is used to display the current friendship status between the current user and the visited user.
 
-Upon accepting another user's friendship request, first a DELETE request is sent to Rails to destroy the Request model object, before two new Friendship model objects between the two users gets created.
+Upon clicking the friendship request button, an Ajax request gets transmitted to the Request Controller on Rails and subsequently a new Request model object between the two users gets created. As a user logs into his homepage, the ComponentDidMount lifecycle method on React Component sends an Ajax request that fetch a list of all the users that have sent the current user a request, as well as a list of all the users whom the current user has sent request to from Rails and store them in the Redux store. As the current user enters another user's page, the name of the visited user is checked for inclusion in the two requests lists in the Redux store, and front-end conditional logic is used to display the current friendship status between the current user and the visited user.
+
+Upon accepting another user's friendship request, first a DELETE request is sent to Rails to destroy the Request model object, before a new Friendship model object between the two users gets created.
 
 #### Live Chat
 
