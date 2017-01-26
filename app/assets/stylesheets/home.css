@@ -12,7 +12,7 @@
   margin: auto;
   width: 920px;
 }
- 
+
 .home-logo-thumb {
   display: block;
   width: 22px;
@@ -166,7 +166,7 @@
   top: 22px;
   padding: 5px 0;
   background: white;
-  z-index: 1;
+  z-index: 5;
   box-shadow: 0 3px 8px rgba(0, 0, 0, .3);
 }
 
