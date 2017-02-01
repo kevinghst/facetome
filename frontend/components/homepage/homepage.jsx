@@ -90,7 +90,7 @@ class HomePage extends React.Component{
 
   render(){
     if(typeof(this.props.currentUser) === "undefined"){
-      this.forceUpdate();
+      this.props.fetchAllUsers(this.props.fetchAllUsers);
     }
 
     let logOutButton;
