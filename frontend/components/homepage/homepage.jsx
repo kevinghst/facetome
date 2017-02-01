@@ -89,6 +89,10 @@ class HomePage extends React.Component{
   }
 
   render(){
+    if(typeof(this.props.currentUser) === "undefined"){
+      this.forceUpdate();
+    }
+
     let logOutButton;
     let userLink;
     let userthumb;
