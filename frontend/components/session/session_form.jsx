@@ -94,8 +94,8 @@ class SessionForm extends React.Component {
             <form className="login group" onSubmit={this.handleSubmit} >
 
               <div className="demologin">
-                <button className="demologin-harry" onClick={this.demologinTwo}>Login as Tyrion</button>
-                <button className="demologin-arya" onClick={this.demologin}>Login as Arya</button>
+                <button type="button" className="demologin-harry" onClick={this.demologinTwo}>Login as Tyrion</button>
+                <button type="button" className="demologin-arya" onClick={this.demologin}>Login as Arya</button>
               </div>
 
               <div className="username-field">
