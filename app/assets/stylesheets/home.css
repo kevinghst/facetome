@@ -166,8 +166,21 @@
   top: 22px;
   padding: 5px 0;
   background: white;
-  z-index: 5;
+  z-index: 6;
   box-shadow: 0 3px 8px rgba(0, 0, 0, .3);
+}
+
+.notFound{
+  padding: 5px 5px 4px 5px;
+  width: 350px;
+  color: #4080ff;
+  font-weight: bolder;
+  font-size: 14px;
+}
+
+.notFound:hover{
+  background: #dfe3ee;
+  cursor: pointer;
 }
 
 .searchProfile{
@@ -176,7 +189,7 @@
   color: #333;
   font-weight: bolder;
   font-size: 14px;
-  padding: 5px;
+  padding: 5px 5px 5px 5px;
   width: 350px;
 }
 

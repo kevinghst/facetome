@@ -88,7 +88,6 @@ class SessionForm extends React.Component {
         <header className="header">
           <nav className="log-in group">
 
-
             <Link to="/home" className="login-logo">facetome</Link>
 
             <form className="login group" onSubmit={this.handleSubmit} >

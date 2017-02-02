@@ -43,7 +43,6 @@ class HomePage extends React.Component{
     this.logoutnow = this.logoutnow.bind(this);
     this.acceptRequest = this.acceptRequest.bind(this);
     this.showRequests = this.showRequests.bind(this);
-    // this.createMessage = this.createMessage.bind(this);
   }
 
   componentDidMount(){

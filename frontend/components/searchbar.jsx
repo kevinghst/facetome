@@ -34,17 +34,27 @@ class SearchBar extends React.Component{
   render(){
     let filteredUsers = this.list();
 
-    let listNames = filteredUsers.map((user, idx) =>
-      <li key={idx}>
-        <Link className="searchProfile" to={`/home/${user.username}`}>
-          <div className="searchProfile-pic">
-            <img src={user.photo_url}/>
-          </div>
-          <div className="searchProfile-firstname">{user.firstname}</div>
-          <div>{user.lastname}</div>
-        </Link>
-      </li>
-    );
+    let listNames;
+
+    if(filteredUsers.length > 0){
+      listNames = filteredUsers.map((user, idx) =>
+        <li key={idx}>
+          <Link className="searchProfile" to={`/home/${user.username}`}>
+            <div className="searchProfile-pic">
+              <img src={user.photo_url}/>
+            </div>
+            <div className="searchProfile-firstname">{user.firstname}</div>
+            <div>{user.lastname}</div>
+          </Link>
+        </li>
+      );
+    }
+    else if(filteredUsers.length === 0 && this.props.letters.length > 0){
+      listNames = (
+        <div className="notFound">No users found</div>
+      );
+    }
+
 
     return(
       <div className="searchBar">
