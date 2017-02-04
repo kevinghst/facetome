@@ -5,10 +5,6 @@ class Api::LikesController < ApplicationController
     render :show
   end
 
-  def index
-
-  end
-
   def destroy
     @like = Like.find(params[:id])
     @like.destroy
