@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
+import SignupForm from './signup_form';
 
 class SessionForm extends React.Component {
   constructor(props){
@@ -84,7 +85,6 @@ class SessionForm extends React.Component {
   render(){
     return (
       <div className="login-main">
-
         <header className="header">
           <nav className="log-in group">
 
@@ -116,9 +116,7 @@ class SessionForm extends React.Component {
               </div>
 
               <input className="submit-button" type="submit" value="Log in" />
-
             </form>
-
           </nav>
         </header>
 
@@ -154,107 +152,20 @@ class SessionForm extends React.Component {
             </section>
           </section>
 
-          <section className="content-signup">
-
-            <h2>Sign Up</h2>
-            <div>It's free and always will be.</div>
-
-            <form className = "signup" onSubmit={this.handleSubmit} >
-              <input type="text"
-                  className = "firstname"
-                  placeholder="First name"
-                  value={this.state.firstname}
-                  onChange = {this.updateForm}>
-              </input>
-
-              <input type="text"
-                  className = "lastname"
-                  value={this.state.lastname}
-                  placeholder="Last name"
-                  onChange = {this.updateForm}>
-              </input>
-
-              <input type="text"
-                  className = "signupusername"
-                  value={this.state.signupusername}
-                  placeholder="username"
-                  onChange = {this.updateForm}>
-              </input>
-
-              <input type="password"
-                  className = "signupPassword"
-                  placeholder="Password"
-                  value={this.state.signupPassword}
-                  onChange = {this.updateForm}>
-              </input>
-
-              <div className="lowerhalf-signup group">
-                <div className="birth-gender-button">
-                  <section className="birthdate-container">
-                    <h2>Birthday</h2>
-                    <div className="birthdate">
-                      <select className = "birthmonth"
-                        value={this.state.birthmonth}
-                        onChange={this.updateForm} >
-                        { this.props.months.map((month, i) => {
-                          return <option value={month} key={i}>{month}</option>;
-                        }) }
-                      </select>
-
-                      <select className = "birthday"
-                        value={this.state.birthday}
-                        onChange={this.updateForm} >
-                        { this.props.days.map((day, i) => {
-                          return <option value={day} key={i}>{day}</option>;
-                        }) }
-                      </select>
-
-                      <select className = "birthyear"
-                        value={this.state.birthyear}
-                        onChange={this.updateForm} >
-                        { this.props.years.map((year, i) => {
-                          return <option value={year} key={i}>{year}</option>;
-                        }) }
-                      </select>
-                    </div>
-                  </section>
-
-                  <div className="gender-form">
-                    <label className="female">
-                      <input className="gender"
-                             onChange = {this.updateForm}
-                             type="radio"
-                             name="gender"
-                             value="female">
-                      </input>
-                      <div>Female</div>
-                    </label>
-
-                    <label className="male">
-                      <input className="gender"
-                             onChange = {this.updateForm}
-                             type="radio"
-                             name="gender"
-                             value="male">
-                      </input>
-                      <div>Male</div>
-                    </label>
-                  </div>
-
-                  <button className="sign-up-button" type="submit">Sign Up</button>
-                </div>
-                <ul className="signupErrors">
-                  {
-                    this.props.signupErrors.map((error, i) => {
-                      return <li key={i}>{error}</li>;
-                    })
-                  }
-                </ul>
-              </div>
-
-            </form>
-
-          </section>
+          <SignupForm
+            handleSubmit={this.handleSubmit}
+            firstname={this.state.firstname}
+            updateForm={this.updateForm}
+            lastname={this.state.lastname}
+            signupusername={this.state.signupusername}
+            signupPassword={this.state.signupPassowrd}
+            birthmonth={this.state.birthmonth}
+            birthday={this.state.birthday}
+            months={this.props.months}
+            days={this.props.days}
+            years={this.props.years}
+            signupErrors={this.props.signupErrors}
+          />
 
         </section>
       </div>

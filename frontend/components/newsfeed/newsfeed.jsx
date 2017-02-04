@@ -174,7 +174,6 @@ class NewsFeed extends React.Component{
         </section>
 
         <section className="newsfeed-post-section">
-
           <form className="newsfeed-postform" onSubmit={this.handleSubmit}>
             <label className="newsfeed-image-upload">
               <div>Photo</div>
