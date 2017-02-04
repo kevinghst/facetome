@@ -32,7 +32,6 @@ class SelectedFriends extends React.Component{
       </div>
     );
   }
-
-};
+}
 
 export default SelectedFriends;

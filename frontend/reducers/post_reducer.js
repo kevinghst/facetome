@@ -14,6 +14,7 @@ const PostReducer = (state = initState, action) => {
   switch(action.type){
     case RECEIVE_POSTS:
       return { posts: action.posts, postErrors: state.postErrors };
+      
     case RECEIVE_POST:
       let postsClone = [].concat(action.post).concat(state.posts);
       return { posts: postsClone, postErrors: state.postErrors };

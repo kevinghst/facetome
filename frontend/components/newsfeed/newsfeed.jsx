@@ -135,7 +135,7 @@ class NewsFeed extends React.Component{
   likePost(e){
     e.preventDefault();
     var postId = e.currentTarget.className;
-    this.props.createLike({ liker_id: this.props.currentUser.id, post_id: postId})
+    this.props.createLike({ liker_id: this.props.currentUser.id, post_id: postId});
   }
 
   unlikePost(e){

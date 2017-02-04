@@ -204,9 +204,7 @@ class PostItem extends React.Component{
         );
     }
   }
-
-
-};
+}
 
 
 export default PostItem;

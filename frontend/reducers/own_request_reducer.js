@@ -12,7 +12,7 @@ const OwnRequestsReducer = (state = [], action) => {
     let requestKeys = Object.keys(action.ownRequests);
     requestKeys.forEach((el)=>{
       requestees.push(action.ownRequests[el].requestee_user_id);
-    })
+    });
   }
 
   Object.freeze(state);

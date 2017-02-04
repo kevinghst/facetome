@@ -8,7 +8,7 @@ const UserFriendshipReducer = (state={}, action) => {
     case REMOVE_FRIEND:
       let clone = merge({}, state);
       delete clone[action.friend.id];
-      return clone
+      return clone;
     default:
       return state;
   }

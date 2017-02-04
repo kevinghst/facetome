@@ -59,7 +59,7 @@ class ImageUpload extends React.Component{
         <button onClick={this.handleSubmit}>Save</button>
         <img src={this.state.imageUrl}/>
       </div>
-    )
+    );
 
   }
 }

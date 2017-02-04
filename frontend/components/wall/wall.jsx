@@ -246,7 +246,7 @@ class Wall extends React.Component{
               <div className="profile-substance">{profilePairs['occupation']}</div>
             </li>
         </ul>
-      )
+      );
 
 
     return(
