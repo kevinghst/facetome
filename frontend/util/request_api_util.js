@@ -4,10 +4,7 @@ export const friendRequest = (request) => {
     url: '/api/requests',
     data: { request }
   });
-};
-
-// {requester_user_id: 10, requestee_user_id: 14}
- 
+}; 
 
 export const fetchOwnRequests = (user_id) => {
   return $.ajax({
@@ -30,8 +27,3 @@ export const deleteRequest = (requester_id, requestee_id) => {
     url: `/api/requests/${code}`,
   });
 };
-
-
-
-
-// {requester_user_id: 3, requestee_user_id: 5}
