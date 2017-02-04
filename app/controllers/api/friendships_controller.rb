@@ -8,16 +8,12 @@ class Api::FriendshipsController < ApplicationController
 
     friendship = Friendship.new(
       user_id: @user.id,
-      friend_id: @friend.id,
-      user_name: @user.username,
-      friend_name: @friend.username
+      friend_id: @friend.id
     )
 
     reverse_friendship = Friendship.new(
       user_id: @friend.id,
-      friend_id: @user.id,
-      user_name: @friend.username,
-      friend_name: @user.username
+      friend_id: @user.id
     )
 
     if friendship.save

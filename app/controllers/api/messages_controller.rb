@@ -9,7 +9,7 @@ class Api::MessagesController < ApplicationController
 
     combined_array = [sendee_username, sender_username].sort
     combined_names = combined_array[0] + "AND" + combined_array[1]
-
+    
     convo = Convo.find_by_names(combined_names)
     convo_id = convo.id
 

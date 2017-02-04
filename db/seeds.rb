@@ -1,6 +1,10 @@
 #
 User.destroy_all
 
+Message.destroy_all
+
+Convo.destroy_all 
+
 Friendship.destroy_all
 
 User.create({firstname: "Arya", lastname: "Stark", username: "aryastark", password:"aryastark", gender:"female", birthday:"May 01, 2016"})
