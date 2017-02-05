@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import SignupForm from './signup_form';
+import SigninForm from './signin_form';
 
 class SessionForm extends React.Component {
   constructor(props){
@@ -90,33 +91,14 @@ class SessionForm extends React.Component {
 
             <Link to="/home" className="login-logo">facetome</Link>
 
-            <form className="login group" onSubmit={this.handleSubmit} >
-
-              <div className="demologin">
-                <button type="button" className="demologin-harry" onClick={this.demologinTwo}>Login as Tyrion</button>
-                <button type="button" className="demologin-arya" onClick={this.demologin}>Login as Arya</button>
-              </div>
-
-              <div className="username-field">
-              <label>username</label>
-                <input type="text"
-                    className = "loginusername"
-                    value={this.state.loginusername}
-                    onChange = {this.updateForm}>
-                </input>
-              </div>
-
-              <div className="password-field">
-              <label>Password</label>
-                <input type="password"
-                    className = "loginPassword"
-                    value={this.state.loginPassword}
-                    onChange = {this.updateForm}>
-                </input>
-              </div>
-
-              <input className="submit-button" type="submit" value="Log in" />
-            </form>
+            <SigninForm
+              handleSubmit={this.handleSubmit}
+              demologinTwo={this.demologinTwo}
+              demologin={this.demologin}
+              loginusername={this.state.loginusername}
+              updateForm={this.updateForm}
+              loginPassword={this.state.loginPassword}
+            />
           </nav>
         </header>
 
