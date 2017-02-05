@@ -149,17 +149,17 @@ class HomePage extends React.Component{
     <div className="universe">
       <header className="home-header">
         <nav className="home-nav group">
-
           <div className="logo-search">
-
             <Link className="home-logo-thumb" to={`/home`}>
               <img src={window.assets.fb_mini_logo}/>
             </Link>
 
-            <SearchBar users={this.props.allUsers}
-                       usersNames={this.props.allUsersNames}
-                       add={this.add}
-                       letters={this.state.letters}/>
+            <SearchBar
+              users={this.props.allUsers}
+             usersNames={this.props.allUsersNames}
+             add={this.add}
+             letters={this.state.letters}
+            />
           </div>
 
           <ul className="home-list-right group">
