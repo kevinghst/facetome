@@ -55,7 +55,6 @@ class SearchBar extends React.Component{
       );
     }
 
-
     return(
       <div className="searchBar">
         <input type="text"
@@ -71,8 +70,6 @@ class SearchBar extends React.Component{
       </div>
     );
   }
-
-
 }
 
 export default SearchBar;

@@ -24,13 +24,7 @@ class UserProfile extends React.Component{
       condition = false;
     }
 
-    let profilePairs = Object.assign({}, this.props.profile);
-    delete profilePairs["photo_url"];
-    delete profilePairs["background_url"];
-    delete profilePairs["id"];
-    delete profilePairs["birthday"];
-    delete profilePairs["username"];
-    let profileKeys = Object.keys(profilePairs);
+    let profileKeys = Object.keys(this.props.selectedProfile);
 
     let profileTypes = (
       <ul className="profileTypes">
@@ -50,7 +44,7 @@ class UserProfile extends React.Component{
         <li className="profileform-li" key={idx}>
           <InlineEditable
             profileKey={key}
-            profileValue={profilePairs[key]}
+            profileValue={this.props.selectedProfile[key]}
             updateValue={this.updateValue}
             currentUser={this.props.currentUser}
             profile={this.props.profile}

@@ -18,3 +18,13 @@ export const getSelectedFriends = ({userFriends}) => {
   }
   return selectedFriendKeys;
 };
+
+export const selectedProfile = (profile) => {
+  let selectedPairs = Object.assign({}, profile);
+  delete selectedPairs["photo_url"];
+  delete selectedPairs["background_url"];
+  delete selectedPairs["id"];
+  delete selectedPairs["birthday"];
+  delete selectedPairs["username"];
+  return selectedPairs;
+};

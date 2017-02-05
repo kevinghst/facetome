@@ -4,7 +4,6 @@ import { Link } from 'react-router';
 const Comments = ({updateComment, post, currentUser, submitComment, commentBody,
                   displayHidden, changeHiddenState, deleteComment, currentPostId}) => {
 
-
   let comments = post.comments || [];
   let firstThree;
   let hiddenText;
@@ -91,9 +90,6 @@ const Comments = ({updateComment, post, currentUser, submitComment, commentBody,
         <input className="comment-submit-button" type="submit"></input>
         </form>
       </section>
-
-
-
     </section>
   );
 };

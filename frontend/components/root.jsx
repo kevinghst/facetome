@@ -40,7 +40,6 @@ export default function Root({store}){
           </Route>
           <Route path="/login" component={ SessionFormContainer } onEnter={redirectIfLoggedIn} />
         </Route>
-
       </Router>
     </Provider>
   );

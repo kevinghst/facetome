@@ -1,11 +1,13 @@
 import {connect} from 'react-redux';
 import UserProfile from './userprofile';
 import {fetchProfile, updateProfile} from '../../actions/profile_actions';
+import {selectedProfile} from '../../reducers/selectors';
 
 const mapStateToProps = (state) => {
   return {
     profile: state.profile,
     currentUser: state.session.currentUser,
+    selectedProfile: selectedProfile(state.profile),
   };
 };
 

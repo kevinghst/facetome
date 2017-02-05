@@ -121,7 +121,6 @@ class SessionForm extends React.Component {
         </header>
 
         <section className="content group">
-
           <ul className="loginErrors">
             {
               this.props.loginErrors.map((error, i) => {
@@ -148,7 +147,6 @@ class SessionForm extends React.Component {
                 <img src={window.assets.login_photo_three}/>
                 <div>Find more  of what you're looking for with Facebook Search.</div>
               </div>
-
             </section>
           </section>
 
@@ -166,7 +164,6 @@ class SessionForm extends React.Component {
             years={this.props.years}
             signupErrors={this.props.signupErrors}
           />
-
         </section>
       </div>
     );

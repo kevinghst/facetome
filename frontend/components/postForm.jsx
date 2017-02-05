@@ -26,7 +26,7 @@ class PostForm extends React.Component{
 
             <textarea className="newsfeed-post-textarea"
                       value={this.props.body}
-                      placeholder="What's on your mind?"
+                      placeholder={this.props.placeHolder}
                       onChange = {this.props.updateForm}
             ></textarea>
 

@@ -34,7 +34,7 @@ class UserPage extends React.Component{
   unfriend(){
     let user_id = this.props.currentUser.id;
     let friend_id = this.props.profile.id;
-    this.props.deleteFriend(user_id, friend_id )
+    this.props.deleteFriend(user_id, friend_id );
   }
 
   submitUpdate(){

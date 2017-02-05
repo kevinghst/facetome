@@ -3,6 +3,8 @@ import { Link, withRouter } from 'react-router';
 import Comments from '../comments';
 import PostItem from '../postitem';
 import SelectedFriends from '../selectedFriends';
+import PostForm from '../PostForm';
+import ProfileContent from './profileContent';
 
 class Wall extends React.Component{
   constructor(props){
@@ -167,36 +169,25 @@ class Wall extends React.Component{
     let postForm;
     if(this.props.friendNames.includes(this.props.targetusername) || currentUser.username === this.props.targetusername){
       postForm = (
-        <form className="newsfeed-postform" onSubmit={this.handleSubmit}>
-          <label className="newsfeed-image-upload">
-            <div>Photo</div>
-            <input type="file" onChange={this.updateImage}></input>
-          </label>
-          <div className="newsfeed-post-content">
-            <div className="newsfeed-post-body group">
-              <Link className="poster-thumb-img" to={`/home/${currentUser.username}`}>
-                <img src={currentUser.photo_url}/>
-              </Link>
-              <textarea className="newsfeed-post-textarea"
-                        value={this.state.body}
-                        placeholder={placeHolder}
-                        onChange = {this.updateForm}
-              ></textarea>
-            {this.state.displayPhoto && postPhoto}
-            </div>
-          </div>
-          <input className="post-submit-button" type="submit" value="Post" />
-        </form>
+        <PostForm
+          handleSubmit={this.handleSubmit}
+          updateImage={this.updateImage}
+          currentUser={currentUser}
+          body={this.state.body}
+          updateForm={this.updateForm}
+          displayPhoto={this.state.displayPhoto}
+          imageUrl={this.state.imageUrl}
+          placeHolder={placeHolder}
+        />
       );
     }
 
     let profilePairs = Object.assign({}, this.props.profile);
-    delete profilePairs["photo_url"];
-    delete profilePairs["background_url"];
-    delete profilePairs["id"];
-    delete profilePairs["username"];
+    delete profilePairs.photo_url;
+    delete profilePairs.background_url;
+    delete profilePairs.id;
+    delete profilePairs.username;
     let profileKeys = Object.keys(profilePairs);
-    let profileContent;
 
     let edit = (
       <div></div>
@@ -206,48 +197,6 @@ class Wall extends React.Component{
         <Link className="profile-linkto" to={`/home/${this.props.currentUser.username}/about`}>Edit</Link>
       );
     }
-
-      profileContent= (
-        <ul className="profileContent">
-            <li className="profileContent-line">
-              <div className="profile-icon"></div>
-              <div className="profile-kind">Firstname</div>
-              <div className="profile-substance">{profilePairs["firstname"]}</div>
-            </li>
-            <li className="profileContent-line">
-              <div className="profile-icon"></div>
-              <div className="profile-kind">Lastname</div>
-              <div className="profile-substance">{profilePairs['lastname']}</div>
-            </li>
-            <li className="profileContent-line">
-              <div className="profile-icon"></div>
-              <div className="profile-kind">Gender</div>
-              <div className="profile-substance">{profilePairs['gender']}</div>
-            </li>
-            <li className="profileContent-line">
-              <div className="profile-icon">
-                <img src={window.assets.birthdayIcon}/>
-              </div>
-              <div className="profile-kind">Birthday</div>
-              <div className="profile-substance">{profilePairs['birthday']}</div>
-            </li>
-            <li className="profileContent-line">
-              <div className="profile-icon">
-                <img src={window.assets.hometownIcon}/>
-              </div>
-              <div className="profile-kind">HomeTown</div>
-              <div className="profile-substance">{profilePairs['hometown']}</div>
-            </li>
-            <li className="profileContent-line">
-              <div className="profile-icon work-icon">
-                <img src={window.assets.workIcon}/>
-              </div>
-              <div className="profile-kind">Occupation</div>
-              <div className="profile-substance">{profilePairs['occupation']}</div>
-            </li>
-        </ul>
-      );
-
 
     return(
       <main className="main-feed">
@@ -260,7 +209,7 @@ class Wall extends React.Component{
               <label>Intro</label>
               {edit}
             </div>
-            {profileContent}
+            <ProfileContent profilePairs={profilePairs}/>
           </div>
 
           <div className="friends-area">
@@ -275,30 +224,28 @@ class Wall extends React.Component{
             </div>
             <SelectedFriends friends={this.props.userFriends} selectedFriendKeys={this.props.selectedFriendKeys}/>
           </div>
-
         </section>
 
         <section className="newsfeed-post-section wall">
-
           {postForm}
 
           <ul className="newsfeed-posts">
             {
               posts.map(post => <PostItem key={post.id}
-                                          post={post}
-                                          deletePost={this.deletePost}
-                                          handler={this.handler}
-                                          displayDelete={this.state.displayDelete}
-                                          currentUser={this.props.currentUser}
-                                          updateComment={this.updateComment}
-                                          submitComment={this.submitComment}
-                                          commentBody={this.state.commentBody}
-                                          dynamicSet={this.dynamicSet}
-                                          deleteComment={this.deleteComment}
-                                          currentPostId={this.state.post_id}
-                                          updatePost={this.updatePost}
-                                          likePost={this.likePost}
-                                          unlikePost={this.unlikePost}/>)
+                post={post}
+                deletePost={this.deletePost}
+                handler={this.handler}
+                displayDelete={this.state.displayDelete}
+                currentUser={this.props.currentUser}
+                updateComment={this.updateComment}
+                submitComment={this.submitComment}
+                commentBody={this.state.commentBody}
+                dynamicSet={this.dynamicSet}
+                deleteComment={this.deleteComment}
+                currentPostId={this.state.post_id}
+                updatePost={this.updatePost}
+                likePost={this.likePost}
+                unlikePost={this.unlikePost}/>)
             }
           </ul>
         </section>

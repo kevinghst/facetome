@@ -1,30 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import Comments from './comments';
-
-class LikerList extends React.Component{
-  constructor(props){
-    super(props);
-  }
-
-  render(){
-    let likers = this.props.likers;
-    return(
-      <ul className="likers-details">
-        {
-          likers.map((liker, idx) =>
-            <li className="liker" key={idx}>
-              <Link className="liker-name"
-                    to={`/home/${liker.username}`}
-              ><div className="liker-firstname">{liker.firstname}</div><div>{liker.lastname}</div>
-              </Link>
-            </li>
-          )
-        }
-      </ul>
-    )
-  }
-}
+import LikerList from './likerList';
 
 class PostItem extends React.Component{
 
@@ -136,7 +113,6 @@ class PostItem extends React.Component{
       return (
          <div>
             <form className="newsfeed-postform" onSubmit={this.handleSubmit}>
-
               <div className="edit-sign">Edit Post</div>
 
               <div className="newsfeed-post-content">
@@ -182,15 +158,16 @@ class PostItem extends React.Component{
               {likeToken}
             </div>
 
-            <Comments updateComment={updateComment}
-                      post={post}
-                      currentUser={currentUser}
-                      submitComment={submitComment}
-                      commentBody={commentBody}
-                      displayHidden={this.state.displayHidden}
-                      changeHiddenState={this.changeHiddenState}
-                      deleteComment={deleteComment}
-                      currentPostId={currentPostId}
+            <Comments
+              updateComment={updateComment}
+              post={post}
+              currentUser={currentUser}
+              submitComment={submitComment}
+              commentBody={commentBody}
+              displayHidden={this.state.displayHidden}
+              changeHiddenState={this.changeHiddenState}
+              deleteComment={deleteComment}
+              currentPostId={currentPostId}
               />
 
             <div className="dropdown">
@@ -199,7 +176,6 @@ class PostItem extends React.Component{
                 { removeEdit }
               </div>
             </div>
-
           </li>
         );
     }

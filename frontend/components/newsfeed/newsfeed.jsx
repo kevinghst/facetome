@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router';
 import Comments from '../comments';
 import PostItem from '../postitem';
 import { StickyContainer, Sticky } from 'react-sticky';
-import PostForm from './postForm';
+import PostForm from '../PostForm';
 
 class NewsFeed extends React.Component{
   constructor(props){
@@ -151,6 +151,9 @@ class NewsFeed extends React.Component{
     if(this.props.currentUser){
       currentUser = this.props.currentUser;
     }
+
+    let placeHolder = "What's on your mind?";
+
     return(
       <StickyContainer className="main-feed">
         <section className="left-feed">
@@ -178,6 +181,7 @@ class NewsFeed extends React.Component{
             updateForm={this.updateForm}
             displayPhoto={this.state.displayPhoto}
             imageUrl={this.state.imageUrl}
+            placeHolder={placeHolder}
           />
 
           <ul className="newsfeed-posts">
