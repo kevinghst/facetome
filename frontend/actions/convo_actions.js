@@ -1,4 +1,4 @@
-import * as APIUtil from '../util/convo_api_util'
+import * as APIUtil from '../util/convo_api_util';
 
 export const RECEIVE_CONVOS = "RECEIVE_CONVOS";
 export const RECEIVE_MESSAGE = "RECEIVE_MESSAGE";

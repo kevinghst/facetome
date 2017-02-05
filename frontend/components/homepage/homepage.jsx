@@ -88,8 +88,6 @@ class HomePage extends React.Component{
   }
 
   render(){
-
-
     let logOutButton;
     let userLink;
     let userthumb;

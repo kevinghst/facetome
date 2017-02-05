@@ -15,7 +15,6 @@ class ImageUpload extends React.Component{
   }
 
     handleSubmit(e){
-
       let phototype = "photo";
       if (this.props.phototype === "coverphoto") {
         phototype = "background";
@@ -29,10 +28,6 @@ class ImageUpload extends React.Component{
         this.props.router.push(`/home/${this.props.currentUser.username}`);
       });
     }
-
-  componentDidMount(){
-  }
-
 
   updateFile(e){
     var file = e.currentTarget.files[0];

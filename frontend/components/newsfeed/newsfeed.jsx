@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router';
 import Comments from '../comments';
 import PostItem from '../postitem';
 import { StickyContainer, Sticky } from 'react-sticky';
-
+import PostForm from './postForm';
 
 class NewsFeed extends React.Component{
   constructor(props){
@@ -146,9 +146,6 @@ class NewsFeed extends React.Component{
 
   render(){
     let posts = this.props.posts;
-    let postPhoto = (<div className="newsfeed-photo-upload">
-                       <img src={this.state.imageUrl}/>
-                     </div>);
 
     let currentUser = {};
     if(this.props.currentUser){
@@ -157,7 +154,6 @@ class NewsFeed extends React.Component{
     return(
       <StickyContainer className="main-feed">
         <section className="left-feed">
-
           <Link className="userpage-link" to={`/home/${currentUser.username}`}>
             <div className="mini-userthumb">
               <img src={currentUser.photo_url}/>
@@ -174,53 +170,35 @@ class NewsFeed extends React.Component{
         </section>
 
         <section className="newsfeed-post-section">
-          <form className="newsfeed-postform" onSubmit={this.handleSubmit}>
-            <label className="newsfeed-image-upload">
-              <div>Photo</div>
-              <input type="file" onChange={this.updateImage}></input>
-            </label>
-
-            <div className="newsfeed-post-content">
-              <div className="newsfeed-post-body group">
-                <Link className="poster-thumb-img" to={`/home/${currentUser.username}`}>
-                  <img src={currentUser.photo_url}/>
-                </Link>
-
-                <textarea className="newsfeed-post-textarea"
-                          value={this.state.body}
-                          placeholder="What's on your mind?"
-                          onChange = {this.updateForm}
-                ></textarea>
-
-              {this.state.displayPhoto && postPhoto}
-              </div>
-            </div>
-            <input className="post-submit-button" type="submit" value="Post" />
-          </form>
-
-
+          <PostForm
+            handleSubmit={this.handleSubmit}
+            updateImage={this.updateImage}
+            currentUser={currentUser}
+            body={this.state.body}
+            updateForm={this.updateForm}
+            displayPhoto={this.state.displayPhoto}
+            imageUrl={this.state.imageUrl}
+          />
 
           <ul className="newsfeed-posts">
             {
               posts.map(post => <PostItem key={post.id}
-                                          post={post}
-                                          deletePost={this.deletePost}
-                                          handler={this.handler}
-                                          displayDelete={this.state.displayDelete}
-                                          currentUser={this.props.currentUser}
-                                          updateComment={this.updateComment}
-                                          submitComment={this.submitComment}
-                                          commentBody={this.state.commentBody}
-                                          dynamicSet={this.dynamicSet}
-                                          deleteComment={this.deleteComment}
-                                          currentPostId={this.state.post_id}
-                                          updatePost={this.updatePost}
-                                          likePost={this.likePost}
-                                          unlikePost={this.unlikePost}/>)
+                post={post}
+                deletePost={this.deletePost}
+                handler={this.handler}
+                displayDelete={this.state.displayDelete}
+                currentUser={this.props.currentUser}
+                updateComment={this.updateComment}
+                submitComment={this.submitComment}
+                commentBody={this.state.commentBody}
+                dynamicSet={this.dynamicSet}
+                deleteComment={this.deleteComment}
+                currentPostId={this.state.post_id}
+                updatePost={this.updatePost}
+                likePost={this.likePost}
+                unlikePost={this.unlikePost}/>)
             }
           </ul>
-
-
         </section>
 
         <section className="right-feed">
@@ -249,10 +227,7 @@ class NewsFeed extends React.Component{
                 </li>
               </ul>
             </Sticky>
-
         </section>
-
-
       </StickyContainer>
     );
   }

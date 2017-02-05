@@ -1,4 +1,4 @@
-import * as APIUtil from '../util/request_api_util'
+import * as APIUtil from '../util/request_api_util';
 
 export const RECEIVE_REQUEST = "RECEIVE_REQUEST";
 export const REMOVE_REQUEST = "REMOVE_REQUEST";
