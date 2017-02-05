@@ -2,7 +2,7 @@
 
 Facetome is a web application for social networking. It was inspired by FaceBook and built using Ruby on Rails for backend and React.js for front-end.
 
-Explore the website in full at https://facetome.site
+Explore the website in full at https://www.facetome.site
 
 
 ### Features
