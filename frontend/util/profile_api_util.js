@@ -20,4 +20,4 @@ export const fetchAllUsers = () => {
     method: "GET",
     url: `/api/profiles`,
   });
-}
+};

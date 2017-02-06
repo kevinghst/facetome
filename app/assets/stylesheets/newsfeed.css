@@ -376,10 +376,6 @@
   object-fit: cover;
 }
 
-.nights-watch:hover{
-  cursor: pointer;
-}
-
 .about-me {
   margin: 10px;
   color: #365899;
