@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router';
 import Comments from '../comments';
 import PostItem from '../postitem';
 import SelectedFriends from '../selectedFriends';
-import PostForm from '../PostForm';
+import PostForm from '../postForm';
 import ProfileContent from './profileContent';
 
 class Wall extends React.Component{

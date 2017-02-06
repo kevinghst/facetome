@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router';
 import Comments from '../comments';
 import PostItem from '../postitem';
 import { StickyContainer, Sticky } from 'react-sticky';
-import PostForm from '../PostForm';
+import PostForm from '../postForm';
 
 class NewsFeed extends React.Component{
   constructor(props){
