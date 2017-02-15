@@ -2,10 +2,18 @@ import * as APIUtil from '../util/profile_api_util';
 
 export const RECEIVE_CURRENT_PROFILE = "RECEIVE_CURRENT_PROFILE";
 export const RECEIVE_USERS = "RECEIVE_USERS";
+export const RECEIVE_UPDATED_PROFILE = "RECEIVE_UPDATED_PROFILE";
 
 export const receiveCurrentProfile = currentProfile => {
   return {
     type: RECEIVE_CURRENT_PROFILE,
+    currentProfile
+  };
+};
+
+export const receiveUpdatedProfile = currentProfile => {
+  return {
+    type: RECEIVE_UPDATED_PROFILE,
     currentProfile
   };
 };
@@ -36,7 +44,7 @@ export function fetchProfile(username){
 export function updateProfile(user){
   return (dispatch) => {
     return APIUtil.updateProfile(user).then(
-      (currentProfile) => dispatch(receiveCurrentProfile(currentProfile))
+      (currentProfile) => dispatch(receiveUpdatedProfile(currentProfile))
     );
   };
 }

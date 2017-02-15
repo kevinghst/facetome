@@ -1,5 +1,5 @@
 import {RECEIVE_CURRENT_USER, RECEIVE_LOGIN_ERRORS, RECEIVE_SIGNUP_ERRORS} from '../actions/session_actions';
-import {RECEIVE_CURRENT_PROFILE} from '../actions/profile_actions';
+import {RECEIVE_UPDATED_PROFILE} from '../actions/profile_actions';
 import merge from 'lodash/merge';
 
 const initState = {
@@ -17,7 +17,7 @@ const SessionReducer = (state = initState, action) => {
       return {currentUser: null, loginErrors: action.loginErrors};
     case RECEIVE_SIGNUP_ERRORS:
       return {currentUser: null, signupErrors: action.signupErrors};
-    case RECEIVE_CURRENT_PROFILE:
+    case RECEIVE_UPDATED_PROFILE:
       let clone = merge({}, state);
       clone.currentUser.photo_url = action.currentProfile.photo_url;
       return clone;
