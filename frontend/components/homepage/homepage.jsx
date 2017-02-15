@@ -103,7 +103,6 @@ class HomePage extends React.Component{
       userthumb = (<div className="userthumb">
                     <img src={this.props.currentUser.photo_url}/>
                    </div>);
-
       userLink = (<Link className="nav-button user-link"
                         to={`/home/${this.props.currentUser.username}`}>
                         {userthumb}
