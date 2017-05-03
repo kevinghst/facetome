@@ -25,41 +25,8 @@ class Friends extends React.Component{
       condition = false;
     }
 
-    let friends;
-
     if(this.props.currentUser){
       let friendKeys = Object.keys(this.props.userFriends);
-
-      friends = (
-        <ul className="user-friends group">
-          {
-            friendKeys.map((key, idx) =>
-              <li key={idx} className="user-friends">
-                <div className="user-friends-left">
-                  <Link className="friend-image" to={`/home/${this.props.userFriends[key].username}`}>
-                    <img src={this.props.userFriends[key].photo_url}/>
-                  </Link>
-
-                  <Link className="friend-name-link" to={`/home/${this.props.userFriends[key].username}`}>{this.props.userFriends[key].username}</Link>
-                </div>
-
-                {condition &&
-                  <div className="user-friendStatus">
-                    <div className="user-subfriendStatus">
-                      <div>Friends</div>
-                      <button
-                        value = {`${this.props.userFriends[key].id}`}
-                        className="user-unfriend-button"
-                        onClick={this.unfriend}
-                      >Unfriend</button>
-                    </div>
-                  </div>
-                }
-              </li>
-            )
-          }
-        </ul>
-      );
     }
 
     return(
@@ -67,13 +34,38 @@ class Friends extends React.Component{
         <h2 className="profile-header">Friends</h2>
 
         <div className="user-content">
-          {friends}
+          <ul className="user-friends group">
+            {
+              friendKeys.map((key, idx) =>
+                <li key={idx} className="user-friends">
+                  <div className="user-friends-left">
+                    <Link className="friend-image" to={`/home/${this.props.userFriends[key].username}`}>
+                      <img src={this.props.userFriends[key].photo_url}/>
+                    </Link>
+
+                    <Link className="friend-name-link" to={`/home/${this.props.userFriends[key].username}`}>{this.props.userFriends[key].username}</Link>
+                  </div>
+
+                  {condition &&
+                    <div className="user-friendStatus">
+                      <div className="user-subfriendStatus">
+                        <div>Friends</div>
+                        <button
+                          value = {`${this.props.userFriends[key].id}`}
+                          className="user-unfriend-button"
+                          onClick={this.unfriend}
+                        >Unfriend</button>
+                      </div>
+                    </div>
+                  }
+                </li>
+              )
+            }
+          </ul>
         </div>
       </div>
     );
-
   }
-
 }
 
 export default Friends;
