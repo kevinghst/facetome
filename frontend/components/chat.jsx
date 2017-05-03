@@ -5,12 +5,13 @@ import Convo from './convo';
 class Chat extends React.Component{
   constructor(props){
     super(props);
-    this.state = { showChat: true,
-                   showConvo: false,
-                   currentConvo: null,
-                   curentFriendname: null,
-                   currentFriendId: null
-                 }
+    this.state = {
+       showChat: true,
+       showConvo: false,
+       currentConvo: null,
+       curentFriendname: null,
+       currentFriendId: null
+    }
     this.showChat = this.showChat.bind(this);
     this.showConvo = this.showConvo.bind(this);
     this.hideConvo = this.hideConvo.bind(this);

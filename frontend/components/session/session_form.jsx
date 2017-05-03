@@ -6,18 +6,18 @@ import SigninForm from './signin_form';
 class SessionForm extends React.Component {
   constructor(props){
     super(props);
-    this.state = { loginusername: "",
-                   loginPassword: "",
-
-                   firstname: "",
-                   lastname: "",
-                   signupusername: "",
-                   signupPassword: "",
-                   birthday: "",
-                   birthmonth: "",
-                   birthyear: "",
-                   gender: ""
-                 };
+    this.state = {
+       loginusername: "",
+       loginPassword: "",
+       firstname: "",
+       lastname: "",
+       signupusername: "",
+       signupPassword: "",
+       birthday: "",
+       birthmonth: "",
+       birthyear: "",
+       gender: ""
+    };
 
     this.updateForm = this.updateForm.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -26,8 +26,8 @@ class SessionForm extends React.Component {
   }
 
   updateForm(e){
-    const stateType = e.currentTarget.className;
-    const stateValue = e.currentTarget.value;
+    let stateType = e.currentTarget.className;
+    let stateValue = e.currentTarget.value;
     this.setState({ [stateType]: stateValue });
   }
 

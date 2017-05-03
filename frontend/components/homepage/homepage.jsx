@@ -3,33 +3,25 @@ import { Link, withRouter } from 'react-router';
 import SearchBar from '../searchbar';
 import Chat from '../chat';
 
-class RequestList extends React.Component {
-  constructor(props){
-    super(props);
-  }
+const RequestList = ({ requestIds, requests, acceptRequest }) => {
+  return(
+    <ul className="requests">
+      {
+        requestIds.map((id, idx) =>
+          <li className="request-line" key={idx}>
+            <div className="friend-thumb">
+              <Link className="friend-thumb-img" to={`/home/${requests[id].requester_username}`}>
+                <img src={requests[id].requester.photo_url}/>
+              </Link>
+              <Link to={`/home/${requests[id].requester_username}`}>{requests[id].requester_username}</Link>
+            </div>
 
-  render(){
-    let requestIds = this.props.requestIds;
-    let requests = this.props.requests;
-    return(
-      <ul className="requests">
-        {
-          requestIds.map((id, idx) =>
-            <li className="request-line" key={idx}>
-              <div className="friend-thumb">
-                <Link className="friend-thumb-img" to={`/home/${requests[id].requester_username}`}>
-                  <img src={requests[id].requester.photo_url}/>
-                </Link>
-                <Link to={`/home/${requests[id].requester_username}`}>{requests[id].requester_username}</Link>
-              </div>
-
-              <button className= {`${requests[id].requester_user_id} friend-thumb-accept`} onClick={this.props.acceptRequest}>Accept Request</button>
-            </li>
-          )
-        }
-      </ul>
-    );
-  }
+            <button className= {`${requests[id].requester_user_id} friend-thumb-accept`} onClick={acceptRequest}>Accept Request</button>
+          </li>
+        )
+      }
+    </ul>
+  );
 }
 
 class HomePage extends React.Component{
@@ -88,9 +80,7 @@ class HomePage extends React.Component{
   }
 
   render(){
-    let logOutButton;
-    let userLink;
-    let userthumb;
+    let logOutButton, userLink, userthumb, otherRequestTabs, requestBadge;
 
     if (this.props.loggedIn){
       logOutButton = (
@@ -114,12 +104,10 @@ class HomePage extends React.Component{
       );
     }
 
-    let otherRequestTabs;
     if (this.props.otherRequests) {
       let requests = this.props.otherRequests;
       let requestIds = Object.keys(requests);
       let requestCounts = requestIds.length;
-      let requestBadge;
 
       if (requestCounts !== 0){
         requestBadge = (
@@ -174,12 +162,13 @@ class HomePage extends React.Component{
         </nav>
       </header>
 
-      <Chat friends={this.props.friends}
-            convos={this.props.convos}
-            currentUser={this.props.currentUser}
-            createMessage={this.props.createMessage}
-            friendNames={this.props.friendNames}
-            fetchConvos={this.props.fetchConvos}
+      <Chat
+        friends={this.props.friends}
+        convos={this.props.convos}
+        currentUser={this.props.currentUser}
+        createMessage={this.props.createMessage}
+        friendNames={this.props.friendNames}
+        fetchConvos={this.props.fetchConvos}
       />
 
       {this.props.children}

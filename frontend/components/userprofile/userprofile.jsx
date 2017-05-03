@@ -3,7 +3,6 @@ import { Link, withRouter } from 'react-router';
 import merge from 'lodash/merge';
 import InlineEditable from '../inlineEditable';
 
-
 class UserProfile extends React.Component{
   constructor(props){
     super(props);
