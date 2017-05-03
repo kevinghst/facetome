@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
-import Comments from '../comments';
-import PostItem from '../postitem';
+import Comments from '../wallitems/comments';
+import PostItem from '../wallitems/postitem';
 import { StickyContainer, Sticky } from 'react-sticky';
-import PostForm from '../postForm';
+import PostForm from '../wallitems/postForm';
 
 class NewsFeed extends React.Component{
   constructor(props){
