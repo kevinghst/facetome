@@ -96,7 +96,7 @@ const PostReducer = (state = initState, action) => {
       }
       clone.posts = clone.posts || [];
       targetPost.comments = targetPost.comments || [];
-      for(let j=0; j<targetPost.comments.length; j++){
+      for(j=0; j<targetPost.comments.length; j++){
         if(targetPost.comments[j].id === action.comment.id){
           indox = j;
         }
@@ -121,7 +121,7 @@ const PostReducer = (state = initState, action) => {
       }
       clone.posts = clone.posts || [];
       targetPost.likes = targetPost.likes || [];
-      for(let j=0; j<targetPost.likes.length; j++){
+      for(j=0; j<targetPost.likes.length; j++){
         if(targetPost.likes[j].id === action.like.id){
           indox = j;
         }
