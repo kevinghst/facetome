@@ -34,7 +34,7 @@ class SessionForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     if (e.currentTarget.className === "login group"){
-      var loginState = { username: this.state.loginusername,
+      let loginState = { username: this.state.loginusername,
                         password: this.state.loginPassword
                       };
 
@@ -43,8 +43,8 @@ class SessionForm extends React.Component {
       });
     }
     else {
-      var birthdate = this.state.birthmonth + " " + this.state.birthday + ", " + this.state.birthyear;
-      var signupState = { firstname: this.state.firstname,
+      let birthdate = this.state.birthmonth + " " + this.state.birthday + ", " + this.state.birthyear;
+      let signupState = { firstname: this.state.firstname,
                         lastname: this.state.lastname,
                         username: this.state.signupusername,
                         password: this.state.signupPassword,
@@ -58,7 +58,7 @@ class SessionForm extends React.Component {
   }
 
   demologinTwo(){
-    var demoLoginState = {
+    let demoLoginState = {
       username: "tyrion",
       password: "tyrion"
     };
@@ -68,7 +68,7 @@ class SessionForm extends React.Component {
   }
 
   demologin(){
-    var demoLoginState = {
+    let demoLoginState = {
       username: "aryastark",
       password: "aryastark"
     };

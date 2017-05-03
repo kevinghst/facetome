@@ -48,8 +48,8 @@ class NewsFeed extends React.Component{
   }
 
   updateComment(e){
-    const commentValue = e.currentTarget.value;
-    const postId = parseInt(e.currentTarget.className.split(" ")[1]);
+    let commentValue = e.currentTarget.value;
+    let postId = parseInt(e.currentTarget.className.split(" ")[1]);
     this.setState({ post_id: postId });
     this.setState({ commentBody: commentValue });
   }
@@ -60,9 +60,9 @@ class NewsFeed extends React.Component{
       commentBody: null
     });
 
-    const postId = e.currentTarget.className.split(" ")[1];
+    let postId = e.currentTarget.className.split(" ")[1];
 
-    var formData = new FormData();
+    let formData = new FormData();
     formData.append("comment[body]", this.state.commentBody);
     formData.append("comment[author_id]", this.props.currentUser.id);
     formData.append("comment[post_id]", postId);
@@ -71,7 +71,7 @@ class NewsFeed extends React.Component{
   }
 
   updatePost(id, body){
-    var formData = new FormData();
+    let formData = new FormData();
     formData.append("post[body]", body);
     formData.append("post[id]", id);
     this.props.updatePost(formData);
@@ -89,7 +89,7 @@ class NewsFeed extends React.Component{
       target_id: null
     });
 
-    var formData = new FormData();
+    let formData = new FormData();
     formData.append("post[body]", this.state.body);
     if (this.state.image) {
       formData.append("post[image]", this.state.image);
@@ -101,7 +101,7 @@ class NewsFeed extends React.Component{
   }
 
   updateForm(e){
-    const stateValue = e.currentTarget.value;
+    let stateValue = e.currentTarget.value;
     this.setState({ body: stateValue });
     this.setState({ author_id: this.props.currentUser.id });
     this.setState({ target_id: this.props.currentUser.id });
@@ -109,8 +109,8 @@ class NewsFeed extends React.Component{
 
   updateImage(e){
     this.setState( {displayPhoto: true} );
-    var file = e.currentTarget.files[0];
-    var fileReader = new FileReader();
+    let file = e.currentTarget.files[0];
+    let fileReader = new FileReader();
     fileReader.onloadend = function(){
       this.setState({ image: file, imageUrl: fileReader.result });
     }.bind(this);
@@ -122,25 +122,25 @@ class NewsFeed extends React.Component{
 
   deletePost(e){
     e.preventDefault();
-    var postId = e.currentTarget.value;
+    let postId = e.currentTarget.value;
     this.props.deletePost(postId);
   }
 
   deleteComment(e){
     e.preventDefault();
-    var commentId = e.currentTarget.value;
+    let commentId = e.currentTarget.value;
     this.props.deleteComment(commentId);
   }
 
   likePost(e){
     e.preventDefault();
-    var postId = e.currentTarget.className;
+    let postId = e.currentTarget.className;
     this.props.createLike({ liker_id: this.props.currentUser.id, post_id: postId});
   }
 
   unlikePost(e){
     e.preventDefault();
-    var likeId = e.currentTarget.className;
+    let likeId = e.currentTarget.className;
     this.props.deleteLike(likeId);
   }
 

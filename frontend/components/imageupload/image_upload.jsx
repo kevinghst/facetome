@@ -20,7 +20,7 @@ class ImageUpload extends React.Component{
         phototype = "background";
       }
 
-      var formData = new FormData();
+      let formData = new FormData();
       formData.append("user[username]", this.props.currentUser.username);
       formData.append(`user[${phototype}]`, this.state.imageFile);
 
@@ -30,8 +30,8 @@ class ImageUpload extends React.Component{
     }
 
   updateFile(e){
-    var file = e.currentTarget.files[0];
-    var fileReader = new FileReader();
+    let file = e.currentTarget.files[0];
+    let fileReader = new FileReader();
     fileReader.onloadend = function() {
       this.setState({ imageFile: file, imageUrl: fileReader.result });
     }.bind(this);

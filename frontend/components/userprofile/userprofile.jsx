@@ -10,7 +10,7 @@ class UserProfile extends React.Component{
   }
 
   updateValue(profileType, profileValue){
-    var formData = new FormData();
+    let formData = new FormData();
     formData.append("user[username]", this.props.currentUser.username);
     formData.append(`user[${profileType}]`, profileValue);
     this.props.updateProfile(formData);

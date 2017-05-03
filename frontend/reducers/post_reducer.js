@@ -21,7 +21,7 @@ const PostReducer = (state = initState, action) => {
 
     case CHANGE_POST:
       let postsCloneTwo = [].concat(state.posts);
-      for(var x=0; x < postsCloneTwo.length; x++){
+      for(let x=0; x < postsCloneTwo.length; x++){
         if(postsCloneTwo[x].id === action.post.id){
           postsCloneTwo.splice(x, 1, action.post);
           break;
@@ -31,9 +31,9 @@ const PostReducer = (state = initState, action) => {
 
     case REMOVE_POST:
       let clone = merge({}, state);
-      var index;
+      let index;
 
-      for(var i=0; i<clone.posts.length; i++){
+      for(let i=0; i<clone.posts.length; i++){
         if(clone.posts[i].id === action.post.id){
           index = i;
         }
@@ -47,10 +47,10 @@ const PostReducer = (state = initState, action) => {
     case RECEIVE_COMMENT:
       let post_id = action.comment.post_id;
       let targetPost;
-      let index;
+      var index;
       let cloneState = merge({}, state);
 
-      for(var i=0; i<cloneState.posts.length; i++){
+      for(let i=0; i<cloneState.posts.length; i++){
         if(cloneState.posts[i].id === post_id){
           targetPost = cloneState.posts[i];
           index = i;
@@ -70,7 +70,7 @@ const PostReducer = (state = initState, action) => {
       let x_index;
       let x_cloneState = merge({}, state);
 
-      for(var z=0; z<x_cloneState.posts.length; z++){
+      for(let z=0; z<x_cloneState.posts.length; z++){
         if(x_cloneState.posts[z].id === x_post_id){
           x_targetPost = x_cloneState.posts[z];
           x_index = z;
@@ -92,7 +92,7 @@ const PostReducer = (state = initState, action) => {
       let y_index;
       let y_cloneState = merge({}, state);
       let indox;
-      for(var i=0; i< y_cloneState.posts.length; i++){
+      for(let i=0; i< y_cloneState.posts.length; i++){
         if(y_cloneState.posts[i].id === y_post_id){
           y_targetPost = y_cloneState.posts[i];
           y_index = i;
@@ -100,7 +100,7 @@ const PostReducer = (state = initState, action) => {
       }
       y_cloneState.posts = y_cloneState.posts || [];
       y_targetPost.comments = y_targetPost.comments || [];
-      for(var j=0; j<y_targetPost.comments.length; j++){
+      for(let j=0; j<y_targetPost.comments.length; j++){
         if(y_targetPost.comments[j].id === action.comment.id){
           indox = j;
         }
@@ -119,7 +119,7 @@ const PostReducer = (state = initState, action) => {
       let z_index;
       let z_cloneState = merge({}, state);
       let z_indox;
-      for(var z=0; z< z_cloneState.posts.length; z++){
+      for(let z=0; z< z_cloneState.posts.length; z++){
         if(z_cloneState.posts[z].id === z_post_id){
           z_targetPost = z_cloneState.posts[z];
           z_index = z;
@@ -127,7 +127,7 @@ const PostReducer = (state = initState, action) => {
       }
       z_cloneState.posts = z_cloneState.posts || [];
       z_targetPost.likes = z_targetPost.likes || [];
-      for(var z_j=0; z_j<z_targetPost.likes.length; z_j++){
+      for(let z_j=0; z_j<z_targetPost.likes.length; z_j++){
         if(z_targetPost.likes[z_j].id === action.like.id){
           z_indox = z_j;
         }

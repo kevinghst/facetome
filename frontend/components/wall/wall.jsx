@@ -67,7 +67,7 @@ class Wall extends React.Component{
 
     const postId = e.currentTarget.className.split(" ")[1];
 
-    var formData = new FormData();
+    let formData = new FormData();
     formData.append("comment[body]", this.state.commentBody);
     formData.append("comment[author_id]", this.props.currentUser.id);
     formData.append("comment[post_id]", postId);
@@ -77,12 +77,12 @@ class Wall extends React.Component{
 
   deleteComment(e){
     e.preventDefault();
-    var commentId = e.currentTarget.value;
+    let commentId = e.currentTarget.value;
     this.props.deleteComment(commentId);
   }
 
   updatePost(id, body){
-    var formData = new FormData();
+    let formData = new FormData();
     formData.append("post[body]", body);
     formData.append("post[id]", id);
     this.props.updatePost(formData);
@@ -100,7 +100,7 @@ class Wall extends React.Component{
       target_id: null
     });
 
-    var formData = new FormData();
+    let formData = new FormData();
     formData.append("post[body]", this.state.body);
     if (this.state.image) {
       formData.append("post[image]", this.state.image);
@@ -120,8 +120,8 @@ class Wall extends React.Component{
 
   updateImage(e){
     this.setState( {displayPhoto: true} );
-    var file = e.currentTarget.files[0];
-    var fileReader = new FileReader();
+    let file = e.currentTarget.files[0];
+    let fileReader = new FileReader();
     fileReader.onloadend = function(){
       this.setState({ image: file, imageUrl: fileReader.result });
     }.bind(this);
@@ -133,19 +133,19 @@ class Wall extends React.Component{
 
   deletePost(e){
     e.preventDefault();
-    var postId = e.currentTarget.value;
+    let postId = e.currentTarget.value;
     this.props.deletePost(postId);
   }
 
   likePost(e){
     e.preventDefault();
-    var postId = e.currentTarget.className;
+    let postId = e.currentTarget.className;
     this.props.createLike({ liker_id: this.props.currentUser.id, post_id: postId});
   }
 
   unlikePost(e){
     e.preventDefault();
-    var likeId = e.currentTarget.className;
+    let likeId = e.currentTarget.className;
     this.props.deleteLike(likeId);
   }
 

@@ -27,20 +27,20 @@ class Convo extends React.Component{
 
   componentDidMount(){
     let that = this;
-    const objDiv = document.getElementById('messages');
+    let objDiv = document.getElementById('messages');
     objDiv.scrollTop = objDiv.scrollHeight;
 
-    var pusher = new Pusher('1dfe5c568d3c1fc1e1e1', {
+    let pusher = new Pusher('1dfe5c568d3c1fc1e1e1', {
       encrypted: true
     });
-    var channel = pusher.subscribe('chat_' + this.props.currentConvo);
+    let channel = pusher.subscribe('chat_' + this.props.currentConvo);
     channel.bind('message_sent', function(data) {
       that.props.fetchConvos(that.props.currentUser.id);
     });
   }
 
   componentDidUpdate() {
-   const objDiv = document.getElementById('messages');
+   let objDiv = document.getElementById('messages');
    objDiv.scrollTop = objDiv.scrollHeight;
  }
 

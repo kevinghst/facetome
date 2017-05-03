@@ -40,14 +40,14 @@ class UserPage extends React.Component{
   submitUpdate(){
     if (this.state.photo){
       this.setState({photo: null});
-      var formData = new FormData();
+      let formData = new FormData();
       formData.append("user[username]", this.props.currentUser.username);
       formData.append(`user[photo]`, this.state.photo);
       this.props.updateProfile(formData);
     }
     else if (this.state.background){
       this.setState({background: null});
-      var formData = new FormData();
+      let formData = new FormData();
       formData.append("user[username]", this.props.currentUser.username);
       formData.append(`user[background]`, this.state.background);
       this.props.updateProfile(formData);
@@ -55,8 +55,8 @@ class UserPage extends React.Component{
   }
 
   updateCover(e){
-    var file = e.currentTarget.files[0];
-    var fileReader = new FileReader();
+    let file = e.currentTarget.files[0];
+    let fileReader = new FileReader();
     fileReader.onloadend = function() {
         this.setState({ background: file }, this.submitUpdate);
     }.bind(this);
@@ -67,8 +67,8 @@ class UserPage extends React.Component{
   }
 
   updatePhoto(e){
-    var file = e.currentTarget.files[0];
-    var fileReader = new FileReader();
+    let file = e.currentTarget.files[0];
+    let fileReader = new FileReader();
     fileReader.onloadend = function() {
         this.setState({ photo: file }, this.submitUpdate);
     }.bind(this);
