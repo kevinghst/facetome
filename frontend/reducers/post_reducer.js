@@ -9,6 +9,7 @@ const initState = {
 };
 
 const PostReducer = (state = initState, action) => {
+  let index, clone, indox, targetPost, post_id, i, j;
 
   Object.freeze(state);
   switch(action.type){
@@ -16,24 +17,23 @@ const PostReducer = (state = initState, action) => {
       return { posts: action.posts, postErrors: state.postErrors };
 
     case RECEIVE_POST:
-      let postsClone = [].concat(action.post).concat(state.posts);
-      return { posts: postsClone, postErrors: state.postErrors };
+      clone = [].concat(action.post).concat(state.posts);
+      return { posts: clone, postErrors: state.postErrors };
 
     case CHANGE_POST:
-      let postsCloneTwo = [].concat(state.posts);
-      for(let x=0; x < postsCloneTwo.length; x++){
-        if(postsCloneTwo[x].id === action.post.id){
-          postsCloneTwo.splice(x, 1, action.post);
+      clone = [].concat(state.posts);
+      for(let x=0; x < clone.length; x++){
+        if(clone[x].id === action.post.id){
+          clone.splice(x, 1, action.post);
           break;
         }
       }
-      return { posts: postsCloneTwo, postErrors: state.postErrors };
+      return { posts: clone, postErrors: state.postErrors };
 
     case REMOVE_POST:
-      let clone = merge({}, state);
-      let index;
+      clone = merge({}, state);
 
-      for(let i=0; i<clone.posts.length; i++){
+      for(i=0; i<clone.posts.length; i++){
         if(clone.posts[i].id === action.post.id){
           index = i;
         }
@@ -45,100 +45,94 @@ const PostReducer = (state = initState, action) => {
       return clone;
 
     case RECEIVE_COMMENT:
-      let post_id = action.comment.post_id;
-      let targetPost;
-      var index;
-      let cloneState = merge({}, state);
+      post_id = action.comment.post_id;
 
-      for(let i=0; i<cloneState.posts.length; i++){
-        if(cloneState.posts[i].id === post_id){
-          targetPost = cloneState.posts[i];
+      clone = merge({}, state);
+
+      for(i=0; i<clone.posts.length; i++){
+        if(clone.posts[i].id === post_id){
+          targetPost = clone.posts[i];
           index = i;
         }
       }
-      cloneState.posts = cloneState.posts || [];
+      clone.posts = clone.posts || [];
       targetPost.comments = targetPost.comments || [];
       targetPost.comments.push(action.comment);
       if (index > -1){
-        cloneState.posts.splice(index, 1, targetPost);
+        clone.posts.splice(index, 1, targetPost);
       }
-      return cloneState;
+      return clone;
 
     case RECEIVE_LIKE:
-      let x_post_id = action.like.post_id;
-      let x_targetPost;
-      let x_index;
-      let x_cloneState = merge({}, state);
+      post_id = action.like.post_id;
 
-      for(let z=0; z<x_cloneState.posts.length; z++){
-        if(x_cloneState.posts[z].id === x_post_id){
-          x_targetPost = x_cloneState.posts[z];
-          x_index = z;
+      clone = merge({}, state);
+
+      for(let z=0; z<clone.posts.length; z++){
+        if(clone.posts[z].id === post_id){
+          targetPost = clone.posts[z];
+          index = z;
         }
       }
 
-      x_cloneState.posts = x_cloneState.posts || [];
-      x_targetPost.likes = x_targetPost.likes || [];
+      clone.posts = clone.posts || [];
+      targetPost.likes = targetPost.likes || [];
 
-      x_targetPost.likes.push(action.like);
-      if (x_index > -1){
-        x_cloneState.posts.splice(x_index, 1, x_targetPost);
+      targetPost.likes.push(action.like);
+      if (index > -1){
+        clone.posts.splice(index, 1, targetPost);
       }
-      return x_cloneState;
+      return clone;
 
     case REMOVE_COMMENT:
-      let y_post_id = action.comment.post_id;
-      let y_targetPost;
-      let y_index;
-      let y_cloneState = merge({}, state);
-      let indox;
-      for(let i=0; i< y_cloneState.posts.length; i++){
-        if(y_cloneState.posts[i].id === y_post_id){
-          y_targetPost = y_cloneState.posts[i];
-          y_index = i;
+      post_id = action.comment.post_id;
+
+      clone = merge({}, state);
+      for(i=0; i< clone.posts.length; i++){
+        if(clone.posts[i].id === post_id){
+          targetPost = clone.posts[i];
+          index = i;
         }
       }
-      y_cloneState.posts = y_cloneState.posts || [];
-      y_targetPost.comments = y_targetPost.comments || [];
-      for(let j=0; j<y_targetPost.comments.length; j++){
-        if(y_targetPost.comments[j].id === action.comment.id){
+      clone.posts = clone.posts || [];
+      targetPost.comments = targetPost.comments || [];
+      for(let j=0; j<targetPost.comments.length; j++){
+        if(targetPost.comments[j].id === action.comment.id){
           indox = j;
         }
       }
       if(indox > -1){
-        y_targetPost.comments.splice(indox, 1);
+        targetPost.comments.splice(indox, 1);
       }
       if(index > -1){
-        y_cloneState.posts.splice(y_index, 1, y_targetPost);
+        clone.posts.splice(index, 1, targetPost);
       }
-      return y_cloneState;
+      return clone;
 
     case REMOVE_LIKE:
-      let z_post_id = action.like.post_id;
-      let z_targetPost;
-      let z_index;
-      let z_cloneState = merge({}, state);
-      let z_indox;
-      for(let z=0; z< z_cloneState.posts.length; z++){
-        if(z_cloneState.posts[z].id === z_post_id){
-          z_targetPost = z_cloneState.posts[z];
-          z_index = z;
+      post_id = action.like.post_id;
+
+      clone = merge({}, state);
+      for(let z=0; z< clone.posts.length; z++){
+        if(clone.posts[z].id === post_id){
+          targetPost = clone.posts[z];
+          index = z;
         }
       }
-      z_cloneState.posts = z_cloneState.posts || [];
-      z_targetPost.likes = z_targetPost.likes || [];
-      for(let z_j=0; z_j<z_targetPost.likes.length; z_j++){
-        if(z_targetPost.likes[z_j].id === action.like.id){
-          z_indox = z_j;
+      clone.posts = clone.posts || [];
+      targetPost.likes = targetPost.likes || [];
+      for(let j=0; j<targetPost.likes.length; j++){
+        if(targetPost.likes[j].id === action.like.id){
+          indox = j;
         }
       }
-      if(z_indox > -1){
-        z_targetPost.likes.splice(z_indox, 1);
+      if(indox > -1){
+        targetPost.likes.splice(indox, 1);
       }
-      if(z_index > -1){
-        z_cloneState.posts.splice(z_index, 1, z_targetPost);
+      if(index > -1){
+        clone.posts.splice(index, 1, targetPost);
       }
-      return z_cloneState;
+      return clone;
 
     case RECEIVE_POST_ERRORS:
       return { posts: state.posts, postErrors: action.postErrors };
