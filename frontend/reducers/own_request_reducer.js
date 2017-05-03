@@ -1,8 +1,6 @@
 import {RECEIVE_OWN_REQUESTS, RECEIVE_REQUEST} from '../actions/request_actions';
 import { merge } from 'lodash';
 
-
-
 const OwnRequestsReducer = (state = [], action) => {
 
   let requestees = [];
